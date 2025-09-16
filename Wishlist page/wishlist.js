@@ -724,6 +724,9 @@
 
   function loadSharedFooter() {
     try {
+      var t = document.createElement('script');
+      t.src = '../shared/theme.js';
+      document.body.appendChild(t);
       var s = document.createElement('script');
       s.src = '../shared/footer.js';
       document.body.appendChild(s);
