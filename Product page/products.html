@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>محصولات - GolkarGlass</title>
+  <link rel="stylesheet" href="products.css">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav-container">
+      <button id="sidebarToggle" class="sidebar-toggle" aria-label="باز کردن منو">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="logo">GolkarGlass</div>
+      <ul class="nav-menu">
+        <li><a href="/Main page/GolkarGlass.html">خانه</a></li>
+        <li><a href="about.html">درباره ما</a></li>
+        <li><a href="products.html" class="active">محصولات</a></li>
+        <li><a href="testimonials.html">نظرات</a></li>
+        <li class="nav-separator"></li>
+        <li><a href="/Login page/login.html" class="signin-btn">ورود/ثبت نام</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <!-- Page transition overlay -->
+    <div class="page-transition" id="pageTransition"></div>
+    <section class="filter-bar">
+      <div class="sort-bar">
+        <span class="sort-icon"><i class="fa fa-sort-amount-down"></i></span>
+        <span class="sort-label">مرتب‌سازی:</span>
+        <button class="sort-btn active">پرفروش‌ترین</button>
+        <button class="sort-btn">جدیدترین</button>
+        <button class="sort-btn">ارزان‌ترین</button>
+        <button class="sort-btn">گران‌ترین</button>
+      </div>
+      
+      <div class="category-dropdown">
+        <button class="category-btn">
+          <span class="category-icon"><i class="fa fa-th-large"></i></span>
+          <span class="category-label">دسته بندی</span>
+          <span class="category-arrow"><i class="fa fa-chevron-down"></i></span>
+        </button>
+        <div class="category-menu">
+          <div class="category-item">
+            <button class="category-title-btn">
+              <span class="category-title">ظروف شیشه دست ساز</span>
+              <span class="category-arrow-right"><i class="fa fa-chevron-left"></i></span>
+            </button>
+            <div class="subcategory-menu">
+              <a href="#" class="subcategory-item">گلدان شیشه‌ای</a>
+              <a href="#" class="subcategory-item">لیوان و فنجان</a>
+              <a href="#" class="subcategory-item">کاسه و بشقاب</a>
+              <a href="#" class="subcategory-item">بطری و کوزه</a>
+              <a href="#" class="subcategory-item">ظروف تزئینی</a>
+            </div>
+          </div>
+          <div class="category-item">
+            <button class="category-title-btn">
+              <span class="category-title">ظروف برنجی دست ساز</span>
+              <span class="category-arrow-right"><i class="fa fa-chevron-left"></i></span>
+            </button>
+            <div class="subcategory-menu">
+              <a href="#" class="subcategory-item">سینی برنجی</a>
+              <a href="#" class="subcategory-item">کاسه برنجی</a>
+              <a href="#" class="subcategory-item">لیوان برنجی</a>
+              <a href="#" class="subcategory-item">ظروف آشپزخانه</a>
+              <a href="#" class="subcategory-item">تزئینات برنجی</a>
+            </div>
+          </div>
+          <div class="category-item">
+            <button class="category-title-btn">
+              <span class="category-title">ظروف سرامیکی</span>
+              <span class="category-arrow-right"><i class="fa fa-chevron-left"></i></span>
+            </button>
+            <div class="subcategory-menu">
+              <a href="#" class="subcategory-item">گلدان سرامیکی</a>
+              <a href="#" class="subcategory-item">بشقاب و کاسه</a>
+              <a href="#" class="subcategory-item">لیوان سرامیکی</a>
+              <a href="#" class="subcategory-item">ظروف پخت و پز</a>
+              <a href="#" class="subcategory-item">مجسمه‌های سرامیکی</a>
+            </div>
+          </div>
+          <div class="category-item">
+            <button class="category-title-btn">
+              <span class="category-title">ظروف چوبی</span>
+              <span class="category-arrow-right"><i class="fa fa-chevron-left"></i></span>
+            </button>
+            <div class="subcategory-menu">
+              <a href="#" class="subcategory-item">کاسه چوبی</a>
+              <a href="#" class="subcategory-item">سینی چوبی</a>
+              <a href="#" class="subcategory-item">لیوان چوبی</a>
+              <a href="#" class="subcategory-item">ظروف آشپزخانه</a>
+              <a href="#" class="subcategory-item">تزئینات چوبی</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="products-grid">
+      <a href="../Product details page/product-detail.html" class="product-link">
+        <div class="product-card" data-price="450000" data-popularity="95" data-date="2024-01-15" data-sales="1200">
+          <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+            <span class="product-badge">رنگ بندی</span>
+          </div>
+          <div class="product-info">
+            <div class="product-title">گلدان کریستال ایرانی</div>
+            <div class="product-description">گلدان کریستال دست‌ساز با نقوش پیچیده ایرانی. مناسب برای نمایش گل‌های تازه یا به عنوان قطعه تزئینی.</div>
+            <div class="product-bottom">
+              <span class="product-price">۴۵۰,۰۰۰ <span class="product-currency">تومان</span></span>
+              <span class="cart-btn-container"><button class="cart-btn"><i class="fa fa-shopping-cart"></i></button></span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="product-card" data-price="280000" data-popularity="88" data-date="2024-02-20" data-sales="850">
+        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <span class="product-badge">رنگ بندی</span>
+        </div>
+        <div class="product-info">
+          <div class="product-title">لیوان‌های شراب لوکس</div>
+          <div class="product-description">مجموعه ۶ عددی لیوان‌های شراب برتر با تزئینات طلایی. هر لیوان به صورت جداگانه برای تجربه نوشیدن بی‌نظیر ساخته شده است.</div>
+          <div class="product-bottom">
+            <span class="product-price">۲۸۰,۰۰۰ <span class="product-currency">تومان</span></span>
+            <span class="cart-btn-container"><button class="cart-btn"><i class="fa fa-shopping-cart"></i></button></span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-price="320000" data-popularity="92" data-date="2024-01-25" data-sales="1100">
+        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <span class="product-badge">رنگ بندی</span>
+        </div>
+        <div class="product-info">
+          <div class="product-title">مجموعه کاسه تزئینی</div>
+          <div class="product-description">مجموعه ۳ عددی کاسه‌های شیشه‌ای دست‌ساز در اندازه‌های مختلف. مناسب برای سرو یا تزئین خانه.</div>
+          <div class="product-bottom">
+            <span class="product-price">۳۲۰,۰۰۰ <span class="product-currency">تومان</span></span>
+            <span class="cart-btn-container"><button class="cart-btn"><i class="fa fa-shopping-cart"></i></button></span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-price="380000" data-popularity="87" data-date="2024-02-10" data-sales="720">
+        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <span class="product-badge">رنگ بندی</span>
+        </div>
+        <div class="product-info">
+          <div class="product-title">کوزه آب دست‌ساز</div>
+          <div class="product-description">کوزه شیشه‌ای زیبای دست‌ساز با نقوش سنتی ایرانی. مناسب برای سرو آب یا نوشیدنی‌ها.</div>
+          <div class="product-bottom">
+            <span class="product-price">۳۸۰,۰۰۰ <span class="product-currency">تومان</span></span>
+            <span class="cart-btn-container"><button class="cart-btn"><i class="fa fa-shopping-cart"></i></button></span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-price="260000" data-popularity="90" data-date="2024-02-05" data-sales="950">
+        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <span class="product-badge">رنگ بندی</span>
+        </div>
+        <div class="product-info">
+          <div class="product-title">ظرف دکوری شیشه‌ای</div>
+          <div class="product-description">ظرف شیشه‌ای دکوری با طراحی مدرن و رنگ‌بندی متنوع. مناسب برای تزئین منزل یا محل کار.</div>
+          <div class="product-bottom">
+            <span class="product-price">۲۶۰,۰۰۰ <span class="product-currency">تومان</span></span>
+            <span class="cart-btn-container"><button class="cart-btn"><i class="fa fa-shopping-cart"></i></button></span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-price="210000" data-popularity="85" data-date="2024-02-15" data-sales="680">
+        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <span class="product-badge">رنگ بندی</span>
+        </div>
+        <div class="product-info">
+          <div class="product-title">ست لیوان چای</div>
+          <div class="product-description">ست ۶ عددی لیوان چای شیشه‌ای با طراحی سنتی ایرانی. مناسب برای مهمانی‌ها و دورهمی‌ها.</div>
+          <div class="product-bottom">
+            <span class="product-price">۲۱۰,۰۰۰ <span class="product-currency">تومان</span></span>
+            <span class="cart-btn-container"><button class="cart-btn"><i class="fa fa-shopping-cart"></i></button></span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-price="180000" data-popularity="82" data-date="2024-02-25" data-sales="520">
+        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <span class="product-badge">رنگ بندی</span>
+        </div>
+        <div class="product-info">
+          <div class="product-title">بطری آب شیشه‌ای</div>
+          <div class="product-description">بطری آب شیشه‌ای با درپوش چوبی و طراحی ساده و شیک. مناسب برای استفاده روزمره.</div>
+          <div class="product-bottom">
+            <span class="product-price">۱۸۰,۰۰۰ <span class="product-currency">تومان</span></span>
+            <span class="cart-btn-container"><button class="cart-btn"><i class="fa fa-shopping-cart"></i></button></span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-price="300000" data-popularity="89" data-date="2024-01-30" data-sales="890">
+        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <span class="product-badge">رنگ بندی</span>
+        </div>
+        <div class="product-info">
+          <div class="product-title">گلدان شیشه‌ای رنگی</div>
+          <div class="product-description">گلدان شیشه‌ای با رنگ‌بندی متنوع و طراحی خاص. مناسب برای گل‌های طبیعی و مصنوعی.</div>
+          <div class="product-bottom">
+            <span class="product-price">۳۰۰,۰۰۰ <span class="product-currency">تومان</span></span>
+            <span class="cart-btn-container"><button class="cart-btn"><i class="fa fa-shopping-cart"></i></button></span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-price="120000" data-popularity="78" data-date="2024-02-28" data-sales="420">
+        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <span class="product-badge">رنگ بندی</span>
+        </div>
+        <div class="product-info">
+          <div class="product-title">کاسه شیشه‌ای کوچک</div>
+          <div class="product-description">کاسه شیشه‌ای کوچک مناسب برای سرو آجیل، دسر یا تزئین میز.</div>
+          <div class="product-bottom">
+            <span class="product-price">۱۲۰,۰۰۰ <span class="product-currency">تومان</span></span>
+            <span class="cart-btn-container"><button class="cart-btn"><i class="fa fa-shopping-cart"></i></button></span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-price="140000" data-popularity="80" data-date="2024-02-22" data-sales="480">
+        <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <span class="product-badge">رنگ بندی</span>
+        </div>
+        <div class="product-info">
+          <div class="product-title">ظرف شیشه‌ای مربا</div>
+          <div class="product-description">ظرف شیشه‌ای مخصوص مربا و ترشی با درپوش محکم و طراحی زیبا.</div>
+          <div class="product-bottom">
+            <span class="product-price">۱۴۰,۰۰۰ <span class="product-currency">تومان</span></span>
+            <span class="cart-btn-container"><button class="cart-btn"><i class="fa fa-shopping-cart"></i></button></span>
+          </div>
+        </div>
+      </div>
+      <!-- Add more product cards as needed -->
+    </section>
+  </main>
+
+  <aside id="sidebarMenu" class="sidebar-menu">
+    <button id="sidebarClose" class="sidebar-close" aria-label="بستن منو">&times;</button>
+    <nav>
+      <ul>
+        <li><a href="/Main page/GolkarGlass.html">خانه</a></li>
+        <li><a href="about.html">درباره ما</a></li>
+        <li><a href="/Product page/products.html" class="active">محصولات</a></li>
+        <li><a href="testimonials.html">نظرات</a></li>
+        <li class="sidebar-separator"></li>
+        <li><a href="/Login page/login.html" class="sidebar-signin-btn">ورود/ثبت نام</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
+  <script>
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    const sidebarClose = document.getElementById('sidebarClose');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    sidebarToggle.addEventListener('click', () => {
+      sidebarMenu.classList.add('open');
+      sidebarOverlay.classList.add('open');
+      sidebarToggle.classList.add('hide');
+      document.body.classList.add('sidebar-open');
+    });
+    sidebarClose.addEventListener('click', () => {
+      sidebarMenu.classList.remove('open');
+      sidebarOverlay.classList.remove('open');
+      sidebarToggle.classList.remove('hide');
+      document.body.classList.remove('sidebar-open');
+    });
+    sidebarOverlay.addEventListener('click', () => {
+      sidebarMenu.classList.remove('open');
+      sidebarOverlay.classList.remove('open');
+      sidebarToggle.classList.remove('hide');
+      document.body.classList.remove('sidebar-open');
+    });
+
+    // Product card scroll animation (works both ways)
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.product-card');
+      function revealCardsOnScroll() {
+        const windowHeight = window.innerHeight;
+        cards.forEach(card => {
+          const cardTop = card.getBoundingClientRect().top;
+          const cardBottom = card.getBoundingClientRect().bottom;
+          if (cardTop < windowHeight * 0.9 && cardBottom > 0) {
+            card.classList.add('visible');
+          } else {
+            card.classList.remove('visible');
+          }
+        });
+      }
+      revealCardsOnScroll();
+      window.addEventListener('scroll', revealCardsOnScroll);
+
+      // Sorting functionality
+      const sortButtons = document.querySelectorAll('.sort-btn');
+      const productsGrid = document.querySelector('.products-grid');
+      const products = Array.from(document.querySelectorAll('.product-card'));
+
+      // Store original order for reset functionality
+      const originalOrder = products.map(product => product.cloneNode(true));
+
+      function sortProducts(sortType) {
+        const sortedProducts = [...products];
+
+        switch (sortType) {
+          case 'best-selling':
+            // Sort by sales (data-sales attribute)
+            sortedProducts.sort((a, b) => {
+              const salesA = parseInt(a.dataset.sales);
+              const salesB = parseInt(b.dataset.sales);
+              return salesB - salesA; // Descending order
+            });
+            break;
+
+          case 'newest':
+            // Sort by date (data-date attribute)
+            sortedProducts.sort((a, b) => {
+              const dateA = new Date(a.dataset.date);
+              const dateB = new Date(b.dataset.date);
+              return dateB - dateA; // Descending order (newest first)
+            });
+            break;
+
+          case 'cheapest':
+            // Sort by price (data-price attribute) - ascending
+            sortedProducts.sort((a, b) => {
+              const priceA = parseInt(a.dataset.price);
+              const priceB = parseInt(b.dataset.price);
+              return priceA - priceB; // Ascending order
+            });
+            break;
+
+          case 'most-expensive':
+            // Sort by price (data-price attribute) - descending
+            sortedProducts.sort((a, b) => {
+              const priceA = parseInt(a.dataset.price);
+              const priceB = parseInt(b.dataset.price);
+              return priceB - priceA; // Descending order
+            });
+            break;
+
+          default:
+            return; // No sorting
+        }
+
+        // Clear the grid and add sorted products
+        productsGrid.innerHTML = '';
+        sortedProducts.forEach(product => {
+          productsGrid.appendChild(product);
+        });
+
+        // Re-trigger scroll animation for new order
+        setTimeout(() => {
+          revealCardsOnScroll();
+        }, 100);
+      }
+
+      // Add click event listeners to sort buttons
+      sortButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          sortButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          button.classList.add('active');
+
+          // Get the sort type based on button text
+          const buttonText = button.textContent.trim();
+          let sortType = '';
+
+          switch (buttonText) {
+            case 'پرفروش‌ترین':
+              sortType = 'best-selling';
+              break;
+            case 'جدیدترین':
+              sortType = 'newest';
+              break;
+            case 'ارزان‌ترین':
+              sortType = 'cheapest';
+              break;
+            case 'گران‌ترین':
+              sortType = 'most-expensive';
+              break;
+            default:
+              return;
+          }
+
+          // Apply sorting
+          sortProducts(sortType);
+        });
+      });
+
+      // Category dropdown toggle for mobile/tablet
+      const categoryDropdown = document.querySelector('.category-dropdown');
+      const categoryBtn = document.querySelector('.category-btn');
+      const categoryTitleButtons = document.querySelectorAll('.category-title-btn');
+      let openCategory = null;
+
+      function isMobile() {
+        return window.innerWidth <= 900;
+      }
+
+      function toggleCategory(categoryItem) {
+        if (openCategory === categoryItem) {
+          categoryItem.classList.remove('open');
+          openCategory = null;
+        } else {
+          if (openCategory) {
+            openCategory.classList.remove('open');
+          }
+          categoryItem.classList.add('open');
+          openCategory = categoryItem;
+        }
+      }
+
+      if (categoryDropdown && categoryBtn) {
+        categoryBtn.addEventListener('click', function(e) {
+          if (isMobile()) {
+            e.stopPropagation();
+            categoryDropdown.classList.toggle('open');
+          }
+        });
+
+        categoryTitleButtons.forEach(button => {
+          button.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent dropdown from closing
+            const categoryItem = this.closest('.category-item');
+            toggleCategory(categoryItem);
+          });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+          if (isMobile() && categoryDropdown.classList.contains('open')) {
+            if (!categoryDropdown.contains(e.target)) {
+              categoryDropdown.classList.remove('open');
+              if (openCategory) {
+                openCategory.classList.remove('open');
+                openCategory = null;
+              }
+            }
+          }
+        });
+        // Close dropdown on resize if switching to desktop
+        window.addEventListener('resize', function() {
+          if (!isMobile()) {
+            categoryDropdown.classList.remove('open');
+            if (openCategory) {
+              openCategory.classList.remove('open');
+              openCategory = null;
+            }
+          }
+        });
+      }
+    });
+  </script>
+  <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+  <script>
+    function toggleFilters() {
+      var el = document.getElementById('filterOptions');
+      el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+  
+  <!-- Page transition functionality -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const pageTransition = document.getElementById('pageTransition');
+      const productLinks = document.querySelectorAll('.product-link');
+      
+      function navigateWithTransition(url) {
+        // Add transitioning class to body
+        document.body.classList.add('transiting');
+        
+        // Show page transition overlay
+        pageTransition.classList.add('active');
+        
+        // Navigate after animation completes
+        setTimeout(() => {
+          window.location.href = url;
+        }, 600); // Match the CSS transition duration
+      }
+      
+      // Add click event listeners to all product links
+      productLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetUrl = this.getAttribute('href');
+          navigateWithTransition(targetUrl);
+        });
+      });
+    });
+  </script>
+
+  <footer class="footer">
+    <p>&copy; ۲۰۲۵ گلکارگلس. تمامی حقوق محفوظ است. دست‌ساز با عشق در تهران.</p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-telegram"></i></a>
+    </div>
+  </footer>
+
+<script src="../shared/footer.js"></script>
+</body>
+</html> 

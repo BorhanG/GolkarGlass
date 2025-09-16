@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تنظیمات - GolkarGlass</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../Dashboard page/dashboard.css">
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="../shared/user-dropdown-fix.css">
+    <link rel="icon" href="../Main page/icon.png">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">GolkarGlass</div>
+            <ul class="nav-menu">
+                <li><a href="../Main page signed in/GolkarGlass.html">خانه</a></li>
+                <li><a href="../About page/About.html">درباره ما</a></li>
+                <li><a href="../Product page/products.html">محصولات</a></li>
+                <li><a href="#testimonials">نظرات</a></li>
+                <li class="nav-separator"></li>
+                <li class="user-profile-dropdown">
+                    <button class="user-profile-btn">
+                        <span class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="user-name">کاربر عزیز</span>
+                        <span class="dropdown-arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div class="user-dropdown-menu">
+                        <div class="dropdown-header">
+                            <div class="user-info">
+                                <span class="user-avatar-large">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <div class="user-details">
+                                    <span class="user-name-large">کاربر عزیز</span>
+                                    <span class="user-email">user@golkarglass.com</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-separator"></div>
+                        <a href="../Dashboard page/dashboard.html" class="dropdown-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>داشبورد</span>
+                        </a>
+                        <a href="/Shopping-Cart-page/shopping-cart.html" class="dropdown-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>سبد خرید</span>
+                        </a>
+                        <a href="/Wishlist page/wishlist.html" class="dropdown-item">
+                            <i class="fas fa-heart"></i>
+                            <span>علاقه‌مندی‌ها</span>
+                        </a>
+                        <a href="/My orders page/my-orders-advanced.html" class="dropdown-item">
+                            <i class="fas fa-box"></i>
+                            <span>سفارشات من</span>
+                        </a>
+                        <a href="/Profile page/profile.html" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>پروفایل</span>
+                        </a>
+                        <a href="settings.html" class="dropdown-item active">
+                            <i class="fas fa-cog"></i>
+                            <span>تنظیمات</span>
+                        </a>
+                        <div class="dropdown-separator"></div>
+                        <a href="../Login page/login.html" class="dropdown-item logout-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>خروج</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="settings-main">
+        <div class="settings-container settings-grid">
+            <section class="settings-header-section">
+                <h2 class="settings-title">تنظیمات کاربری</h2>
+                <p class="settings-subtitle">شخصی‌سازی تجربه خرید شما</p>
+            </section>
+            <form id="settingsForm" class="settings-form-horizontal">
+                <div class="settings-section animated-section">
+                    <h3 class="settings-section-title"><i class="fas fa-cogs"></i> تنظیمات عمومی</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="currency">واحد پول</label>
+                            <select id="currency" name="currency">
+                                <option value="IRR">تومان (IRR)</option>
+                                <option value="USD">دلار (USD)</option>
+                                <option value="AED">درهم (AED)</option>
+                                <option value="EUR">یورو (EUR)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="theme">تم سایت</label>
+                            <select id="theme" name="theme">
+                                <option value="light">روشن</option>
+                                <option value="dark">تیره</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="notifications">اعلان‌ها</label>
+                            <select id="notifications" name="notifications">
+                                <option value="on">فعال</option>
+                                <option value="off">غیرفعال</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="language">زبان سایت</label>
+                            <select id="language" name="language">
+                                <option value="fa">فارسی</option>
+                                <option value="en">English</option>
+                                <option value="ar">العربية</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-section animated-section">
+                    <h3 class="settings-section-title"><i class="fas fa-key"></i> تغییر رمز عبور</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="oldPassword">رمز فعلی</label>
+                            <input type="password" id="oldPassword" name="oldPassword" placeholder="رمز فعلی">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">رمز جدید</label>
+                            <input type="password" id="newPassword" name="newPassword" placeholder="رمز جدید">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">تکرار رمز جدید</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="تکرار رمز جدید">
+                        </div>
+                    </div>
+                    <button type="button" class="settings-password-btn"><i class="fas fa-save"></i> تغییر رمز</button>
+                </div>
+                <div class="settings-section animated-section">
+                    <h3 class="settings-section-title"><i class="fas fa-user-shield"></i> حریم خصوصی</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><input type="checkbox" id="profilePublic" name="profilePublic"> پروفایل من برای دیگران قابل مشاهده باشد</label>
+                        </div>
+                        <div class="form-group">
+                            <label><input type="checkbox" id="orderHistoryPublic" name="orderHistoryPublic"> تاریخچه سفارشات من برای دیگران قابل مشاهده باشد</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-section animated-section">
+                    <h3 class="settings-section-title"><i class="fas fa-bullhorn"></i> بازاریابی و پیام‌ها</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><input type="checkbox" id="emailMarketing" name="emailMarketing"> دریافت ایمیل‌های تبلیغاتی</label>
+                        </div>
+                        <div class="form-group">
+                            <label><input type="checkbox" id="smsMarketing" name="smsMarketing"> دریافت پیامک‌های تبلیغاتی</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="notifLang">زبان پیام‌ها</label>
+                            <select id="notifLang" name="notifLang">
+                                <option value="fa">فارسی</option>
+                                <option value="en">English</option>
+                                <option value="ar">العربية</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-section animated-section">
+                    <h3 class="settings-section-title"><i class="fas fa-universal-access"></i> دسترسی و نمایش</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fontSize">اندازه فونت</label>
+                            <select id="fontSize" name="fontSize">
+                                <option value="normal">عادی</option>
+                                <option value="large">بزرگ</option>
+                                <option value="xlarge">خیلی بزرگ</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><input type="checkbox" id="highContrast" name="highContrast"> حالت کنتراست بالا</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-section animated-section">
+                    <h3 class="settings-section-title"><i class="fas fa-map-marker-alt"></i> آدرس‌های ذخیره شده</h3>
+                    <div id="addressesList" class="addresses-list"></div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="newAddress" placeholder="آدرس جدید">
+                        </div>
+                        <button type="button" class="settings-add-address-btn"><i class="fas fa-plus"></i> افزودن آدرس</button>
+                    </div>
+                </div>
+                <div class="settings-section animated-section">
+                    <h3 class="settings-section-title"><i class="fas fa-credit-card"></i> کارت‌های ذخیره شده</h3>
+                    <div id="cardsList" class="cards-list"></div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="newCard" placeholder="شماره کارت جدید (مثال: 6037-9912-3456-7890)">
+                        </div>
+                        <button type="button" class="settings-add-card-btn"><i class="fas fa-plus"></i> افزودن کارت</button>
+                    </div>
+                </div>
+                <div class="settings-section animated-section danger-section">
+                    <h3 class="settings-section-title"><i class="fas fa-user-times"></i> حذف حساب کاربری</h3>
+                    <button type="button" class="settings-delete-btn"><i class="fas fa-trash"></i> حذف حساب</button>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="settings-save-btn"><i class="fas fa-save"></i> ذخیره تنظیمات</button>
+                    <button type="button" class="settings-logout-btn"><i class="fas fa-sign-out-alt"></i> خروج</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="باز کردن منو">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <aside id="sidebarMenu" class="sidebar-menu">
+        <button id="sidebarClose" class="sidebar-close" aria-label="بستن منو">&times;</button>
+        <nav>
+            <ul>
+                <li><a href="../Main page signed in/GolkarGlass.html">خانه</a></li>
+                <li><a href="../About page/About.html">درباره ما</a></li>
+                <li><a href="../Product page/products.html">محصولات</a></li>
+                <li><a href="#testimonials">نظرات</a></li>
+                <li class="sidebar-separator"></li>
+                <li class="sidebar-user-profile">
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-avatar"><i class="fas fa-user"></i></span>
+                        <span class="sidebar-user-name">کاربر عزیز</span>
+                    </div>
+                    <div class="sidebar-user-menu">
+                        <a href="../Dashboard page/dashboard.html" class="sidebar-user-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>داشبورد</span>
+                        </a>
+                        <a href="../Shopping-Cart-page/shopping-cart.html" class="sidebar-user-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>سبد خرید</span>
+                        </a>
+                        <a href="../Wishlist page/wishlist.html" class="sidebar-user-item">
+                            <i class="fas fa-heart"></i>
+                            <span>علاقه‌مندی‌ها</span>
+                        </a>
+                        <a href="../My orders page/my-orders-advanced.html" class="sidebar-user-item">
+                            <i class="fas fa-box"></i>
+                            <span>سفارشات من</span>
+                        </a>
+                        <a href="../Profile page/profile.html" class="sidebar-user-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>پروفایل</span>
+                        </a>
+                        <a href="settings.html" class="sidebar-user-item active">
+                            <i class="fas fa-cog"></i>
+                            <span>تنظیمات</span>
+                        </a>
+                        <a href="../Login page/login.html" class="sidebar-user-item logout-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>خروج</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+    <script src="settings.js"></script>
+<script src="../shared/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پروفایل من - GolkarGlass</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../Dashboard page/dashboard.css">
+    <link rel="stylesheet" href="../shared/user-dropdown-fix.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="icon" href="../Main page/icon.png">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">GolkarGlass</div>
+            <ul class="nav-menu">
+                <li><a href="../Main page signed in/GolkarGlass.html">خانه</a></li>
+                <li><a href="../About page/About.html">درباره ما</a></li>
+                <li><a href="../Product page/products.html">محصولات</a></li>
+                <li><a href="#testimonials">نظرات</a></li>
+                <li class="nav-separator"></li>
+                <li class="user-profile-dropdown">
+                    <button class="user-profile-btn">
+                        <span class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="user-name">کاربر عزیز</span>
+                        <span class="dropdown-arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div class="user-dropdown-menu">
+                        <div class="dropdown-header">
+                            <div class="user-info">
+                                <span class="user-avatar-large">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <div class="user-details">
+                                    <span class="user-name-large">کاربر عزیز</span>
+                                    <span class="user-email">user@golkarglass.com</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-separator"></div>
+                        <a href="../Dashboard page/dashboard.html" class="dropdown-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>داشبورد</span>
+                        </a>
+                        <a href="../Shopping-Cart-page/shopping-cart.html" class="dropdown-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>سبد خرید</span>
+                        </a>
+                        <a href="../Wishlist page/wishlist.html" class="dropdown-item">
+                            <i class="fas fa-heart"></i>
+                            <span>علاقه‌مندی‌ها</span>
+                        </a>
+                        <a href="../My orders page/my-orders-advanced.html" class="dropdown-item">
+                            <i class="fas fa-box"></i>
+                            <span>سفارشات من</span>
+                        </a>
+                        <a href="profile.html" class="dropdown-item active">
+                            <i class="fas fa-user-edit"></i>
+                            <span>پروفایل</span>
+                        </a>
+                        <a href="/Settings page/settings.html" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            <span>تنظیمات</span>
+                        </a>
+                        <div class="dropdown-separator"></div>
+                        <a href="../Login page/login.html" class="dropdown-item logout-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>خروج</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="profile-main">
+        <div class="profile-container">
+            <section class="profile-header-section">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-header-details">
+                    <h2 class="profile-username">کاربر عزیز</h2>
+                    <p class="profile-email">user@golkarglass.com</p>
+                    <span class="profile-level">سطح: نقره‌ای</span>
+                </div>
+            </section>
+            <section class="profile-info-section">
+                <form id="profileForm" class="profile-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">نام و نام خانوادگی</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="نام کامل شما">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">شماره تماس</label>
+                            <input type="text" id="phone" name="phone" placeholder="مثال: 09123456789">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">شهر</label>
+                            <input type="text" id="city" name="city" placeholder="شهر محل سکونت">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">آدرس</label>
+                            <input type="text" id="address" name="address" placeholder="آدرس کامل">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="postal">کد پستی</label>
+                            <input type="text" id="postal" name="postal" placeholder="کد پستی">
+                        </div>
+                        <div class="form-group">
+                            <label for="birthday">تاریخ تولد</label>
+                            <input type="date" id="birthday" name="birthday">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="profile-save-btn"><i class="fas fa-save"></i> ذخیره اطلاعات</button>
+                        <button type="button" class="profile-logout-btn"><i class="fas fa-sign-out-alt"></i> خروج</button>
+                    </div>
+                </form>
+            </section>
+            <section class="profile-orders-section dashboard-section">
+                <div class="section-header">
+                    <h2 class="section-title">سفارشات اخیر</h2>
+                </div>
+                <div class="orders-table-container">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>شماره سفارش</th>
+                                <th>تاریخ</th>
+                                <th>وضعیت</th>
+                                <th>مبلغ</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#۱۲۳۴۵</td>
+                                <td>۱۲ مرداد ۱۴۰۴</td>
+                                <td><span class="status-badge delivered">تحویل شده</span></td>
+                                <td>۴۵۰,۰۰۰ تومان</td>
+                                <td>
+                                    <button class="action-btn view-btn" title="مشاهده">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#۱۲۳۴۴</td>
+                                <td>۱۰ مرداد ۱۴۰۴</td>
+                                <td><span class="status-badge pending">در انتظار پرداخت</span></td>
+                                <td>۲۸۰,۰۰۰ تومان</td>
+                                <td>
+                                    <button class="action-btn view-btn" title="مشاهده">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="باز کردن منو">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <aside id="sidebarMenu" class="sidebar-menu">
+        <button id="sidebarClose" class="sidebar-close" aria-label="بستن منو">&times;</button>
+        <nav>
+            <ul>
+                <li><a href="../Main page signed in/GolkarGlass.html">خانه</a></li>
+                <li><a href="../About page/About.html">درباره ما</a></li>
+                <li><a href="../Product page/products.html">محصولات</a></li>
+                <li><a href="#testimonials">نظرات</a></li>
+                <li class="sidebar-separator"></li>
+                <li class="sidebar-user-profile">
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-avatar"><i class="fas fa-user"></i></span>
+                        <span class="sidebar-user-name">کاربر عزیز</span>
+                    </div>
+                    <div class="sidebar-user-menu">
+                        <a href="../Dashboard page/dashboard.html" class="sidebar-user-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>داشبورد</span>
+                        </a>
+                        <a href="../Shopping-Cart-page/shopping-cart.html" class="sidebar-user-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>سبد خرید</span>
+                        </a>
+                        <a href="../Wishlist page/wishlist.html" class="sidebar-user-item">
+                            <i class="fas fa-heart"></i>
+                            <span>علاقه‌مندی‌ها</span>
+                        </a>
+                        <a href="../My orders page/my-orders-advanced.html" class="sidebar-user-item">
+                            <i class="fas fa-box"></i>
+                            <span>سفارشات من</span>
+                        </a>
+                        <a href="profile.html" class="sidebar-user-item active">
+                            <i class="fas fa-user-edit"></i>
+                            <span>پروفایل</span>
+                        </a>
+                        <a href="#" class="sidebar-user-item">
+                            <i class="fas fa-cog"></i>
+                            <span>تنظیمات</span>
+                        </a>
+                        <a href="../Login page/login.html" class="sidebar-user-item logout-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>خروج</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+    <script src="profile.js"></script>
+<script src="../shared/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="persian">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گلدان کریستال ایرانی - GolkarGlass</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="product-detail.css">
+    <link rel="icon" href="../Main page/icon.png">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">GolkarGlass</div>
+            <ul class="nav-menu">
+                <li><a href="../Main page/GolkarGlass.html#home">خانه</a></li>
+                <li><a href="../Main page/GolkarGlass.html#about">درباره ما</a></li>
+                <li><a href="products.html">محصولات</a></li>
+                <li><a href="../Main page/GolkarGlass.html#testimonials">نظرات</a></li>
+                <li class="nav-separator"></li>
+                <li><a href="../Login page/login.html" class="signin-btn">ورود/ثبت نام</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="product-container">
+        <!-- Page transition overlay -->
+        <div class="page-transition" id="pageTransition"></div>
+        <div class="breadcrumb">
+            <a href="../Main page/GolkarGlass.html">خانه</a>
+            <span>/</span>
+            <a href="products.html">محصولات</a>
+            <span>/</span>
+            <span>گلدان کریستال ایرانی</span>
+        </div>
+
+        <div class="product-content">
+            <div class="product-gallery">
+                <div class="main-image-container">
+                    <img id="mainImage" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="گلدان کریستال ایرانی" class="main-image">
+                    <button class="gallery-nav prev" onclick="changeImage(-1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="gallery-nav next" onclick="changeImage(1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                
+                <div class="thumbnail-container">
+                    <div class="thumbnail active" onclick="setImage(0)">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="تصویر ۱">
+                    </div>
+                    <div class="thumbnail" onclick="setImage(1)">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="تصویر ۲">
+                    </div>
+                    <div class="thumbnail" onclick="setImage(2)">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="تصویر ۳">
+                    </div>
+                    <div class="thumbnail" onclick="setImage(3)">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="تصویر ۴">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <div class="product-header">
+                    <h1 class="product-title">گلدان کریستال ایرانی</h1>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-text">(۱۲۳ نظر)</span>
+                    </div>
+                </div>
+
+                <div class="product-price">
+                    <span class="current-price">۴۵۰,۰۰۰</span>
+                    <span class="currency">تومان</span>
+                    <span class="original-price">۵۲۰,۰۰۰</span>
+                </div>
+
+                <div class="product-description">
+                    <p>گلدان کریستال دست‌ساز با نقوش پیچیده ایرانی که هنر سنتی شیشه‌سازی را با طراحی مدرن ترکیب می‌کند. این گلدان زیبا مناسب برای نمایش گل‌های تازه یا به عنوان قطعه تزئینی در خانه شما است.</p>
+                    
+                    <div class="product-features">
+                        <h3>ویژگی‌های محصول:</h3>
+                        <ul>
+                            <li>دست‌ساز با تکنیک سنتی دمیدن شیشه</li>
+                            <li>نقوش پیچیده ایرانی با جزئیات ظریف</li>
+                            <li>کریستال شفاف با کیفیت برتر</li>
+                            <li>مناسب برای گل‌های تازه و خشک</li>
+                            <li>ابعاد: ارتفاع ۲۵ سانتی‌متر، قطر ۱۸ سانتی‌متر</li>
+                            <li>وزن: ۸۵۰ گرم</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="color-selection">
+                    <h3>انتخاب رنگ:</h3>
+                    <div class="color-options">
+                        <div class="color-option active" data-color="clear" onclick="selectColor('clear')">
+                            <div class="color-circle" style="background: linear-gradient(45deg, #ffffff, #f0f0f0); border: 2px solid #ddd;"></div>
+                            <span>شفاف</span>
+                        </div>
+                        <div class="color-option" data-color="blue" onclick="selectColor('blue')">
+                            <div class="color-circle" style="background: linear-gradient(45deg, #4a90e2, #357abd);"></div>
+                            <span>آبی</span>
+                        </div>
+                        <div class="color-option" data-color="green" onclick="selectColor('green')">
+                            <div class="color-circle" style="background: linear-gradient(45deg, #7ed321, #5cb85c);"></div>
+                            <span>سبز</span>
+                        </div>
+                        <div class="color-option" data-color="purple" onclick="selectColor('purple')">
+                            <div class="color-circle" style="background: linear-gradient(45deg, #9b59b6, #8e44ad);"></div>
+                            <span>بنفش</span>
+                        </div>
+                        <div class="color-option" data-color="amber" onclick="selectColor('amber')">
+                            <div class="color-circle" style="background: linear-gradient(45deg, #f39c12, #e67e22);"></div>
+                            <span>کهربایی</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-actions">
+                    <div class="quantity-selector">
+                        <label for="quantity">تعداد:</label>
+                        <div class="quantity-controls">
+                            <button onclick="changeQuantity(-1)">-</button>
+                            <input type="number" id="quantity" value="1" min="1" max="10">
+                            <button onclick="changeQuantity(1)">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            افزودن به سبد خرید
+                        </button>
+                        <button class="wishlist">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-truck"></i>
+                        <span>ارسال رایگان برای سفارش‌های بالای ۵۰۰,۰۰۰ تومان</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>گارانتی ۲ ساله کیفیت</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-undo"></i>
+                        <span>بازگشت ۱۴ روزه</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-details-tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="showTab('description')">توضیحات کامل</button>
+                <button class="tab-btn" onclick="showTab('specifications')">مشخصات فنی</button>
+                <button class="tab-btn" onclick="showTab('reviews')">نظرات مشتریان</button>
+                <button class="tab-btn" onclick="showTab('shipping')">اطلاعات ارسال</button>
+            </div>
+
+            <div class="tab-content">
+                <div id="description" class="tab-panel active">
+                    <h3>درباره این محصول</h3>
+                    <p>گلدان کریستال ایرانی ما نمایانگر هنر اصیل شیشه‌سازی ایرانی است که از نسل‌ها پیش در کارگاه‌های خانوادگی ما حفظ شده است. هر قطعه با دقت و مهارت استادکاران ماهر ما ساخته می‌شود.</p>
+                    
+                    <p>این گلدان با استفاده از تکنیک سنتی دمیدن شیشه و با بهره‌گیری از کریستال با کیفیت برتر ساخته شده است. نقوش پیچیده ایرانی که روی بدنه گلدان حک شده، بازتابی از هنر و فرهنگ غنی ایران است.</p>
+                    
+                    <h4>نحوه نگهداری:</h4>
+                    <ul>
+                        <li>برای شستشو از آب ولرم و صابون ملایم استفاده کنید</li>
+                        <li>از قرار دادن در ماشین ظرفشویی خودداری کنید</li>
+                        <li>در جای خشک و خنک نگهداری کنید</li>
+                        <li>از قرار دادن در معرض نور مستقیم خورشید خودداری کنید</li>
+                    </ul>
+                </div>
+
+                <div id="specifications" class="tab-panel">
+                    <h3>مشخصات فنی</h3>
+                    <table class="specs-table">
+                        <tr>
+                            <td>جنس</td>
+                            <td>کریستال شیشه‌ای</td>
+                        </tr>
+                        <tr>
+                            <td>ابعاد</td>
+                            <td>ارتفاع: ۲۵ سانتی‌متر، قطر: ۱۸ سانتی‌متر</td>
+                        </tr>
+                        <tr>
+                            <td>وزن</td>
+                            <td>۸۵۰ گرم</td>
+                        </tr>
+                        <tr>
+                            <td>ظرفیت</td>
+                            <td>۱.۵ لیتر</td>
+                        </tr>
+                        <tr>
+                            <td>رنگ‌بندی</td>
+                            <td>شفاف، آبی، سبز، بنفش، کهربایی</td>
+                        </tr>
+                        <td>تکنیک ساخت</td>
+                        <td>دست‌ساز - دمیدن شیشه</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="reviews" class="tab-panel">
+                    <h3>نظرات مشتریان</h3>
+                    <div class="review-summary">
+                        <div class="overall-rating">
+                            <div class="rating-number">۴.۸</div>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="total-reviews">از ۱۲۳ نظر</div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="reviewer-name">سارا احمدی</div>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="review-text">"کیفیت فوق‌العاده! گلدان بسیار زیبا و با کیفیت است. نقوش ایرانی روی آن واقعاً هنرمندانه کار شده."</p>
+                    </div>
+                </div>
+
+                <div id="shipping" class="tab-panel">
+                    <h3>اطلاعات ارسال</h3>
+                    <div class="shipping-info">
+                        <div class="shipping-option">
+                            <h4>ارسال استاندارد</h4>
+                            <p>زمان تحویل: ۳-۵ روز کاری</p>
+                            <p>هزینه: ۴۵,۰۰۰ تومان</p>
+                        </div>
+                        <div class="shipping-option">
+                            <h4>ارسال سریع</h4>
+                            <p>زمان تحویل: ۱-۲ روز کاری</p>
+                            <p>هزینه: ۸۵,۰۰۰ تومان</p>
+                        </div>
+                        <div class="shipping-option">
+                            <h4>ارسال رایگان</h4>
+                            <p>برای سفارش‌های بالای ۵۰۰,۰۰۰ تومان</p>
+                            <p>زمان تحویل: ۳-۵ روز کاری</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="related-products">
+            <h2>محصولات مشابه</h2>
+            <div class="related-grid">
+                <div class="related-product">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="لیوان‌های شراب">
+                    <h3>لیوان‌های شراب لوکس</h3>
+                    <p class="price">۲۸۰,۰۰۰ تومان</p>
+                </div>
+                <div class="related-product">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="مجموعه کاسه">
+                    <h3>مجموعه کاسه تزئینی</h3>
+                    <p class="price">۳۲۰,۰۰۰ تومان</p>
+                </div>
+                <div class="related-product">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="کوزه آب">
+                    <h3>کوزه آب دست‌ساز</h3>
+                    <p class="price">۳۸۰,۰۰۰ تومان</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; ۲۰۲۵ گلکارگلس. تمامی حقوق محفوظ است. دست‌ساز با عشق در تهران.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+    </footer>
+
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="باز کردن منو">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <aside id="sidebarMenu" class="sidebar-menu">
+      <button id="sidebarClose" class="sidebar-close" aria-label="بستن منو">&times;</button>
+      <nav>
+        <ul>
+          <li><a href="../Main page/GolkarGlass.html">خانه</a></li>
+          <li><a href="../Main page/GolkarGlass.html#about">درباره ما</a></li>
+          <li><a href="../Product page/products.html">محصولات</a></li>
+          <li><a href="../Main page/GolkarGlass.html#testimonials">نظرات</a></li>
+          <li class="sidebar-separator"></li>
+          <li><a href="../Login page/login.html" class="sidebar-signin-btn">ورود/ثبت نام</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <script src="product-detail.js"></script>
+    
+    <!-- Page transition functionality -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const pageTransition = document.getElementById('pageTransition');
+        const navigationLinks = document.querySelectorAll('a[href*="products.html"], a[href*="GolkarGlass.html"], a[href*="login.html"]');
+        
+        function navigateWithTransition(url) {
+          // Add transitioning class to body
+          document.body.classList.add('transiting');
+          
+          // Show page transition overlay
+          pageTransition.classList.add('active');
+          
+          // Navigate after animation completes
+          setTimeout(() => {
+            window.location.href = url;
+          }, 600); // Match the CSS transition duration
+        }
+        
+        // Add click event listeners to navigation links
+        navigationLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetUrl = this.getAttribute('href');
+            navigateWithTransition(targetUrl);
+          });
+        });
+      });
+    </script>
+    <script src="../shared/footer.js"></script>
+</body>
+</html> 

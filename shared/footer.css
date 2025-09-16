@@ -1,0 +1,23 @@
+/* Shared footer styles extracted from products page */
+.footer {
+  background: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+.social-links {
+  margin-top: 1rem;
+}
+
+.social-links a {
+  color: #d4af37;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: white;
+}

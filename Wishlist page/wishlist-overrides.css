@@ -1,0 +1,247 @@
+/* Wishlist button and layout overrides to align price and actions at bottom */
+
+/* Ensure each wishlist card is a column flex with footer pinned at bottom */
+.wishlist-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.wishlist-item-info {
+  padding: 1.5rem;
+}
+
+.wishlist-item-footer {
+  margin-top: auto; /* push footer to bottom */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem 1.2rem 1.5rem;
+  gap: 0.8rem;
+}
+
+.wishlist-item-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d4af37;
+}
+
+/* Action buttons sizing and behavior (CTA + hover grow) */
+.wishlist-item-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.add-to-cart-btn, .remove-btn {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  padding: 0;
+  background: #fff;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 65%;
+  font-family: 'Vazirmatn', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #222;
+  box-shadow: 0 6px 24px rgba(44,62,80,0.12);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+  outline: none;
+}
+
+/* Primary CTA look for Add to Cart */
+.add-to-cart-btn {
+  background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 24px rgba(39,174,96,0.28);
+}
+
+.add-to-cart-btn:hover {
+  transform: scale(1.10);
+  box-shadow: 0 12px 28px rgba(39,174,96,0.32);
+  border-color: #29d470;
+  border: 1.5px solid;
+}
+
+.add-to-cart-btn:active {
+  transform: scale(0.98);
+}
+
+.add-to-cart-btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(39,174,96,0.30), 0 6px 24px rgba(39,174,96,0.28);
+}
+
+.add-to-cart-btn[disabled] {
+  opacity: 0.6;
+  cursor: default;
+  box-shadow: none;
+  transform: none;
+  filter: grayscale(12%);
+}
+
+/* Secondary style for Remove */
+.remove-btn {
+  color: #fff;
+  background: #b23b2a;
+}
+
+.remove-btn:hover {
+  transform: scale(1.10);
+  color: #c0392b;
+  border-color: #c0392b;
+  box-shadow: 0 12px 28px rgba(231,76,60,0.18);
+  background: white;
+}
+
+.remove-btn:active {
+  transform: scale(0.98);
+}
+
+.remove-btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(231,76,60,0.25), 0 6px 24px rgba(231,76,60,0.18);
+}
+
+.add-to-cart-btn i, .remove-btn i {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+/* Custom Sort Dropdown (build in JS) */
+.sort-dropdown {
+  display: inline-flex;
+  position: relative;
+  background: #2c2c2c;
+  border-radius: 16px;
+  box-shadow: 0 8px 12px rgba(44,62,80,0.08);
+  border: 1px solid rgba(212,175,55,0.12);
+  margin-right: 0.5rem;
+}
+
+.sort-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.2rem 0.7rem 2.2rem; /* room for chevron (left in RTL) */
+  background: transparent;
+  border: none;
+  color: #fff;
+  height: 48px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sort-label {
+  color: #bdbdbd;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.sort-value {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.sort-chevron {
+  position: absolute;
+  left: 12px; /* RTL chevron */
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+  background-repeat: no-repeat;
+  background-size: 14px;
+  background-position: center;
+  transition: transform .22s ease;
+}
+
+.sort-dropdown.open .sort-chevron { transform: rotate(180deg); }
+
+.sort-dropdown:hover .sort-toggle,
+.sort-dropdown.open .sort-toggle {
+  background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+  color: #232323;
+  box-shadow: 0 12px 20px rgba(212,175,55,0.20);
+}
+
+.sort-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: #2c2c2c;
+  border: 1px solid rgba(212,175,55,0.12);
+  border-radius: 12px;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.35);
+  min-width: 220px;
+  padding: 0.35rem;
+  z-index: 1000;
+  /* animated state */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.98);
+  transition: opacity .22s ease, transform .22s ease, visibility 0s linear .22s;
+  pointer-events: none;
+}
+
+.sort-dropdown.open .sort-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition: opacity .22s ease, transform .22s ease, visibility 0s linear 0s;
+  pointer-events: auto;
+}
+
+.sort-option {
+  display: block;
+  padding: 0.65rem 0.8rem;
+  color: #fff;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  /* animate in */
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .18s ease, transform .18s ease, background .2s ease, color .2s ease;
+}
+
+/* reveal stagger when menu opens */
+.sort-dropdown.open .sort-option { opacity: 1; transform: translateY(0); }
+.sort-dropdown.open .sort-option:nth-child(1) { transition-delay: 40ms; }
+.sort-dropdown.open .sort-option:nth-child(2) { transition-delay: 80ms; }
+.sort-dropdown.open .sort-option:nth-child(3) { transition-delay: 120ms; }
+.sort-dropdown.open .sort-option:nth-child(4) { transition-delay: 160ms; }
+.sort-dropdown.open .sort-option:nth-child(5) { transition-delay: 200ms; }
+.sort-dropdown.open .sort-option:nth-child(6) { transition-delay: 240ms; }
+.sort-dropdown.open .sort-option:nth-child(7) { transition-delay: 280ms; }
+.sort-dropdown.open .sort-option:nth-child(8) { transition-delay: 320ms; }
+
+.sort-option:hover,
+.sort-option:focus {
+  background: #E8B923;
+  color: #232323;
+  transform: translateY(-1px);
+}
+
+.sort-option[aria-selected="true"] {
+  background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+  color: #232323;
+  font-weight: 700;
+}
+
+/* Trap focus styling inside the menu */
+.sort-menu:focus { outline: none; }
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .sort-toggle { height: 44px; padding: 0.6rem 1rem 0.6rem 2rem; }
+  .sort-value { font-size: 0.95rem; }
+}

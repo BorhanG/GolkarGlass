@@ -1,0 +1,190 @@
+/* Profile Page - GolkarGlass Theme & Animations */
+@import url('../Dashboard page/dashboard.css');
+body {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    font-family: 'Vazirmatn', sans-serif;
+    color: #333;
+    direction: rtl;
+}
+.profile-main {
+    padding-top: 130px;
+    min-height: 100vh;
+}
+.profile-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(44,44,44,0.10);
+    padding: 2.5rem 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    animation: slideUp 1.2s cubic-bezier(.4,0,.2,1);
+}
+.profile-header-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    animation: fadeInDown 1s;
+}
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    background: #fffbe7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #d4af37;
+    box-shadow: 0 2px 12px rgba(212,175,55,0.07);
+}
+.profile-header-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.profile-username {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #d4af37;
+}
+.profile-email {
+    color: #888;
+    font-size: 1.05rem;
+}
+.profile-level {
+    color: #bfa13a;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.profile-info-section {
+    background: #fffbe7;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(212,175,55,0.07);
+    padding: 2rem 1.5rem;
+    animation: fadeInMain 1s;
+}
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.form-row {
+    display: flex;
+    gap: 2rem;
+}
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.form-group label {
+    color: #d4af37;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+.form-group input {
+    border-radius: 8px;
+    border: 1.5px solid #d4af37;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    background: #fff;
+    color: #333;
+    transition: border 0.2s;
+}
+.form-group input:focus {
+    border: 1.5px solid #bfa13a;
+    outline: none;
+}
+.form-actions {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1rem;
+}
+.profile-save-btn {
+    background: #d4af37;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(212,175,55,0.10);
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.profile-save-btn:hover {
+    background: #bfa13a;
+    color: #fffbe7;
+}
+.profile-logout-btn {
+    background: #fffbe7;
+    color: #d4af37;
+    border: 1.5px solid #d4af37;
+    border-radius: 8px;
+    padding: 0.7rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(212,175,55,0.10);
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.profile-logout-btn:hover {
+    background: #d4af37;
+    color: #fff;
+}
+.profile-orders-section {
+    animation: fadeInOrder 0.8s forwards;
+}
+@keyframes fadeInMain {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideUp {
+    from { transform: translateY(60px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeInOrder {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 900px) {
+    .profile-container {
+        padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+@media (max-width: 600px) {
+    .profile-header-section {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    .profile-avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+    .profile-form {
+        gap: 1rem;
+    }
+    .profile-orders-section {
+        padding: 1rem 0.2rem 0.7rem 0.2rem;
+    }
+}

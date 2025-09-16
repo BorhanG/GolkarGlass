@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="persian">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داشبورد - GolkarGlass</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="icon" href="../Main page signed in/icon.png">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">GolkarGlass</div>
+            <ul class="nav-menu">
+                <li><a href="/Main page signed in/GolkarGlass.html">خانه</a></li>
+                <li><a href="/About page/About.html">درباره ما</a></li>
+                <li><a href="/Product page/products.html">محصولات</a></li>
+                <li><a href="#testimonials">نظرات</a></li>
+                <li class="nav-separator"></li>
+                <li class="user-profile-dropdown">
+                    <button class="user-profile-btn">
+                        <span class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="user-name">کاربر عزیز</span>
+                        <span class="dropdown-arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div class="user-dropdown-menu">
+                        <div class="dropdown-header">
+                            <div class="user-info">
+                                <span class="user-avatar-large">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <div class="user-details">
+                                    <span class="user-name-large">کاربر عزیز</span>
+                                    <span class="user-email">user@golkarglass.com</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-separator"></div>
+                        <a href="dashboard.html" class="dropdown-item active">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>داشبورد</span>
+                        </a>
+                        <a href="/Shopping-Cart-page/shopping-cart.html" class="dropdown-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>سبد خرید</span>
+                            <span class="cart-badge">3</span>
+                        </a>
+                        <a href="/Wishlist page/wishlist.html" class="dropdown-item">
+                            <i class="fas fa-heart"></i>
+                            <span>علاقه‌مندی‌ها</span>
+                        </a>
+                        <a href="/My orders page/my-orders-advanced.html" class="dropdown-item">
+                            <i class="fas fa-box"></i>
+                            <span>سفارشات من</span>
+                        </a>
+                        <a href="/Profile page/profile.html" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>پروفایل</span>
+                        </a>
+                        <a href="/Settings page/settings.html" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            <span>تنظیمات</span>
+                        </a>
+                        <div class="dropdown-separator"></div>
+                        <a href="#" class="dropdown-item logout-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>خروج</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-main">
+        <div class="dashboard-container">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">داشبورد من</h1>
+                <p class="dashboard-subtitle">خوش آمدید! اینجا می‌توانید تمام فعالیت‌های خود را مدیریت کنید.</p>
+            </div>
+
+            <!-- Quick Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon orders-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">۱۲</h3>
+                        <p class="stat-label">سفارشات کل</p>
+                    </div>
+                    <div class="stat-trend positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+۲</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">۳</h3>
+                        <p class="stat-label">سبد خرید</p>
+                    </div>
+                    <div class="stat-trend neutral">
+                        <i class="fas fa-minus"></i>
+                        <span>۰</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon wishlist-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">۸</h3>
+                        <p class="stat-label">علاقه‌مندی‌ها</p>
+                    </div>
+                    <div class="stat-trend positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+۱</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon points-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">۲۵۰</h3>
+                        <p class="stat-label">امتیاز</p>
+                    </div>
+                    <div class="stat-trend positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+۱۵</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Recent Orders Section -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2 class="section-title">سفارشات اخیر</h2>
+                        <a href="#" class="view-all-btn">مشاهده همه</a>
+                    </div>
+                    <div class="orders-table-container">
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>شماره سفارش</th>
+                                    <th>تاریخ</th>
+                                    <th>وضعیت</th>
+                                    <th>مبلغ</th>
+                                    <th>عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#۱۲۳۴۵</td>
+                                    <td>۱۲ مرداد ۱۴۰۴</td>
+                                    <td><span class="status-badge delivered">تحویل شده</span></td>
+                                    <td>۴۵۰,۰۰۰ تومان</td>
+                                    <td>
+                                        <button class="action-btn view-btn" title="مشاهده">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn reorder-btn" title="سفارش مجدد">
+                                            <i class="fas fa-redo"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#۱۲۳۴۴</td>
+                                    <td>۱۰ مرداد ۱۴۰۴</td>
+                                    <td><span class="status-badge shipping">در حال ارسال</span></td>
+                                    <td>۲۸۰,۰۰۰ تومان</td>
+                                    <td>
+                                        <button class="action-btn view-btn" title="مشاهده">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn track-btn" title="پیگیری">
+                                            <i class="fas fa-truck"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#۱۲۳۴۳</td>
+                                    <td>۸ مرداد ۱۴۰۴</td>
+                                    <td><span class="status-badge processing">در حال پردازش</span></td>
+                                    <td>۳۲۰,۰۰۰ تومان</td>
+                                    <td>
+                                        <button class="action-btn view-btn" title="مشاهده">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn cancel-btn" title="لغو">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Shopping Cart & Wishlist Section -->
+                <div class="dashboard-grid">
+                    <!-- Shopping Cart -->
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2 class="section-title">سبد خرید</h2>
+                            <a href="/Shopping-Cart-page/shopping-cart.html" class="view-all-btn">مشاهده همه</a>
+                        </div>
+                        <div class="cart-items">
+                            <div class="cart-item">
+                                <div class="cart-item-image">
+                                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="گلدان کریستال">
+                                </div>
+                                <div class="cart-item-details">
+                                    <h4 class="cart-item-title">گلدان کریستال ایرانی</h4>
+                                    <p class="cart-item-price">۴۵۰,۰۰۰ تومان</p>
+                                    <div class="cart-item-quantity">
+                                        <button class="qty-btn minus">-</button>
+                                        <span class="qty-number">۱</span>
+                                        <button class="qty-btn plus">+</button>
+                                    </div>
+                                </div>
+                                <button class="remove-btn" title="حذف">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                            <div class="cart-item">
+                                <div class="cart-item-image">
+                                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="لیوان شراب">
+                                </div>
+                                <div class="cart-item-details">
+                                    <h4 class="cart-item-title">لیوان‌های شراب لوکس</h4>
+                                    <p class="cart-item-price">۲۸۰,۰۰۰ تومان</p>
+                                    <div class="cart-item-quantity">
+                                        <button class="qty-btn minus">-</button>
+                                        <span class="qty-number">۲</span>
+                                        <button class="qty-btn plus">+</button>
+                                    </div>
+                                </div>
+                                <button class="remove-btn" title="حذف">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cart-summary">
+                            <div class="cart-total">
+                                <span>مجموع:</span>
+                                <span class="total-amount">۱,۰۱۰,۰۰۰ تومان</span>
+                            </div>
+                            <div class="cart-actions">
+                                <button class="checkout-btn">تکمیل خرید</button>
+                                <button class="clear-cart-btn" style="display: none;">پاک کردن سبد</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wishlist -->
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2 class="section-title">علاقه‌مندی‌ها</h2>
+                            <a href="/Wishlist page/wishlist.html" class="view-all-btn">مشاهده همه</a>
+                        </div>
+                        <div class="wishlist-items">
+                            <div class="wishlist-item">
+                                <div class="wishlist-item-image">
+                                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="کاسه تزئینی">
+                                </div>
+                                <div class="wishlist-item-details">
+                                    <h4 class="wishlist-item-title">مجموعه کاسه تزئینی</h4>
+                                    <p class="wishlist-item-price">۳۲۰,۰۰۰ تومان</p>
+                                </div>
+                                <div class="wishlist-item-actions">
+                                    <button class="add-to-cart-btn" title="افزودن به سبد">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                    <button class="remove-wishlist-btn" title="حذف">
+                                        <i class="fas fa-heart-broken"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="wishlist-item">
+                                <div class="wishlist-item-image">
+                                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="دکانتر کریستال">
+                                </div>
+                                <div class="wishlist-item-details">
+                                    <h4 class="wishlist-item-title">دکانتر کریستال</h4>
+                                    <p class="wishlist-item-price">۵۲۰,۰۰۰ تومان</p>
+                                </div>
+                                <div class="wishlist-item-actions">
+                                    <button class="add-to-cart-btn" title="افزودن به سبد">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                    <button class="remove-wishlist-btn" title="حذف">
+                                        <i class="fas fa-heart-broken"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions Section -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2 class="section-title">عملیات سریع</h2>
+                    </div>
+                    <div class="quick-actions">
+                        <a href="#" class="quick-action-btn">
+                            <div class="action-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <span>جستجوی محصولات</span>
+                        </a>
+                        <a href="#" class="quick-action-btn">
+                            <div class="action-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <span>هدیه</span>
+                        </a>
+                        <a href="#" class="quick-action-btn">
+                            <div class="action-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <span>پشتیبانی</span>
+                        </a>
+                        <a href="#" class="quick-action-btn">
+                            <div class="action-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <span>راهنما</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Account Summary Section -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2 class="section-title">خلاصه حساب</h2>
+                    </div>
+                    <div class="account-summary">
+                        <div class="account-info">
+                            <div class="account-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="account-details">
+                                <h3>کاربر عزیز</h3>
+                                <p>عضو از: مرداد ۱۴۰۳</p>
+                                <p>سطح: نقره‌ای</p>
+                            </div>
+                        </div>
+                        <div class="account-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">۱۲</span>
+                                <span class="stat-label">سفارش</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">۸</span>
+                                <span class="stat-label">علاقه‌مندی</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">۲۵۰</span>
+                                <span class="stat-label">امتیاز</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Sidebar for Mobile -->
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="باز کردن منو">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <aside id="sidebarMenu" class="sidebar-menu">
+        <button id="sidebarClose" class="sidebar-close" aria-label="بستن منو">&times;</button>
+        <nav>
+            <ul>
+                <li><a href="/Main page signed in/GolkarGlass.html">خانه</a></li>
+                <li><a href="/About page/About.html">درباره ما</a></li>
+                <li><a href="/Product page/products.html">محصولات</a></li>
+                <li><a href="#testimonials">نظرات</a></li>
+                <li class="sidebar-separator"></li>
+                <li class="sidebar-user-profile">
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-avatar">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="sidebar-user-name">کاربر عزیز</span>
+                    </div>
+                    <div class="sidebar-user-menu">
+                        <a href="dashboard.html" class="sidebar-user-item active">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>داشبورد</span>
+                        </a>
+                        <a href="/Shopping-Cart-page/shopping-cart.html" class="sidebar-user-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>سبد خرید</span>
+                        </a>
+                        <a href="/Wishlist page/wishlist.html" class="sidebar-user-item">
+                            <i class="fas fa-heart"></i>
+                            <span>علاقه‌مندی‌ها</span>
+                        </a>
+                        <a href="/Orders page/orders.html" class="sidebar-user-item">
+                            <i class="fas fa-box"></i>
+                            <span>سفارشات من</span>
+                        </a>
+                        <a href="/Profile page/profile.html" class="sidebar-user-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>پروفایل</span>
+                        </a>
+                        <a href="/Settings page/settings.html" class="sidebar-user-item">
+                            <i class="fas fa-cog"></i>
+                            <span>تنظیمات</span>
+                        </a>
+                        <a href="#" class="sidebar-user-item logout-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>خروج</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <script src="dashboard.js"></script>
+<script src="../shared/footer.js"></script>
+</body>
+</html>

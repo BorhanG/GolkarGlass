@@ -1,0 +1,1293 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    line-height: 1.8;
+    color: #333;
+    background-color: #fafafa;
+    direction: rtl;
+    font-size: 1.15rem;
+}
+
+.header {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    height: 113px;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    height: 100%;
+    position: relative;
+}
+
+.logo {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #d4af37;
+    padding-bottom: 20px;
+    margin-right: 1.9rem;
+    animation: neonGlow 2s ease-in-out infinite alternate;
+    text-shadow: 
+        0 0 5px #d4af37,
+        0 0 10px #d4af37,
+        0 0 15px #d4af37,
+        0 0 20px #d4af37;
+}
+
+@keyframes neonGlow {
+    0% {
+        text-shadow: 
+            0 0 5px #d4af37,
+            0 0 10px #d4af37,
+            0 0 15px #d4af37,
+            0 0 20px #d4af37;
+    }
+    100% {
+        text-shadow: 
+            0 0 10px #d4af37,
+            0 0 20px #d4af37,
+            0 0 30px #d4af37,
+            0 0 40px #d4af37,
+            0 0 50px #d4af37;
+    }
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.2rem;
+    margin-right: 6rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+    font-size: 1.15rem;
+}
+
+.nav-menu a:hover {
+    color: #d4af37;
+}
+
+.nav-separator {
+    display: flex;
+    align-items: center;
+    width: 1.5px;
+    height: 28px;
+    background: #d4af37;
+    margin: 0 0.6rem;
+}
+
+.signin-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+    color: #fff !important;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.12);
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    margin-right: 0.2rem;
+    margin-left: 0.2rem;
+    height: 40px;
+}
+
+.signin-btn:hover, .signin-btn:focus {
+  background: linear-gradient(135deg, #b8941f 0%, #d4af37 100%);
+  color: #222 !important;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.22);
+}
+
+/* Sidebar Menu Styles */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 0.7rem;
+  left: 0.7rem;
+  z-index: 2101;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.sidebar-toggle span {
+  display: block;
+  width: 20px;
+  height: 3px;
+  background: #d4af37;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.sidebar-toggle.hide {
+  display: none !important;
+}
+
+.sidebar-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background: #222;
+  color: #fff;
+  z-index: 2000;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(.4,2,.3,1);
+  box-shadow: 2px 0 16px rgba(0,0,0,0.15);
+  padding-top: 1.5rem;
+  flex-direction: column;
+}
+
+.sidebar-menu.open {
+  display: flex !important;
+  transform: translateX(0);
+}
+
+.sidebar-menu nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu nav ul li {
+  margin: 1rem 0;
+  text-align: right;
+}
+
+.sidebar-menu nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.4rem 1.2rem;
+  display: block;
+  transition: background 0.2s;
+}
+
+.sidebar-menu nav ul li a:hover {
+  background: #333;
+  color: #d4af37;
+}
+
+.sidebar-close {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 2100;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  z-index: 1500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.sidebar-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Hide sidebar toggle when sidebar is open */
+.sidebar-menu.open ~ .sidebar-toggle {
+  display: none !important;
+}
+
+body.sidebar-open .sidebar-toggle {
+  display: none !important;
+}
+
+.sidebar-separator {
+  width: 100%;
+  height: 1.5px;
+  background: #d4af37;
+  margin: 0.7rem 0;
+  border-radius: 2px;
+}
+
+.sidebar-signin-btn {
+  display: block;
+  width: 80%;
+  margin: 0.5rem auto 0 auto;
+  background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+  color: #fff !important;
+  padding: 0.7rem 0;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.12);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  border: none;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+}
+
+.sidebar-signin-btn:hover, .sidebar-signin-btn:focus {
+  background: linear-gradient(135deg, #b8941f 0%, #d4af37 100%);
+  color: #222 !important;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.22);
+}
+
+/* Main product container */
+.product-container {
+    max-width: 1400px;
+    margin: 120px auto 0;
+    padding: 2rem 3rem;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #d4af37;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: #b8941f;
+}
+
+.breadcrumb span {
+    margin: 0 0.5rem;
+    color: #999;
+}
+
+/* Product content layout */
+.product-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+/* Product gallery */
+.product-gallery {
+    position: relative;
+}
+
+.main-image-container {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+}
+
+.main-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+    transform: scale(1.02);
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #333;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.gallery-nav:hover {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.gallery-nav.prev {
+    right: 1rem;
+}
+
+.gallery-nav.next {
+    left: 1rem;
+}
+
+.thumbnail-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.thumbnail.active {
+    border-color: #d4af37;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.thumbnail:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Product info */
+.product-info {
+    padding: 1rem 0;
+}
+
+.product-header {
+    margin-bottom: 2rem;
+}
+
+.product-title {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stars {
+    color: #f39c12;
+    font-size: 1.1rem;
+}
+
+.rating-text {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Price section */
+.product-price {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.current-price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #d4af37;
+}
+
+.currency {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.original-price {
+    font-size: 1.1rem;
+    color: #999;
+    text-decoration: line-through;
+    margin-right: 1rem;
+}
+
+/* Product description */
+.product-description {
+    margin-bottom: 2rem;
+}
+
+.product-description p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.product-features h3 {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 1.3rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.product-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-features li {
+    padding: 0.5rem 0;
+    padding-right: 1.5rem;
+    position: relative;
+    color: #555;
+}
+
+.product-features li::before {
+    content: "✓";
+    position: absolute;
+    right: 0;
+    color: #d4af37;
+    font-weight: bold;
+}
+
+/* Color selection */
+.color-selection {
+    margin-bottom: 2rem;
+}
+
+.color-selection h3 {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 1.3rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.color-options {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.color-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.color-option:hover {
+    transform: translateY(-2px);
+}
+
+.color-option.active .color-circle {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transform: scale(1.1);
+}
+
+.color-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.color-option span {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
+
+/* Product actions */
+.product-actions {
+    margin-bottom: 2rem;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.quantity-selector label {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    border: 2px solid #e0e0e0;
+    border-radius: 0.8rem;
+    overflow: hidden;
+}
+
+.quantity-controls button {
+    background: #f8f9fa;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.quantity-controls button:hover {
+    background: #e9ecef;
+    color: #333;
+}
+
+.quantity-controls input {
+    width: 60px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.add-to-cart {
+    flex: 1;
+    background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.add-to-cart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+.wishlist {
+    background: white;
+    border: 2px solid #e0e0e0;
+    width: 50px;
+    height: 50px;
+    border-radius: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.wishlist:hover {
+    border-color: #d4af37;
+    color: #d4af37;
+    transform: translateY(-2px);
+}
+
+/* Product meta */
+.product-meta {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid #e9ecef;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.meta-item:last-child {
+    margin-bottom: 0;
+}
+
+.meta-item i {
+    color: #d4af37;
+    font-size: 1.1rem;
+    width: 20px;
+}
+
+/* Product details tabs */
+.product-details-tabs {
+    margin-bottom: 4rem;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn.active {
+    color: #d4af37;
+    border-bottom-color: #d4af37;
+}
+
+.tab-btn:hover {
+    color: #d4af37;
+}
+
+.tab-content {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.tab-panel h3 {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+}
+
+.tab-panel h4 {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    margin: 1.5rem 0 1rem;
+}
+
+.tab-panel p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.tab-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tab-panel li {
+    padding: 0.5rem 0;
+    padding-right: 1.5rem;
+    position: relative;
+    color: #555;
+}
+
+.tab-panel li::before {
+    content: "•";
+    position: absolute;
+    right: 0;
+    color: #d4af37;
+    font-weight: bold;
+}
+
+/* Specifications table */
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.specs-table tr {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.specs-table tr:last-child {
+    border-bottom: none;
+}
+
+.specs-table td {
+    padding: 1rem 0;
+    color: #666;
+}
+
+.specs-table td:first-child {
+    font-weight: 600;
+    color: #1a1a1a;
+    width: 40%;
+}
+
+/* Reviews */
+.review-summary {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 1rem;
+}
+
+.overall-rating {
+    text-align: center;
+}
+
+.rating-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #d4af37;
+}
+
+.rating-stars {
+    color: #f39c12;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.total-reviews {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.review-item {
+    border-bottom: 1px solid #e9ecef;
+    padding: 1.5rem 0;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.reviewer-name {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.review-stars {
+    color: #f39c12;
+}
+
+.review-text {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Shipping info */
+.shipping-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.shipping-option {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid #e9ecef;
+}
+
+.shipping-option h4 {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.shipping-option p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+/* Related products */
+.related-products {
+    margin-bottom: 4rem;
+}
+
+.related-products h2 {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 2rem;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.related-product {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.related-product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.related-product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.related-product h3 {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    padding: 1rem 1rem 0.5rem;
+}
+
+.related-product .price {
+    color: #d4af37;
+    font-weight: 600;
+    padding: 0 1rem 1rem;
+}
+
+/* Footer */
+.footer {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: #d4af37;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: white;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .product-container {
+        padding: 2rem 1.5rem;
+    }
+    .product-content {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .nav-menu {
+        display: none !important;
+    }
+    .logo{
+      font-size: 2.5rem !important;
+      margin-right: -1rem !important;
+    }
+    .sidebar-toggle {
+        display: flex !important;
+        margin-top: 1.8rem;
+        margin-left: 2rem;
+    }
+    .sidebar-menu {
+        display: flex;
+    }
+    .sidebar-overlay {
+        display: block;
+    }
+    .nav-menu {
+      gap: 1rem;
+      margin-right: 2rem;
+      align-items: center;
+    }
+    .nav-separator {
+      width: 1px;
+      height: 22px;
+      margin: 0 0.4rem;
+    }
+    .signin-btn {
+      font-size: 1rem;
+      padding: 0.4rem 1.1rem;
+      height: 32px;
+    }
+    .product-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .main-image {
+        height: 400px;
+    }
+    .product-title {
+        font-size: 2rem;
+    }
+    .current-price {
+        font-size: 1.8rem;
+    }
+    .tab-buttons {
+        flex-wrap: wrap;
+    }
+    .tab-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 993px) {
+    .sidebar-toggle,
+    .sidebar-menu,
+    .sidebar-overlay {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        height: 83px;
+    }
+    .nav-menu {
+        display: none;
+    }
+    .sidebar-toggle {
+        display: flex !important;
+        margin-top: 0.9rem !important;
+        margin-left: 1rem !important;
+    }
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 1rem;
+        justify-content: center;
+        height: 100%;
+    }
+    .logo {
+        margin-right: 0;
+        font-size: 2.1rem !important;
+        padding-bottom: 8px;
+        margin-top: -1rem !important;
+        margin-left: 0.5rem !important;
+        animation: neonGlow 2s ease-in-out infinite alternate;
+        text-shadow: 
+            0 0 3px #d4af37,
+            0 0 6px #d4af37,
+            0 0 9px #d4af37,
+            0 0 12px #d4af37;
+    }
+    .nav-menu {
+      gap: 0.7rem;
+      margin-right: 1rem;
+      align-items: center;
+    }
+    .nav-separator {
+      width: 1px;
+      height: 18px;
+      margin: 0 0.3rem;
+    }
+    .signin-btn {
+      font-size: 0.95rem;
+      padding: 0.3rem 0.7rem;
+      height: 26px;
+    }
+    .sidebar-menu {
+        display: flex;
+    }
+    .sidebar-overlay {
+        display: block;
+    }
+    .product-container {
+        padding: 1rem;
+        margin-top: 100px;
+    }
+    .main-image {
+        height: 300px;
+    }
+    .product-title {
+        font-size: 1.6rem;
+    }
+    .current-price {
+        font-size: 1.5rem;
+    }
+    .color-options {
+        justify-content: center;
+    }
+    .action-buttons {
+        flex-direction: column;
+    }
+    .add-to-cart {
+        width: 100%;
+    }
+    .wishlist {
+        align-self: center;
+    }
+    .tab-buttons {
+        flex-direction: column;
+    }
+    .tab-btn {
+        text-align: center;
+    }
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        padding: 0.5rem 0;
+        height: 70px;
+    }
+    
+    .sidebar-toggle {
+        display: flex !important;
+    }
+    .nav-container {
+        padding: 0 0.5rem;
+        align-items: flex-start;
+        justify-content: center;
+        height: 100%;
+    }
+    .logo {
+        font-size: 1.8rem !important;
+        margin-top: -1rem;
+        margin-right: 0.4rem !important;
+        animation: neonGlow 2s ease-in-out infinite alternate;
+        text-shadow: 
+            0 0 2px #d4af37,
+            0 0 4px #d4af37,
+            0 0 6px #d4af37,
+            0 0 8px #d4af37;
+    }
+    .sidebar-toggle{
+      margin-top: 0.5rem !important;
+    }
+    .nav-menu {
+      gap: 0.5rem;
+      margin-right: 0.5rem;
+      align-items: center;
+    }
+    .nav-separator {
+      width: 0.7px;
+      height: 14px;
+      margin: 0 0.18rem;
+    }
+    .signin-btn {
+      font-size: 0.85rem;
+      padding: 0.2rem 0.5rem;
+      height: 20px;
+    }
+    .product-container {
+        padding: 0.5rem;
+    }
+    .main-image {
+        height: 250px;
+    }
+    .product-title {
+        font-size: 1.3rem;
+    }
+    .current-price {
+        font-size: 1.3rem;
+    }
+    .thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+    .color-circle {
+        width: 35px;
+        height: 35px;
+    }
+    .quantity-controls button {
+        width: 35px;
+        height: 35px;
+    }
+    .quantity-controls input {
+        width: 50px;
+        height: 35px;
+    }
+    .tab-content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .header {
+        height: 50px;
+    }
+    .sidebar-toggle {
+        display: flex !important;
+    }
+    .logo {
+        font-size: 1.4rem !important;
+        margin-top: -0.4rem !important;
+        margin-right: 0.4rem !important;
+        animation: neonGlow 2s ease-in-out infinite alternate;
+        text-shadow: 
+            0 0 1px #d4af37,
+            0 0 2px #d4af37,
+            0 0 3px #d4af37,
+            0 0 4px #d4af37;
+    }
+    .sidebar-toggle{
+      margin-top: -0.01rem !important;
+    }
+}
+
+@media only screen and (width: 768px) {
+  .logo{
+    margin-right: 0.4rem !important;
+  }
+}
+
+@media only screen and (width: 690px) {
+  .logo{
+    margin-right: 0.9rem !important;
+  }
+} 
+
+/* Page transition animation */
+.page-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  z-index: 9999;
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-transition.active {
+  transform: translateX(0);
+}
+
+.page-transition::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border: 3px solid transparent;
+  border-top: 3px solid #d4af37;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Fade out animation for the page */
+body.transiting {
+  overflow: hidden;
+}
+
+body.transiting .product-container {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+} 
