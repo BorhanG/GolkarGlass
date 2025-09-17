@@ -12,9 +12,9 @@
     <link rel="icon" href="../Main page/icon.png">
 </head>
 <body>
-    <header class="header">
+    <header class="header theme-transition">
         <nav class="nav-container">
-            <div class="logo">GolkarGlass</div>
+            <div class="logo theme-transition">GolkarGlass</div>
             <ul class="nav-menu">
                 <li><a href="../Main page signed in/GolkarGlass.html">خانه</a></li>
                 <li><a href="../About page/About.html">درباره ما</a></li>
@@ -79,13 +79,13 @@
         </nav>
     </header>
     <main class="settings-main">
-        <div class="settings-container settings-grid">
+        <div class="settings-container settings-grid theme-transition">
             <section class="settings-header-section">
-                <h2 class="settings-title">تنظیمات کاربری</h2>
+                <h2 class="settings-title theme-transition">تنظیمات کاربری</h2>
                 <p class="settings-subtitle">شخصی‌سازی تجربه خرید شما</p>
             </section>
             <form id="settingsForm" class="settings-form-horizontal">
-                <div class="settings-section animated-section">
+                <div class="settings-section animated-section theme-transition">
                     <h3 class="settings-section-title"><i class="fas fa-cogs"></i> تنظیمات عمومی</h3>
                     <div class="form-row">
                         <div class="form-group">
@@ -139,55 +139,7 @@
                             <input type="password" id="confirmPassword" name="confirmPassword" placeholder="تکرار رمز جدید">
                         </div>
                     </div>
-                    <button type="button" class="settings-password-btn"><i class="fas fa-save"></i> تغییر رمز</button>
-                </div>
-                <div class="settings-section animated-section">
-                    <h3 class="settings-section-title"><i class="fas fa-user-shield"></i> حریم خصوصی</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label><input type="checkbox" id="profilePublic" name="profilePublic"> پروفایل من برای دیگران قابل مشاهده باشد</label>
-                        </div>
-                        <div class="form-group">
-                            <label><input type="checkbox" id="orderHistoryPublic" name="orderHistoryPublic"> تاریخچه سفارشات من برای دیگران قابل مشاهده باشد</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="settings-section animated-section">
-                    <h3 class="settings-section-title"><i class="fas fa-bullhorn"></i> بازاریابی و پیام‌ها</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label><input type="checkbox" id="emailMarketing" name="emailMarketing"> دریافت ایمیل‌های تبلیغاتی</label>
-                        </div>
-                        <div class="form-group">
-                            <label><input type="checkbox" id="smsMarketing" name="smsMarketing"> دریافت پیامک‌های تبلیغاتی</label>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="notifLang">زبان پیام‌ها</label>
-                            <select id="notifLang" name="notifLang">
-                                <option value="fa">فارسی</option>
-                                <option value="en">English</option>
-                                <option value="ar">العربية</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="settings-section animated-section">
-                    <h3 class="settings-section-title"><i class="fas fa-universal-access"></i> دسترسی و نمایش</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="fontSize">اندازه فونت</label>
-                            <select id="fontSize" name="fontSize">
-                                <option value="normal">عادی</option>
-                                <option value="large">بزرگ</option>
-                                <option value="xlarge">خیلی بزرگ</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label><input type="checkbox" id="highContrast" name="highContrast"> حالت کنتراست بالا</label>
-                        </div>
-                    </div>
+                    <button type="button" class="settings-password-btn theme-transition"><i class="fas fa-save"></i> تغییر رمز</button>
                 </div>
                 <div class="settings-section animated-section">
                     <h3 class="settings-section-title"><i class="fas fa-map-marker-alt"></i> آدرس‌های ذخیره شده</h3>
@@ -196,7 +148,7 @@
                         <div class="form-group">
                             <input type="text" id="newAddress" placeholder="آدرس جدید">
                         </div>
-                        <button type="button" class="settings-add-address-btn"><i class="fas fa-plus"></i> افزودن آدرس</button>
+                        <button type="button" class="settings-add-address-btn theme-transition"><i class="fas fa-plus"></i> افزودن آدرس</button>
                     </div>
                 </div>
                 <div class="settings-section animated-section">
@@ -206,16 +158,16 @@
                         <div class="form-group">
                             <input type="text" id="newCard" placeholder="شماره کارت جدید (مثال: 6037-9912-3456-7890)">
                         </div>
-                        <button type="button" class="settings-add-card-btn"><i class="fas fa-plus"></i> افزودن کارت</button>
+                        <button type="button" class="settings-add-card-btn theme-transition"><i class="fas fa-plus"></i> افزودن کارت</button>
                     </div>
                 </div>
-                <div class="settings-section animated-section danger-section">
+                <div class="settings-section animated-section danger-section theme-transition">
                     <h3 class="settings-section-title"><i class="fas fa-user-times"></i> حذف حساب کاربری</h3>
-                    <button type="button" class="settings-delete-btn"><i class="fas fa-trash"></i> حذف حساب</button>
+                    <button type="button" class="settings-delete-btn theme-transition"><i class="fas fa-trash"></i> حذف حساب</button>
                 </div>
                 <div class="form-actions">
-                    <button type="submit" class="settings-save-btn"><i class="fas fa-save"></i> ذخیره تنظیمات</button>
-                    <button type="button" class="settings-logout-btn"><i class="fas fa-sign-out-alt"></i> خروج</button>
+                    <button type="submit" class="settings-save-btn theme-transition"><i class="fas fa-save"></i> ذخیره تنظیمات</button>
+                    <button type="button" class="settings-logout-btn theme-transition"><i class="fas fa-sign-out-alt"></i> خروج</button>
                 </div>
             </form>
         </div>

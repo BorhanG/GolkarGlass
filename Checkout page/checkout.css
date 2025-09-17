@@ -1,0 +1,90 @@
+/* Checkout page styles — theme-matching with animations */
+:root{
+  --accent:#d4af37;
+  --muted:#888;
+  --bg:#fafafa;
+  --card:#fff;
+  --dark:#222;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{font-family:'Vazirmatn',sans-serif;background:var(--bg);color:#222;line-height:1.6}
+.checkout-header{height:88px;background:linear-gradient(135deg,#1a1a1a,#2d2d2d);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;position:sticky;top:0;z-index:50}
+.checkout-header .logo{font-family:'Noto Nastaliq Urdu',serif;color:var(--accent);font-size:1.6rem}
+.checkout-header .back-link{color:#fff;text-decoration:none;display:flex;align-items:center;gap:.6rem}
+
+.checkout-main{max-width:1200px;margin:2.5rem auto;padding:0 1rem}
+.checkout-steps{display:flex;align-items:center;gap:1rem;justify-content:center;margin-bottom:1.2rem}
+.step{width:72px;height:72px;border-radius:12px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,0.06);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;color:var(--muted);transform:translateY(0);transition:all .35s cubic-bezier(.2,.9,.25,1)}
+.step span{font-size:.8rem;font-weight:500;color:var(--muted)}
+.step.active{background:linear-gradient(180deg,#fff,#fff);color:var(--dark);box-shadow:0 20px 40px rgba(0,0,0,0.08);transform:translateY(-6px)}
+.step.completed{background:linear-gradient(90deg,rgba(212,175,55,0.12),rgba(184,148,31,0.06));color:var(--dark)}
+.divider{width:48px;height:4px;background:linear-gradient(90deg,var(--accent),#b8941f);border-radius:4px}
+
+.checkout-grid{display:grid;grid-template-columns:1fr 400px;gap:1.2rem}
+.card{background:var(--card);border-radius:12px;padding:1rem;box-shadow:0 10px 30px rgba(0,0,0,0.06);overflow:hidden}
+.address-card h3,.payment-card h3,.order-summary h3{margin-bottom:.8rem}
+.address-list{display:flex;flex-direction:column;gap:.6rem}
+.address-item{display:flex;flex-direction:column;padding:.8rem;border-radius:8px;background:linear-gradient(180deg,#fff,#fff);border:1px solid #f0ede9;cursor:pointer;transition:all .25s}
+.address-item.selected{border-color:var(--accent);box-shadow:0 8px 20px rgba(212,175,55,0.08);transform:translateY(-3px)}
+.address-details{font-size:.95rem;color:var(--muted)}
+.btn{padding:.7rem 1rem;border-radius:10px;border:none;cursor:pointer;font-weight:600}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.ghost{background:transparent;border:1px solid #e9e6df;color:var(--dark)}
+
+.payment-methods{display:flex;flex-direction:column;gap:.6rem}
+.payment-item{display:flex;align-items:center;gap:.8rem;padding:.6rem;border-radius:8px;border:1px solid #eee}
+.payment-item input{transform:scale(1.05)}
+.payment-info .payment-title{font-weight:700}
+.payment-desc{font-size:.9rem;color:var(--muted)}
+
+.saved-cards{display:flex;flex-direction:column;gap:.6rem;margin-bottom:.6rem}
+.saved-card{display:flex;align-items:center;justify-content:space-between;padding:.6rem;border-radius:8px;border:1px solid #efece7;background:linear-gradient(180deg,#fff,#fff)}
+.saved-card .meta{display:flex;align-items:center;gap:.6rem}
+.saved-card .chip{width:40px;height:28px;border-radius:6px;background:linear-gradient(90deg,var(--accent),#b8941f);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.saved-card .label{font-size:.95rem}
+.saved-card .actions{display:flex;gap:.4rem}
+
+.promo-row{display:flex;gap:.6rem;margin-top:.6rem}
+.promo-row input{flex:1;padding:.6rem;border-radius:8px;border:1px solid #ece8e3}
+.promo-row .apply-btn{padding:.6rem 0.9rem;border-radius:8px;border:none;background:var(--accent);color:#fff}
+
+.shipping-options{display:flex;flex-direction:column;gap:.6rem;margin-top:.6rem}
+.shipping-option{display:flex;align-items:center;gap:.8rem;padding:.5rem;border-radius:8px;border:1px solid #eee}
+
+.card-entry.hidden{display:none;opacity:0;transform:translateY(6px)}
+.card-entry{transition:all .25s ease}
+
+.order-items{display:flex;flex-direction:column;gap:.8rem;margin-bottom:.8rem}
+.order-item{display:flex;gap:.8rem;align-items:center}
+.order-item img{width:64px;height:64px;border-radius:8px;object-fit:cover}
+.order-item .meta{flex:1}
+.line{display:flex;justify-content:space-between;padding:.4rem 0;border-top:1px solid #f0ede9}
+.line.total{font-weight:800;font-size:1.05rem}
+.checkout-actions{display:flex;gap:.6rem;margin-top:1rem}
+
+.help-card{margin-top:1rem;padding:.8rem}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);z-index:9999}
+.modal.hidden{display:none}
+.modal-inner{width:420px;background:var(--card);padding:1rem;border-radius:12px}
+.modal-inner input{width:100%;padding:.6rem;margin:.4rem 0;border-radius:8px;border:1px solid #ece8e3}
+.modal-actions{display:flex;gap:.6rem;justify-content:flex-end;margin-top:.6rem}
+
+/* Responsive */
+@media (max-width:1000px){
+  .checkout-grid{grid-template-columns:1fr}
+}
+
+/* Nice entrance animations */
+.card{opacity:0;transform:translateY(10px);animation:cardIn .45s forwards ease}
+@keyframes cardIn{to{opacity:1;transform:none}}
+
+/* small helper to animate show */
+.show-animate{animation:popIn .28s ease}
+@keyframes popIn{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:none}}
+
+/* subtle button hover */
+.btn.primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(212,175,55,0.12)}
+

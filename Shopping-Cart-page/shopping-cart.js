@@ -348,16 +348,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 showNotification('سبد خرید شما خالی است!', 'error');
                 return;
             }
-            
+
             showNotification(`در حال انتقال به صفحه پرداخت برای مبلغ ${formatPrice(cartTotal)}...`, 'success');
-            
-            // Simulate checkout process
+
+            // Redirect to the new checkout page
             setTimeout(() => {
-                if (confirm('آیا می‌خواهید به صفحه پرداخت منتقل شوید؟')) {
-                    // Here you would normally redirect to checkout page
-                    alert('در حال انتقال به صفحه پرداخت...');
-                }
-            }, 2000);
+                window.location.href = '/Checkout page/checkout.html';
+            }, 800);
         });
     }
 

@@ -1,5 +1,9 @@
 // Shared theme loader: font-awesome, theme CSS and site-wide theme manager
 (function(){
+  // Allow pages to opt out of shared theme by adding data-no-theme to <body>
+  try{
+    if (document.body && document.body.hasAttribute && document.body.hasAttribute('data-no-theme')) return;
+  }catch(e){}
   // --- Ensure Font Awesome ---
   try{
     if(!document.querySelector('link[href*="font-awesome"]')){
@@ -19,8 +23,18 @@
     var css = document.createElement('style');
     css.id = 'shared-theme-styles';
     css.textContent = `
-/* Smooth cross-fade for theme changes */
-body, header, footer, .header, .footer, .settings-section, .product-card, .product-badge, .logo, .nav-menu a, button, input, select, textarea {
+/* Theme transitions are NOW opt-in via the .theme-transition class.
+   Add class="theme-transition" to elements that should animate when the theme changes.
+   Use data-no-theme on <body> to opt the page out of the entire theme script (already supported).
+*/
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation-duration: 0.001ms !important; }
+}
+
+/* Opt-in transition class for theme-related smoothing */
+.theme-transition {
   transition: background-color 320ms ease, color 320ms ease, border-color 260ms ease, box-shadow 300ms ease, filter 300ms ease;
 }
 

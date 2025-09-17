@@ -4,14 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>محصولات - GolkarGlass</title>
-  <link rel="stylesheet" href="/Product page signed in/products.css">
+  <link rel="stylesheet" href="../Product page signed in/products.css">
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body data-no-footer>
+<body data-no-footer data-no-theme-transitions>
       <header class="header">
         <nav class="nav-container">
+            <button id="sidebarToggle" class="sidebar-toggle" aria-label="باز کردن منو">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
             <div class="logo">GolkarGlass</div>
             <ul class="nav-menu">
                 <li><a href="/Main page signed in/GolkarGlass.html">خانه</a></li>
@@ -290,43 +295,90 @@
     </section>
   </main>
 
-  <aside id="sidebarMenu" class="sidebar-menu">
-    <button id="sidebarClose" class="sidebar-close" aria-label="بستن منو">&times;</button>
-    <nav>
-      <ul>
-        <li><a href="/Main page/GolkarGlass.html">خانه</a></li>
-        <li><a href="about.html">درباره ما</a></li>
-        <li><a href="/Product page/products.html" class="active">محصولات</a></li>
-        <li><a href="testimonials.html">نظرات</a></li>
-        <li class="sidebar-separator"></li>
-        <li><a href="/Login page/login.html" class="sidebar-signin-btn">ورود/ثبت نام</a></li>
-      </ul>
-    </nav>
-  </aside>
-  <div id="sidebarOverlay" class="sidebar-overlay"></div>
+    <aside id="sidebarMenu" class="sidebar-menu">
+      <button id="sidebarClose" class="sidebar-close" aria-label="بستن منو">&times;</button>
+      <nav>
+        <ul>
+          <li><a href="#">خانه</a></li>
+          <li><a href="#about">درباره ما</a></li>
+          <li><a href="#products">محصولات</a></li>
+          <li><a href="#testimonials">نظرات</a></li>
+          <li class="sidebar-separator"></li>
+          <li class="sidebar-user-profile">
+            <div class="sidebar-user-info">
+              <span class="sidebar-user-avatar">
+                <i class="fas fa-user"></i>
+              </span>
+              <span class="sidebar-user-name">کاربر عزیز</span>
+            </div>
+            <div class="sidebar-user-menu">
+              <a href="/Dashboard page/dashboard.html" class="sidebar-user-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>داشبورد</span>
+              </a>
+              <a href="#" class="sidebar-user-item">
+                <i class="fas fa-shopping-cart"></i>
+                <span>سبد خرید</span>
+              </a>
+              <a href="/Wishlist page/wishlist.html" class="sidebar-user-item">
+                <i class="fas fa-heart"></i>
+                <span>علاقه‌مندی‌ها</span>
+              </a>
+              <a href="#" class="sidebar-user-item">
+                <i class="fas fa-box"></i>
+                <span>سفارشات من</span>
+              </a>
+              <a href="#" class="sidebar-user-item">
+                <i class="fas fa-user-edit"></i>
+                <span>پروفایل</span>
+              </a>
+              <a href="#" class="sidebar-user-item">
+                <i class="fas fa-cog"></i>
+                <span>تنظیمات</span>
+              </a>
+              <a href="#" class="sidebar-user-item logout-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>خروج</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
   <script>
     const sidebarToggle = document.getElementById('sidebarToggle');
     const sidebarMenu = document.getElementById('sidebarMenu');
     const sidebarClose = document.getElementById('sidebarClose');
     const sidebarOverlay = document.getElementById('sidebarOverlay');
-    sidebarToggle.addEventListener('click', () => {
-      sidebarMenu.classList.add('open');
-      sidebarOverlay.classList.add('open');
-      sidebarToggle.classList.add('hide');
-      document.body.classList.add('sidebar-open');
-    });
-    sidebarClose.addEventListener('click', () => {
-      sidebarMenu.classList.remove('open');
-      sidebarOverlay.classList.remove('open');
-      sidebarToggle.classList.remove('hide');
-      document.body.classList.remove('sidebar-open');
-    });
-    sidebarOverlay.addEventListener('click', () => {
-      sidebarMenu.classList.remove('open');
-      sidebarOverlay.classList.remove('open');
-      sidebarToggle.classList.remove('hide');
-      document.body.classList.remove('sidebar-open');
-    });
+
+    // Guard each listener in case some pages don't include the toggle button
+    if (sidebarToggle) {
+      sidebarToggle.addEventListener('click', () => {
+        if (sidebarMenu) sidebarMenu.classList.add('open');
+        if (sidebarOverlay) sidebarOverlay.classList.add('open');
+        sidebarToggle.classList.add('hide');
+        document.body.classList.add('sidebar-open');
+      });
+    }
+
+    if (sidebarClose) {
+      sidebarClose.addEventListener('click', () => {
+        if (sidebarMenu) sidebarMenu.classList.remove('open');
+        if (sidebarOverlay) sidebarOverlay.classList.remove('open');
+        if (sidebarToggle) sidebarToggle.classList.remove('hide');
+        document.body.classList.remove('sidebar-open');
+      });
+    }
+
+    if (sidebarOverlay) {
+      sidebarOverlay.addEventListener('click', () => {
+        if (sidebarMenu) sidebarMenu.classList.remove('open');
+        if (sidebarOverlay) sidebarOverlay.classList.remove('open');
+        if (sidebarToggle) sidebarToggle.classList.remove('hide');
+        document.body.classList.remove('sidebar-open');
+      });
+    }
 
     // Product card scroll animation (works both ways)
     document.addEventListener('DOMContentLoaded', () => {

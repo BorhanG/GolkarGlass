@@ -1,0 +1,22 @@
+/* Shared signed-in header styles */
+:root{--accent:#d4af37;--muted:#888;--dark:#222}
+.header{background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);color:#fff;padding:1rem 0;position:fixed;width:100%;top:0;left:0;right:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,0.1);height:88px}
+.nav-container{width:100%;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 1.5rem;height:100%;position:relative}
+.logo{font-family:'Noto Nastaliq Urdu',serif;font-size:1.6rem;font-weight:600;color:var(--accent);padding-bottom:8px}
+.nav-menu{display:flex;list-style:none;gap:1rem;margin-right:1.5rem;align-items:center}
+.nav-menu a{color:#fff;text-decoration:none;font-weight:400;transition:color .2s}
+.nav-menu a:hover{color:var(--accent)}
+.nav-separator{display:flex;align-items:center;width:1.5px;height:28px;background:var(--accent);margin:0 .6rem}
+.sidebar-toggle{display:none;position:fixed;top:0.9rem;left:0.9rem;z-index:2101;width:34px;height:34px;background:none;border:none;flex-direction:column;justify-content:center;align-items:center;cursor:pointer;gap:5px}
+.sidebar-toggle span{display:block;width:22px;height:3px;background:var(--accent);border-radius:2px;transition:all .3s}
+.user-profile-dropdown{position:relative}
+.user-profile-btn{background:none;border:none;color:#fff;display:flex;gap:.5rem;align-items:center;cursor:pointer}
+.user-dropdown-menu{position:absolute;top:110%;left:auto;right:0;background:#fff;color:#222;border-radius:10px;padding:0.8rem;min-width:220px;box-shadow:0 8px 30px rgba(0,0,0,0.12);opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .18s}
+.user-profile-dropdown.active .user-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.user-avatar{width:34px;height:34px;border-radius:50%;background:rgba(212,175,55,0.12);display:flex;align-items:center;justify-content:center}
+.user-avatar-large{width:48px;height:48px;border-radius:50%;background:linear-gradient(90deg,var(--accent),#b8941f);color:#fff;display:flex;align-items:center;justify-content:center}
+.user-name-large{font-weight:700}
+.dropdown-item{display:flex;gap:.6rem;align-items:center;padding:.5rem;border-radius:8px;color:#222;text-decoration:none}
+.dropdown-item:hover{background:#f6f5f2}
+.cart-badge{background:#e74c3c;color:#fff;border-radius:999px;padding:2px 8px;font-size:.8rem}
+@media (max-width:900px){.nav-menu{display:none}.sidebar-toggle{display:flex}}
