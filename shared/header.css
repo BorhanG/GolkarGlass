@@ -1,22 +1,887 @@
-/* Shared signed-in header styles */
-:root{--accent:#d4af37;--muted:#888;--dark:#222}
-.header{background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);color:#fff;padding:1rem 0;position:fixed;width:100%;top:0;left:0;right:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,0.1);height:88px}
-.nav-container{width:100%;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 1.5rem;height:100%;position:relative}
-.logo{font-family:'Noto Nastaliq Urdu',serif;font-size:1.6rem;font-weight:600;color:var(--accent);padding-bottom:8px}
-.nav-menu{display:flex;list-style:none;gap:1rem;margin-right:1.5rem;align-items:center}
-.nav-menu a{color:#fff;text-decoration:none;font-weight:400;transition:color .2s}
-.nav-menu a:hover{color:var(--accent)}
-.nav-separator{display:flex;align-items:center;width:1.5px;height:28px;background:var(--accent);margin:0 .6rem}
-.sidebar-toggle{display:none;position:fixed;top:0.9rem;left:0.9rem;z-index:2101;width:34px;height:34px;background:none;border:none;flex-direction:column;justify-content:center;align-items:center;cursor:pointer;gap:5px}
-.sidebar-toggle span{display:block;width:22px;height:3px;background:var(--accent);border-radius:2px;transition:all .3s}
-.user-profile-dropdown{position:relative}
-.user-profile-btn{background:none;border:none;color:#fff;display:flex;gap:.5rem;align-items:center;cursor:pointer}
-.user-dropdown-menu{position:absolute;top:110%;left:auto;right:0;background:#fff;color:#222;border-radius:10px;padding:0.8rem;min-width:220px;box-shadow:0 8px 30px rgba(0,0,0,0.12);opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .18s}
-.user-profile-dropdown.active .user-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
-.user-avatar{width:34px;height:34px;border-radius:50%;background:rgba(212,175,55,0.12);display:flex;align-items:center;justify-content:center}
-.user-avatar-large{width:48px;height:48px;border-radius:50%;background:linear-gradient(90deg,var(--accent),#b8941f);color:#fff;display:flex;align-items:center;justify-content:center}
-.user-name-large{font-weight:700}
-.dropdown-item{display:flex;gap:.6rem;align-items:center;padding:.5rem;border-radius:8px;color:#222;text-decoration:none}
-.dropdown-item:hover{background:#f6f5f2}
-.cart-badge{background:#e74c3c;color:#fff;border-radius:999px;padding:2px 8px;font-size:.8rem}
-@media (max-width:900px){.nav-menu{display:none}.sidebar-toggle{display:flex}}
+.header {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    height: 113px;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    height: 100%;
+    position: relative;
+}
+
+.logo {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #d4af37;
+    padding-bottom: 20px;
+    margin-right: 1.9rem;
+    animation: neonGlow 2s ease-in-out infinite alternate;
+    text-shadow: 
+        0 0 5px #d4af37,
+        0 0 10px #d4af37,
+        0 0 15px #d4af37,
+        0 0 20px #d4af37;
+}
+
+@keyframes neonGlow {
+    0% {
+        text-shadow: 
+            0 0 5px #d4af37,
+            0 0 10px #d4af37,
+            0 0 15px #d4af37,
+            0 0 20px #d4af37;
+    }
+    100% {
+        text-shadow: 
+            0 0 10px #d4af37,
+            0 0 20px #d4af37,
+            0 0 30px #d4af37,
+            0 0 40px #d4af37,
+            0 0 50px #d4af37;
+    }
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.2rem;
+    margin-right: 6rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+    font-size: 1.15rem;
+}
+
+.nav-menu a:hover {
+    color: #d4af37;
+}
+
+.nav-separator {
+  display: flex;
+  align-items: center;
+  width: 1.5px;
+  height: 28px;
+  background: #d4af37;
+  margin: 0 0.6rem;
+}
+.user-profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.user-profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(.4,2,.3,1);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    outline: none;
+    min-height: 40px;
+    animation: buttonGlow 2s ease-in-out infinite alternate;
+}
+.user-profile-btn:focus {
+    outline: 2px solid rgba(212, 175, 55, 0.5);
+    outline-offset: 2px;
+}
+.user-profile-btn:focus-visible {
+    outline: 2px solid rgba(212, 175, 55, 0.8);
+    outline-offset: 2px;
+}
+.user-profile-btn:hover {
+    background: linear-gradient(135deg, #b8941f 0%, #d4af37 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+.user-profile-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+@keyframes buttonGlow {
+    0% { box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2); }
+    100% { box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4), 0 0 20px rgba(212, 175, 55, 0.2); }
+}
+.user-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+.user-profile-btn:hover .user-avatar {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+.user-name {
+    font-weight: 600;
+    white-space: nowrap;
+}
+.dropdown-arrow {
+    color: #fff;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+.user-profile-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+.user-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    left: auto;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    min-width: 280px;
+    width: max-content;
+    max-width: 95vw;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px) scale(0.95);
+    transition: all 0.4s cubic-bezier(.4,2,.3,1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    z-index: 1000;
+    overflow: hidden;
+    max-height: calc(100vh - 120px) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: #d4af37 rgba(255,255,255,0.05);
+}
+.user-profile-dropdown:hover .user-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+@media (max-width: 600px) {
+    .user-dropdown-menu {
+        left: 0;
+        right: 0;
+        min-width: unset;
+        width: 98vw;
+        max-width: 98vw;
+        border-radius: 0 0 16px 16px;
+        top: 100%;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+}
+@media (min-width: 601px) {
+    .user-dropdown-menu {
+        right: 0;
+        left: auto;
+        transform-origin: top right;
+    }
+    .user-profile-dropdown {
+        position: relative;
+    }
+}
+
+.dropdown-header {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(184, 148, 31, 0.1) 100%);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.user-avatar-large {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.user-name-large {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.user-email {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.dropdown-separator {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.3) 50%, transparent 100%);
+    margin: 0.5rem 0;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: slideInRight 0.3s ease forwards;
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.dropdown-item:nth-child(1) { animation-delay: 0.1s; }
+.dropdown-item:nth-child(2) { animation-delay: 0.15s; }
+.dropdown-item:nth-child(3) { animation-delay: 0.2s; }
+.dropdown-item:nth-child(4) { animation-delay: 0.25s; }
+.dropdown-item:nth-child(5) { animation-delay: 0.3s; }
+.dropdown-item:nth-child(6) { animation-delay: 0.35s; }
+.dropdown-item:nth-child(7) { animation-delay: 0.4s; }
+.dropdown-item:nth-child(8) { animation-delay: 0.45s; }
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.dropdown-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.2) 0%, transparent 100%);
+    transition: width 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(184, 148, 31, 0.1) 100%);
+    color: #d4af37;
+    transform: translateX(-5px);
+    box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.2);
+}
+
+.dropdown-item:active {
+    transform: translateX(-3px) scale(0.98);
+    transition: all 0.1s ease;
+}
+
+.dropdown-item:focus {
+    outline: 2px solid rgba(212, 175, 55, 0.5);
+    outline-offset: -2px;
+}
+
+.dropdown-item:focus-visible {
+    outline: 2px solid rgba(212, 175, 55, 0.8);
+    outline-offset: -2px;
+}
+
+.dropdown-item:hover::before {
+    width: 100%;
+}
+
+.dropdown-item i {
+    width: 20px;
+    text-align: center;
+    color: #d4af37;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover i {
+    color: #d4af37;
+    transform: scale(1.1);
+}
+
+.dropdown-item span {
+    flex: 1;
+    font-weight: 500;
+}
+
+.cart-badge {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    min-width: 20px;
+    text-align: center;
+    animation: pulse 2s infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.cart-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.logout-item {
+    color: #e74c3c !important;
+    border-top: 1px solid rgba(231, 76, 60, 0.2);
+    margin-top: 0.5rem;
+}
+
+.logout-item i {
+    color: #e74c3c !important;
+}
+
+.logout-item:hover {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(192, 57, 43, 0.1) 100%) !important;
+    color: #e74c3c !important;
+}
+
+/* Sidebar User Profile Styles */
+.sidebar-user-profile {
+    margin-top: 1rem;
+}
+
+.sidebar-user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(184, 148, 31, 0.1) 100%);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.sidebar-user-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.sidebar-user-name {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.sidebar-user-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.sidebar-user-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.sidebar-user-item:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: #d4af37;
+    transform: translateX(-3px);
+}
+
+.sidebar-user-item i {
+    width: 18px;
+    text-align: center;
+    color: #d4af37;
+}
+
+.sidebar-user-item.logout-item {
+    color: #e74c3c;
+    border-top: 1px solid rgba(231, 76, 60, 0.2);
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+}
+
+.sidebar-user-item.logout-item i {
+    color: #e74c3c;
+}
+
+.sidebar-user-item.logout-item:hover {
+    background: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+}
+
+/* Responsive Design for User Profile Dropdown */
+@media (max-width: 992px) {
+    .user-profile-dropdown {
+        display: none;
+    }
+    
+    .sidebar-user-profile {
+        display: block;
+    }
+}
+
+/* Touch-friendly interactions for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .user-profile-dropdown {
+        position: relative;
+    }
+    
+    .user-dropdown-menu {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.9);
+        max-height: 80vh;
+        overflow-y: auto;
+        border-radius: 20px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    }
+    
+    .user-profile-dropdown.active .user-dropdown-menu {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    
+    .user-profile-btn {
+        animation: none;
+    }
+    
+    .user-profile-btn:active {
+        transform: scale(0.95);
+    }
+}
+
+@media (max-width: 768px) {
+    .user-dropdown-menu {
+        min-width: 260px;
+        right: -20px;
+    }
+    
+    .dropdown-header {
+        padding: 1.2rem;
+    }
+    
+    .user-avatar-large {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .user-name-large {
+        font-size: 1rem;
+    }
+    
+    .user-email {
+        font-size: 0.8rem;
+    }
+    
+    .dropdown-item {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .user-dropdown-menu {
+        min-width: 240px;
+        right: -30px;
+    }
+    
+    .dropdown-header {
+        padding: 1rem;
+    }
+    
+    .user-info {
+        gap: 0.8rem;
+    }
+    
+    .user-avatar-large {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+    
+    .dropdown-item {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .user-dropdown-menu {
+        min-width: 220px;
+        right: -40px;
+    }
+    
+    .dropdown-header {
+        padding: 0.8rem;
+    }
+    
+    .user-avatar-large {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+    
+    .dropdown-item {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+/* Force dropdown to fit screen height */
+.user-dropdown-menu {
+    max-height: calc(100vh - 40px) !important; /* subtract header margin */
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #d4af37 rgba(255,255,255,0.05);
+}
+
+/* Scrollbar for WebKit browsers */
+.user-dropdown-menu::-webkit-scrollbar {
+    width: 6px;
+}
+.user-dropdown-menu::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 3px;
+}
+.user-dropdown-menu::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 3px;
+}
+.user-dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: #b8941f;
+}
+/* Improved dropdown: fits viewport, clean spacing, shows last item */
+.user-dropdown-menu {
+    max-height: calc(100vh - 40px) !important; /* prevents clipping off-screen */
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    padding-bottom: 1rem; /* breathing room at bottom so sign-out isn't hidden */
+    scrollbar-width: thin;
+    scrollbar-color: #d4af37 rgba(255,255,255,0.05);
+}
+
+/* Keep avatar area intact and centered */
+.dropdown-header {
+    padding: 1.2rem 1rem; /* more even padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Add breathing space between items */
+.dropdown-item {
+    padding: 0.9rem 1.3rem;
+}
+
+/* Scrollbar for WebKit browsers */
+.user-dropdown-menu::-webkit-scrollbar {
+    width: 6px;
+}
+.user-dropdown-menu::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 3px;
+}
+.user-dropdown-menu::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 3px;
+}
+.user-dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: #b8941f;
+}
+/* Improved Dropdown with proper spacing and visibility */
+.user-dropdown-menu {
+    max-height: calc(100vh - 120px) !important; /* Allow space for header and extra padding */
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    padding-bottom: 1rem; /* ensures the last button is not hidden */
+    scrollbar-width: thin;
+    scrollbar-color: #d4af37 rgba(255,255,255,0.05);
+}
+
+/* Avatar and profile name at the top: preventing overlap */
+.dropdown-header {
+    padding: 1.5rem 1.2rem; /* ensuring more space */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-start;
+}
+
+/* Avatar styling */
+.user-avatar-large {
+    width: 48px;
+    height: 48px;
+    font-size: 1.6rem;
+    background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Breathing room for each dropdown item */
+.dropdown-item {
+    padding: 0.8rem 1.3rem;
+    margin-bottom: 0.5rem; /* Space between each item */
+    border-radius: 8px;
+}
+
+/* Adding smooth scrolling behavior */
+.user-dropdown-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.user-dropdown-menu::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 3px;
+}
+
+.user-dropdown-menu::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 3px;
+}
+
+.user-dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: #b8941f;
+}
+/* Increase space for email next to avatar */
+.dropdown-header {
+    padding: 1.5rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-start;
+    flex-wrap: wrap; /* Allows wrapping when space is tight */
+}
+
+/* Fix for user email, ensuring it fits within the available space */
+.user-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    max-width: calc(100% - 70px); /* Prevents email from being cut off */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds "..." if the text overflows */
+}
+
+/* Make sure email text is fully visible */
+.user-email {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Fix: Keep user dropdown fully within viewport on RTL and small screens */
+.user-profile-dropdown {
+    position: relative;
+}
+/* Default (LTR) align to the right of trigger and open leftwards */
+.user-dropdown-menu {
+    right: 0;
+    left: auto;
+    max-width: min(92vw, 360px);
+    width: max-content;
+    transform-origin: top right;
+}
+/* RTL: align to the left of trigger and open rightwards into the screen */
+[dir="rtl"] .user-dropdown-menu {
+    right: auto;
+    left: 0;
+    transform-origin: top left;
+}
+/* Override earlier negative offsets that pushed the menu off-screen */
+@media (max-width: 768px) {
+    .user-dropdown-menu {
+        right: 0 !important;
+        left: auto;
+    }
+    [dir="rtl"] .user-dropdown-menu {
+        left: 0 !important;
+        right: auto;
+    }
+}
+@media (max-width: 600px) {
+    .user-dropdown-menu {
+        left: 0 !important;
+        right: 0 !important;
+        min-width: unset;
+        width: 96vw;
+        max-width: 96vw;
+        border-radius: 0 0 16px 16px;
+    }
+}
+
+/* Final dropdown viewport safety overrides (highest precedence) */
+/* Fix left-side overflow using logical properties (RTL-safe even if dir is set via CSS) */
+.user-profile-dropdown { position: relative !important; }
+.user-profile-dropdown .user-dropdown-menu {
+  /* neutralize physical offsets */
+  left: auto !important;
+  right: auto !important;
+  /* anchor to inline end (right in LTR, left in RTL) */
+  inset-inline-end: 0 !important;
+  inset-inline-start: auto !important;
+  /* fit within viewport */
+  max-width: min(92vw, 360px) !important;
+  max-inline-size: min(92vw, 360px) !important;
+  width: max-content !important;
+  box-sizing: border-box !important;
+  transform-origin: top right !important;
+}
+/* When document is RTL by computed direction, adjust transform origin */
+:dir(rtl) .user-profile-dropdown .user-dropdown-menu {
+  transform-origin: top left !important;
+}
+/* Small screens: pin to both sides so it can't overflow left or right */
+@media (max-width: 600px) {
+  .user-profile-dropdown .user-dropdown-menu {
+    inset-inline-start: 0 !important;
+    inset-inline-end: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    min-width: unset !important;
+    width: auto !important;
+    max-width: 96vw !important;
+    max-inline-size: 96vw !important;
+    border-radius: 0 0 16px 16px !important;
+  }
+}
+/* Hamburger button styles */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 0.7rem;
+  left: 0.7rem;
+  z-index: 2101;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  gap: 5px;
+}
+.sidebar-toggle span {
+  display: block;
+  width: 20px;
+  height: 3px;
+  background: #d4af37;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.sidebar-toggle.hide {
+  display: none !important;
+}
+
+.sidebar-separator {
+  width: 100%;
+  height: 1.5px;
+  background: #d4af37;
+  margin: 0.7rem 0;
+  border-radius: 2px;
+}
+
+.sidebar-signin-btn {
+  display: none !important;
+  width: 80%;
+  margin: 0.5rem auto 0 auto;
+  background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+  color: #fff !important;
+  padding: 0.7rem 0;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.12);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  border: none;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+}
+
+.sidebar-signin-btn:hover, .sidebar-signin-btn:focus {
+  background: linear-gradient(135deg, #b8941f 0%, #d4af37 100%);
+  color: #222 !important;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.22);
+}
