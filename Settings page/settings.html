@@ -86,7 +86,7 @@
             </section>
             <form id="settingsForm" class="settings-form-horizontal">
                 <div class="settings-section animated-section theme-transition">
-                    <h3 class="settings-section-title"><i class="fas fa-cogs"></i> تنظیمات عمومی</h3>
+                    <h2 class="settings-section-title"><i class="fas fa-cogs"></i> تنظیمات عمومی</h2>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="currency">واحد پول</label>
@@ -106,14 +106,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="notifications">اعلان‌ها</label>
-                            <select id="notifications" name="notifications">
-                                <option value="on">فعال</option>
-                                <option value="off">غیرفعال</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
+                        <div class="form-group lang-option">
                             <label for="language">زبان سایت</label>
                             <select id="language" name="language">
                                 <option value="fa">فارسی</option>
@@ -121,10 +114,21 @@
                                 <option value="ar">العربية</option>
                             </select>
                         </div>
+                        <div class="form-group notif-button">
+                            <label for="notifications">اعلان‌ها</label>
+                            <div class="checkBoox">
+                                <label class="form-group">فعال</label>
+                                <input type="checkbox" id="notifications" name="notifications">
+                                <label class="form-group">غیر فعال</label>
+                                <input type="checkbox" id="notifications" name="notifications">
+                            </input>
+                            </div>
+                            
+                        </div>
                     </div>
                 </div>
                 <div class="settings-section animated-section">
-                    <h3 class="settings-section-title"><i class="fas fa-key"></i> تغییر رمز عبور</h3>
+                    <h2 class="settings-section-title"><i class="fas fa-key"></i> تغییر رمز عبور</h2>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="oldPassword">رمز فعلی</label>
@@ -141,28 +145,30 @@
                     </div>
                     <button type="button" class="settings-password-btn theme-transition"><i class="fas fa-save"></i> تغییر رمز</button>
                 </div>
-                <div class="settings-section animated-section">
-                    <h3 class="settings-section-title"><i class="fas fa-map-marker-alt"></i> آدرس‌های ذخیره شده</h3>
+                <div class="info-section">
+                <div class="settings-section-address settings-section  animated-section">
+                    <h2 class="settings-section-title"><i class="fas fa-map-marker-alt"></i> آدرس‌های ذخیره شده</h2>
                     <div id="addressesList" class="addresses-list"></div>
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" id="newAddress" placeholder="آدرس جدید">
                         </div>
-                        <button type="button" class="settings-add-address-btn theme-transition"><i class="fas fa-plus"></i> افزودن آدرس</button>
+                        <button type="button" class="settings-add-address-btn theme-transition address-button"><i class="fas fa-plus"></i> افزودن آدرس</button>
                     </div>
                 </div>
-                <div class="settings-section animated-section">
-                    <h3 class="settings-section-title"><i class="fas fa-credit-card"></i> کارت‌های ذخیره شده</h3>
+                <div class="settings-section-card settings-section animated-section">
+                    <h2 class="settings-section-title"><i class="fas fa-credit-card"></i> کارت‌های ذخیره شده</h2>
                     <div id="cardsList" class="cards-list"></div>
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" id="newCard" placeholder="شماره کارت جدید (مثال: 6037-9912-3456-7890)">
                         </div>
-                        <button type="button" class="settings-add-card-btn theme-transition"><i class="fas fa-plus"></i> افزودن کارت</button>
+                        <button type="button" class="settings-add-card-btn theme-transition card-button"><i class="fas fa-plus"></i> افزودن کارت</button>
                     </div>
                 </div>
+            </div>
                 <div class="settings-section animated-section danger-section theme-transition">
-                    <h3 class="settings-section-title"><i class="fas fa-user-times"></i> حذف حساب کاربری</h3>
+                    <h2 class="settings-section-title"><i class="fas fa-user-times"></i> حذف حساب کاربری</h2>
                     <button type="button" class="settings-delete-btn theme-transition"><i class="fas fa-trash"></i> حذف حساب</button>
                 </div>
                 <div class="form-actions">

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبد خرید - گلکارگلس</title>
+    <link rel="icon" type="image/x-icon" href="/Main page signed in/icon.png">
+    <link rel="stylesheet" href="shopping-cart.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="/Main page signed in/GolkarGlass.html">
+                    <img src="/Main page signed in/icon.png" alt="گلکارگلس" class="brand-logo">
+                    <span class="brand-name">گلکارگلس</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="/Main page signed in/GolkarGlass.html">خانه</a></li>
+                <li><a href="/About page/About.html">درباره ما</a></li>
+                <li><a href="/Product page/products.html">محصولات</a></li>
+                <li><a href="/Main page signed in/GolkarGlass.html#testimonials">نظرات</a></li>
+                <li class="nav-separator"></li>
+                <li class="user-profile-dropdown">
+                    <button class="user-profile-btn">
+                        <span class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="user-name">کاربر عزیز</span>
+                        <span class="dropdown-arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div class="user-dropdown-menu">
+                        <div class="dropdown-header">
+                            <div class="user-info">
+                                <span class="user-avatar-large">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <div class="user-details">
+                                    <span class="user-name-large">کاربر عزیز</span>
+                                    <span class="user-email">user@golkarglass.com</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-separator"></div>
+                        <a href="/Dashboard page/dashboard.html" class="dropdown-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>داشبورد</span>
+                        </a>
+                        <a href="/Shopping-Cart-page/shopping-cart.html" class="dropdown-item active">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>سبد خرید</span>
+                            <span class="cart-badge">3</span>
+                        </a>
+                        <a href="/Wishlist-page/wishlist.html" class="dropdown-item">
+                            <i class="fas fa-heart"></i>
+                            <span>علاقه‌مندی‌ها</span>
+                        </a>
+                        <a href="/Orders-page/orders.html" class="dropdown-item">
+                            <i class="fas fa-box"></i>
+                            <span>سفارشات من</span>
+                        </a>
+                        <a href="/Profile-page/profile.html" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>پروفایل</span>
+                        </a>
+                        <a href="/Settings-page/settings.html" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            <span>تنظیمات</span>
+                        </a>
+                        <div class="dropdown-separator"></div>
+                        <a href="#" class="dropdown-item logout-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>خروج</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar for mobile -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-brand">
+                <img src="/Main page signed in/icon.png" alt="گلکارگلس" class="brand-logo">
+                <span class="brand-name">گلکارگلس</span>
+            </div>
+            <button class="sidebar-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="/Main page signed in/GolkarGlass.html">خانه</a></li>
+            <li><a href="/About page/About.html">درباره ما</a></li>
+            <li><a href="/Product page/products.html">محصولات</a></li>
+            <li><a href="/Main page signed in/GolkarGlass.html#testimonials">نظرات</a></li>
+            <li class="sidebar-separator"></li>
+            <li class="sidebar-user-item">
+                <div class="sidebar-user-info">
+                    <span class="sidebar-user-avatar">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <div class="sidebar-user-details">
+                        <span class="sidebar-user-name">کاربر عزیز</span>
+                        <span class="sidebar-user-email">user@golkarglass.com</span>
+                    </div>
+                </div>
+            </li>
+            <li><a href="/Dashboard page/dashboard.html" class="sidebar-link">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>داشبورد</span>
+            </a></li>
+            <li><a href="/Shopping-Cart-page/shopping-cart.html" class="sidebar-link active">
+                <i class="fas fa-shopping-cart"></i>
+                <span>سبد خرید</span>
+            </a></li>
+            <li><a href="/Wishlist-page/wishlist.html" class="sidebar-link">
+                <i class="fas fa-heart"></i>
+                <span>علاقه‌مندی‌ها</span>
+            </a></li>
+            <li><a href="/Orders-page/orders.html" class="sidebar-link">
+                <i class="fas fa-box"></i>
+                <span>سفارشات من</span>
+            </a></li>
+            <li><a href="/Profile-page/profile.html" class="sidebar-link">
+                <i class="fas fa-user-edit"></i>
+                <span>پروفایل</span>
+            </a></li>
+            <li><a href="/Settings-page/settings.html" class="sidebar-link">
+                <i class="fas fa-cog"></i>
+                <span>تنظیمات</span>
+            </a></li>
+            <li class="sidebar-separator"></li>
+            <li><a href="#" class="sidebar-link logout-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>خروج</span>
+            </a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="cart-main">
+        <div class="cart-container">
+            <div class="cart-header">
+                <h1 class="cart-title">سبد خرید</h1>
+                <p class="cart-subtitle">محصولات انتخاب شده شما</p>
+            </div>
+
+            <div class="cart-content">
+                <div class="cart-items-section">
+                    <div class="cart-items-header">
+                        <h2>محصولات سبد خرید</h2>
+                        <button class="clear-cart-btn" id="clearCartBtn">
+                            <i class="fas fa-trash-alt"></i>
+                            پاک کردن سبد
+                        </button>
+                    </div>
+                    
+                    <div class="cart-items" id="cartItems">
+                        <!-- Cart items will be loaded here -->
+                    </div>
+                    
+                    <div class="empty-cart-message" id="emptyCartMessage" style="display: none;">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>سبد خرید شما خالی است</h3>
+                        <p>برای مشاهده محصولات، به صفحه محصولات بروید</p>
+                        <a href="/Product page/products.html" class="continue-shopping-btn">
+                            <i class="fas fa-arrow-left"></i>
+                            ادامه خرید
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cart-summary-section">
+                    <div class="cart-summary">
+                        <h3>خلاصه سفارش</h3>
+                        
+                        <div class="summary-item">
+                            <span>تعداد محصولات:</span>
+                            <span id="totalItems">0</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>جمع کل:</span>
+                            <span id="subtotal">0 تومان</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>هزینه ارسال:</span>
+                            <span id="shipping">رایگان</span>
+                        </div>
+                        
+                        <div class="summary-item discount">
+                            <span>تخفیف:</span>
+                            <span id="discount">-0 تومان</span>
+                        </div>
+                        
+                        <div class="summary-total">
+                            <span>مبلغ قابل پرداخت:</span>
+                            <span id="totalAmount">0 تومان</span>
+                        </div>
+                        
+                        <div class="cart-actions">
+                            <button class="checkout-btn" id="checkoutBtn">
+                                <i class="fas fa-credit-card"></i>
+                                تکمیل خرید
+                            </button>
+                            <a href="/Product page/products.html" class="continue-shopping-btn">
+                                <i class="fas fa-arrow-left"></i>
+                                ادامه خرید
+                            </a>
+                        </div>
+                        
+                        <div class="cart-info">
+                            <div class="info-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>پرداخت امن</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-truck"></i>
+                                <span>ارسال رایگان</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-undo"></i>
+                                <span>بازگشت ۷ روزه</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="shopping-cart.js"></script>
+</body>
+</html>

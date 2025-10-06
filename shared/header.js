@@ -85,7 +85,7 @@
   document.head.appendChild(link);
 
   // Sidebar HTML (append to body if not present)
-  if (!document.getElementById("sidebarMenu")) {
+  
     const aside = document.createElement("aside");
     aside.id = "sidebarMenu";
     aside.className = "sidebar-menu";
@@ -152,7 +152,7 @@
     overlay.id = "sidebarOverlay";
     overlay.className = "sidebar-overlay";
     document.body.appendChild(overlay);
-  }
+  
 
   // Wire interactions
   document.addEventListener("DOMContentLoaded", () => {
