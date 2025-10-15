@@ -86,6 +86,12 @@ body {
     font-weight: 600;
     margin-bottom: 0.2rem;
 }
+input{
+    transition: all ease 0.4s;
+}
+input:focus{
+    box-shadow: 0px 5px 10px #ecc956;
+}
 .form-group input {
     border-radius: 8px;
     border: 1.5px solid #d4af37;

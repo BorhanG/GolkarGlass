@@ -105,8 +105,13 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
   // Modal handlers
+  const addBack=document.querySelector(".modal_back");
   addAddressBtn.addEventListener('click', ()=>{ modal.classList.remove('hidden'); });
+  addAddressBtn.addEventListener('click', ()=>{ modal.classList.add('show'); });
+  addAddressBtn.addEventListener('click', ()=>{ addBack.classList.remove('hidden'); });
+  addAddressBtn.addEventListener('click', ()=>{ addBack.classList.add('show'); });
   cancelAddress.addEventListener('click', ()=>{ modal.classList.add('hidden'); });
+  cancelAddress.addEventListener('click', ()=>{ modal.classList.remove('show'); });
 
   addressForm.addEventListener('submit', function(e){
     e.preventDefault();

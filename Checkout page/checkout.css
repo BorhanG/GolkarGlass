@@ -2,14 +2,14 @@
 :root {
   --accent: #d4af37;
   --muted: #888;
-  --bg: #fafafa;
+  --bg: #fafaface;
   --card: #fff;
   --dark: #222;
 }
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 html,
 body {
@@ -85,10 +85,15 @@ body {
   background: var(--card);
   border-radius: 12px;
   padding: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 7px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin-bottom: 20px;
 }
+.help-card,
+.address-card {
+  border-top: 4px solid #b8941fb3;
+}
+.address-card,
 .address-card h3,
 .payment-card h3,
 .order-summary h3 {
@@ -124,6 +129,7 @@ body {
   border: none;
   cursor: pointer;
   font-weight: 600;
+  transition: all ease 0.3s;
 }
 .btn.primary {
   background: var(--accent);
@@ -133,6 +139,9 @@ body {
   background: transparent;
   border: 1px solid #e9e6df;
   color: var(--dark);
+}
+.btn.ghost:hover {
+  background: #e7e7e7;
 }
 
 .payment-methods {
@@ -289,8 +298,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.35);
+  /* background: rgba(0, 0, 0, 0.35); */
   z-index: 9999;
+  /* bottom: -70vh; */
+}
+.modal_back.hidden {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: none;
+}
+.modal_back.show {
+  display: contents;
+}
+.modal.show {
+  bottom: 10rem;
+  box-shadow: 0 0 5px #b8941fb3;
 }
 .modal.hidden {
   display: none;
@@ -1264,8 +1291,8 @@ body {
   color: #fff;
   z-index: 2000;
   transform: translateX(-100%);
-  transition: transform 0.3s cubic-bezier(.4,2,.3,1);
-  box-shadow: 2px 0 16px rgba(0,0,0,0.15);
+  transition: transform 0.3s cubic-bezier(0.4, 2, 0.3, 1);
+  box-shadow: 2px 0 16px rgba(0, 0, 0, 0.15);
   padding-top: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -1311,7 +1338,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   z-index: 1500;
   opacity: 0;
   pointer-events: none;
@@ -1376,56 +1403,57 @@ body {
   text-decoration: none;
 }
 
-.sidebar-signin-btn:hover, .sidebar-signin-btn:focus {
+.sidebar-signin-btn:hover,
+.sidebar-signin-btn:focus {
   background: linear-gradient(135deg, #b8941f 0%, #d4af37 100%);
   color: #222 !important;
   box-shadow: 0 4px 16px rgba(212, 175, 55, 0.22);
 }
 
 @media (max-width: 1200px) {
-    .section {
-        max-width: 1000px;
-        padding: 4rem 1.5rem;
-    }
-    .products-grid {
-        gap: 1.5rem;
-    }
+  .section {
+    max-width: 1000px;
+    padding: 4rem 1.5rem;
+  }
+  .products-grid {
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 992px) {
-    .nav-menu {
-        display: none !important;
-    }
-    .logo{
-      font-size: 2.5rem !important;
-      margin-right: -1rem !important;
-    }
-    .sidebar-toggle {
-        display: flex !important;
-        margin-top: 1.8rem;
-        margin-left: 2rem;
-    }
-    .sidebar-menu {
-        display: flex;
-    }
-    .sidebar-overlay {
-        display: block;
-    }
-    .nav-menu {
-      gap: 1rem;
-      margin-right: 2rem;
-      align-items: center;
-    }
-    .nav-separator {
-      width: 1px;
-      height: 22px;
-      margin: 0 0.4rem;
-    }
-    .signin-btn {
-      font-size: 1rem;
-      padding: 0.4rem 1.1rem;
-      height: 32px;
-    }
+  .nav-menu {
+    display: none !important;
+  }
+  .logo {
+    font-size: 2.5rem !important;
+    margin-right: -1rem !important;
+  }
+  .sidebar-toggle {
+    display: flex !important;
+    margin-top: 1.8rem;
+    margin-left: 2rem;
+  }
+  .sidebar-menu {
+    display: flex;
+  }
+  .sidebar-overlay {
+    display: block;
+  }
+  .nav-menu {
+    gap: 1rem;
+    margin-right: 2rem;
+    align-items: center;
+  }
+  .nav-separator {
+    width: 1px;
+    height: 22px;
+    margin: 0 0.4rem;
+  }
+  .signin-btn {
+    font-size: 1rem;
+    padding: 0.4rem 1.1rem;
+    height: 32px;
+  }
 }
 
 @media (min-width: 993px) {
@@ -1437,348 +1465,339 @@ body {
 }
 
 @media (max-width: 768px) {
-    .header {
-        height: 83px;
-    }
-    .nav-menu {
-        display: none;
-    }
-    .sidebar-toggle {
-        display: flex !important;
-        margin-top: 0.9rem !important;
-        margin-left: 1rem !important;
-    }
-    .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0 1rem;
-        justify-content: center;
-        height: 100%;
-    }
-    .logo {
-        margin-right: 0;
-        font-size: 1.8rem !important;
-        padding-bottom: 8px;
-        margin-top: -1rem !important;
-        margin-left: 0.5rem !important;
-        animation: neonGlow 2s ease-in-out infinite alternate;
-        text-shadow: 
-            0 0 3px #d4af37,
-            0 0 6px #d4af37,
-            0 0 9px #d4af37,
-            0 0 12px #d4af37;
-    }
-    .hero {
-        height: 50vh;
-        margin-top: 83px;
-    }
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    .hero-content p {
-        font-size: 1rem;
-    }
-    .cta-button {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-    }
-    .section {
-        padding: 2rem 1rem;
-    }
-    .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-    }
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    .about-text h3 {
-        font-size: 1.5rem;
-    }
-    .about-text p {
-        font-size: 1rem;
-    }
-    .about-image {
-        height: 250px;
-    }
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    .contact-section {
-        padding: 3rem 1rem;
-    }
-    .contact-info h3 {
-        font-size: 1.5rem;
-    }
-    .contact-info p {
-        font-size: 1rem;
-    }
-    .contact-form input,
-    .contact-form textarea {
-        padding: 0.8rem;
-        font-size: 1rem;
-    }
-    .contact-form button {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-    }
-    .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-    .product-card {
-        min-height: 420px;
-        border-radius: 1.5rem;
-    }
-    .product-image {
-        height: 200px;
-        border-top-left-radius: 1.5rem;
-        border-top-right-radius: 1.5rem;
-    }
-    .product-badge {
-        top: 231px;
-        left: 25px;
-        font-size: 0.8rem;
-        padding: 0.15rem 0.7rem;
-    }
-    .product-info {
-        padding: 1.2rem 1.2rem 0.8rem 1.2rem;
-    }
-    .product-title {
-        font-size: 1.1rem;
-    }
-    .product-description {
-        font-size: 0.9rem;
-    }
-    .product-bottom {
-        padding: 0 1.2rem 1.2rem 1.2rem;
-        min-height: 55px;
-    }
-    .cart-btn-container {
-        width: 40px;
-        height: 40px;
-        margin-left: -10px;
-    }
-    .cart-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 1.2rem;
-    }
-    .product-price {
-        font-size: 1.1rem;
-    }
-    .nav-menu {
-      gap: 0.7rem;
-      margin-right: 1rem;
-      align-items: center;
-    }
-    .nav-separator {
-      width: 1px;
-      height: 18px;
-      margin: 0 0.3rem;
-    }
-    .signin-btn {
-      font-size: 0.95rem;
-      padding: 0.3rem 0.7rem;
-      height: 26px;
-    }
+  .header {
+    height: 83px;
+  }
+  .nav-menu {
+    display: none;
+  }
+  .sidebar-toggle {
+    display: flex !important;
+    margin-top: 0.9rem !important;
+    margin-left: 1rem !important;
+  }
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 1rem;
+    justify-content: center;
+    height: 100%;
+  }
+  .logo {
+    margin-right: 0;
+    font-size: 1.8rem !important;
+    padding-bottom: 8px;
+    margin-top: -1rem !important;
+    margin-left: 0.5rem !important;
+    animation: neonGlow 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 3px #d4af37, 0 0 6px #d4af37, 0 0 9px #d4af37,
+      0 0 12px #d4af37;
+  }
+  .hero {
+    height: 50vh;
+    margin-top: 83px;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  .section {
+    padding: 2rem 1rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-text h3 {
+    font-size: 1.5rem;
+  }
+  .about-text p {
+    font-size: 1rem;
+  }
+  .about-image {
+    height: 250px;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .contact-section {
+    padding: 3rem 1rem;
+  }
+  .contact-info h3 {
+    font-size: 1.5rem;
+  }
+  .contact-info p {
+    font-size: 1rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+  .contact-form button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .product-card {
+    min-height: 420px;
+    border-radius: 1.5rem;
+  }
+  .product-image {
+    height: 200px;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+  }
+  .product-badge {
+    top: 231px;
+    left: 25px;
+    font-size: 0.8rem;
+    padding: 0.15rem 0.7rem;
+  }
+  .product-info {
+    padding: 1.2rem 1.2rem 0.8rem 1.2rem;
+  }
+  .product-title {
+    font-size: 1.1rem;
+  }
+  .product-description {
+    font-size: 0.9rem;
+  }
+  .product-bottom {
+    padding: 0 1.2rem 1.2rem 1.2rem;
+    min-height: 55px;
+  }
+  .cart-btn-container {
+    width: 40px;
+    height: 40px;
+    margin-left: -10px;
+  }
+  .cart-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+  .product-price {
+    font-size: 1.1rem;
+  }
+  .nav-menu {
+    gap: 0.7rem;
+    margin-right: 1rem;
+    align-items: center;
+  }
+  .nav-separator {
+    width: 1px;
+    height: 18px;
+    margin: 0 0.3rem;
+  }
+  .signin-btn {
+    font-size: 0.95rem;
+    padding: 0.3rem 0.7rem;
+    height: 26px;
+  }
 }
 
 @media (max-width: 576px) {
-    .header {
-        padding: 0.5rem 0;
-        height: 70px;
-    }
-    
-    .sidebar-toggle {
-        display: flex !important;
-    }
-    .nav-container {
-        padding: 0 0.5rem;
-        align-items: flex-start;
-        justify-content: center;
-        height: 100%;
-    }
-    .logo {
-        font-size: 1.5rem !important;
-        margin-top: -1rem;
-        margin-right: 0.4rem !important;
-        animation: neonGlow 2s ease-in-out infinite alternate;
-        text-shadow: 
-            0 0 2px #d4af37,
-            0 0 4px #d4af37,
-            0 0 6px #d4af37,
-            0 0 8px #d4af37;
-    }
-    .sidebar-toggle{
-      margin-top: 0.28rem !important;
-    }
-    .hero {
-        height: 60vh;
-        margin-top: 70px;
-    }
-    .hero-content h1 {
-        font-size: 1.9rem;
-    }
-    .hero-content p {
-        font-size: 0.9rem;
-    }
-    .cta-button {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-    }
-    .section {
-        padding: 1.5rem 0.5rem;
-    }
-    .section-title {
-        font-size: 1.4rem;
-        margin-bottom: 1rem;
-    }
-    .product-card{
-        transform: scale(0.8);
-    }
-    .testimonial-card{
-        transform: scale(0.8);
-    }
-    .product-badge{
-        margin-top: -10px;
-    }
-    .about-text h3 {
-        font-size: 1.3rem;
-    }
-    .about-text p {
-        font-size: 0.9rem;
-    }
-    .about-image {
-        height: 200px;
-    }
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    .contact-section {
-        padding: 2rem 0.5rem;
-    }
-    .contact-info h3 {
-        font-size: 1.3rem;
-    }
-    .contact-info p {
-        font-size: 0.9rem;
-    }
-    .contact-form input,
-    .contact-form textarea {
-        padding: 0.7rem;
-        font-size: 0.9rem;
-    }
-    .contact-form button {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.9rem;
-    }
-    .nav-menu {
-      gap: 0.5rem;
-      margin-right: 0.5rem;
-      align-items: center;
-    }
-    .nav-separator {
-      width: 0.7px;
-      height: 14px;
-      margin: 0 0.18rem;
-    }
-    .signin-btn {
-      font-size: 0.85rem;
-      padding: 0.2rem 0.5rem;
-      height: 20px;
-    }
+  .header {
+    padding: 0.5rem 0;
+    height: 70px;
+  }
+
+  .sidebar-toggle {
+    display: flex !important;
+  }
+  .nav-container {
+    padding: 0 0.5rem;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+  }
+  .logo {
+    font-size: 1.5rem !important;
+    margin-top: -1rem;
+    margin-right: 0.4rem !important;
+    animation: neonGlow 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 2px #d4af37, 0 0 4px #d4af37, 0 0 6px #d4af37,
+      0 0 8px #d4af37;
+  }
+  .sidebar-toggle {
+    margin-top: 0.28rem !important;
+  }
+  .hero {
+    height: 60vh;
+    margin-top: 70px;
+  }
+  .hero-content h1 {
+    font-size: 1.9rem;
+  }
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+  .cta-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  .section {
+    padding: 1.5rem 0.5rem;
+  }
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .product-card {
+    transform: scale(0.8);
+  }
+  .testimonial-card {
+    transform: scale(0.8);
+  }
+  .product-badge {
+    margin-top: -10px;
+  }
+  .about-text h3 {
+    font-size: 1.3rem;
+  }
+  .about-text p {
+    font-size: 0.9rem;
+  }
+  .about-image {
+    height: 200px;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .contact-section {
+    padding: 2rem 0.5rem;
+  }
+  .contact-info h3 {
+    font-size: 1.3rem;
+  }
+  .contact-info p {
+    font-size: 0.9rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+  .contact-form button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  .nav-menu {
+    gap: 0.5rem;
+    margin-right: 0.5rem;
+    align-items: center;
+  }
+  .nav-separator {
+    width: 0.7px;
+    height: 14px;
+    margin: 0 0.18rem;
+  }
+  .signin-btn {
+    font-size: 0.85rem;
+    padding: 0.2rem 0.5rem;
+    height: 20px;
+  }
 }
 
 @media (max-width: 400px) {
-    .header {
-        height: 50px;
-    }
-    .sidebar-toggle {
-        display: flex !important;
-    }
-    .logo {
-        font-size: 1.2rem !important;
-        margin-top: -0.4rem !important;
-        margin-right: 0.4rem !important;
-        animation: neonGlow 2s ease-in-out infinite alternate;
-        text-shadow: 
-            0 0 1px #d4af37,
-            0 0 2px #d4af37,
-            0 0 3px #d4af37,
-            0 0 4px #d4af37;
-    }
-    .sidebar-toggle{
-      margin-top: -0.2rem !important;
-    }
-    .hero {
-        height: 60vh;
-        margin-top: 50px;
-    }
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-    .hero-content p {
-        font-size: 0.8rem;
-    }
-    .cta-button {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
-    }
-    .section {
-        padding: 1rem 0.3rem;
-    }
-    .section-title {
-        font-size: 1.5rem;
-        margin-bottom: 0.8rem;
-    }
-    .product-badge{
-        margin-top: -10px;
-    }
-    .product-card{
-        transform: scale(0.8);
-    }
-    .products-grid{
-        padding: 0px;
-    }
-    .testimonial-card{
-        transform: scale(0.8);
-    }
-    .about-text h3 {
-        font-size: 1.1rem;
-    }
-    .about-text p {
-        font-size: 0.8rem;
-    }
-    .about-image {
-        height: 150px;
-    }
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    .contact-section {
-        padding: 1.5rem 0.3rem;
-    }
-    .contact-info h3 {
-        font-size: 1.1rem;
-    }
-    .contact-info p {
-        font-size: 0.8rem;
-    }
-    .contact-form input,
-    .contact-form textarea {
-        padding: 0.6rem;
-        font-size: 0.8rem;
-    }
-    .contact-form button {
-        padding: 0.6rem 1rem;
-        font-size: 0.8rem;
-    }
+  .header {
+    height: 50px;
+  }
+  .sidebar-toggle {
+    display: flex !important;
+  }
+  .logo {
+    font-size: 1.2rem !important;
+    margin-top: -0.4rem !important;
+    margin-right: 0.4rem !important;
+    animation: neonGlow 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 1px #d4af37, 0 0 2px #d4af37, 0 0 3px #d4af37,
+      0 0 4px #d4af37;
+  }
+  .sidebar-toggle {
+    margin-top: -0.2rem !important;
+  }
+  .hero {
+    height: 60vh;
+    margin-top: 50px;
+  }
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .hero-content p {
+    font-size: 0.8rem;
+  }
+  .cta-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  .section {
+    padding: 1rem 0.3rem;
+  }
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  .product-badge {
+    margin-top: -10px;
+  }
+  .product-card {
+    transform: scale(0.8);
+  }
+  .products-grid {
+    padding: 0px;
+  }
+  .testimonial-card {
+    transform: scale(0.8);
+  }
+  .about-text h3 {
+    font-size: 1.1rem;
+  }
+  .about-text p {
+    font-size: 0.8rem;
+  }
+  .about-image {
+    height: 150px;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .contact-section {
+    padding: 1.5rem 0.3rem;
+  }
+  .contact-info h3 {
+    font-size: 1.1rem;
+  }
+  .contact-info p {
+    font-size: 0.8rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+  }
+  .contact-form button {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1788,87 +1807,87 @@ body {
 }
 
 @media only screen and (width: 768px) {
-  .logo{
+  .logo {
     margin-right: 0.4rem !important;
   }
-  .product-badge{
+  .product-badge {
     top: 223px;
   }
 }
 
 @media only screen and (width: 690px) {
-  .logo{
+  .logo {
     margin-right: 0.9rem !important;
   }
 }
 
 /* More Products Button Styles */
 .more-products-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 0rem 2rem 2rem 2rem;
-    background: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0rem 2rem 2rem 2rem;
+  background: #fafafa;
 }
 
 .more-products-btn {
-    background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
-    color: white;
-    padding: 1rem 2.5rem;
-    border: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-    font-family: 'Vazirmatn', sans-serif;
+  background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+  color: white;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "Vazirmatn", sans-serif;
 }
 
 .more-products-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 10px 10px 25px rgba(233, 188, 41, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 10px 10px 25px rgba(233, 188, 41, 0.3);
 }
 
 /* Responsive styles for the more products button and container */
 @media (max-width: 992px) {
-    .more-products-container {
-        padding: 2rem 1.5rem 0.5rem 1.5rem;
-    }
-    .more-products-btn {
-        padding: 0.8rem 2rem;
-        font-size: 1rem;
-    }
+  .more-products-container {
+    padding: 2rem 1.5rem 0.5rem 1.5rem;
+  }
+  .more-products-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
-    .more-products-container {
-        padding: 1.5rem 1rem 0.5rem 1rem;
-    }
-    .more-products-btn {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.95rem;
-    }
+  .more-products-container {
+    padding: 1.5rem 1rem 0.5rem 1rem;
+  }
+  .more-products-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 576px) {
-    .more-products-container {
-        padding: 1rem 0.5rem 0.3rem 0.5rem;
-    }
-    .more-products-btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-    }
+  .more-products-container {
+    padding: 1rem 0.5rem 0.3rem 0.5rem;
+  }
+  .more-products-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 400px) {
-    .more-products-container {
-        padding: 0.8rem 0.3rem 0.2rem 0.3rem;
-    }
-    .more-products-btn {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.8rem;
-    }
+  .more-products-container {
+    padding: 0.8rem 0.3rem 0.2rem 0.3rem;
+  }
+  .more-products-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
 }
