@@ -1,194 +1,273 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>تکمیل خرید - GolkarGlass</title>
-  <link rel="stylesheet" href="checkout.css">
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
-  <header class="header">
-        <nav class="nav-container">
-            <div class="logo">GolkarGlass</div>
-            <ul class="nav-menu">
-                <li><a href="#home">خانه</a></li>
-                <li><a href="/About page/About.html">درباره ما</a></li>
-                <li><a href="/Product page/products.html">محصولات</a></li>
-                <li><a href="#testimonials">نظرات</a></li>
-                <li class="nav-separator"></li>
-                <li class="user-profile-dropdown">
-                    <button class="user-profile-btn">
-                        <span class="user-avatar">
-                            <i class="fas fa-user"></i>
-                        </span>
-                        <span class="user-name">کاربر عزیز</span>
-                        <span class="dropdown-arrow">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </button>
-                    <div class="user-dropdown-menu">
-                        <div class="dropdown-header">
-                            <div class="user-info">
-                                <span class="user-avatar-large">
-                                    <i class="fas fa-user"></i>
-                                </span>
-                                <div class="user-details">
-                                    <span class="user-name-large">کاربر عزیز</span>
-                                    <span class="user-email">user@golkarglass.com</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown-separator"></div>
-                        <a href="/Dashboard page/dashboard.html" class="dropdown-item">
-                            <i class="fas fa-tachometer-alt"></i>
-                            <span>داشبورد</span>
-                        </a>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span>سبد خرید</span>
-                            <span class="cart-badge">3</span>
-                        </a>
-                        <a href="Wishlist page/wishlist.html" class="dropdown-item">
-                            <i class="fas fa-heart"></i>
-                            <span>علاقه‌مندی‌ها</span>
-                        </a>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-box"></i>
-                            <span>سفارشات من</span>
-                        </a>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-user-edit"></i>
-                            <span>پروفایل</span>
-                        </a>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-cog"></i>
-                            <span>تنظیمات</span>
-                        </a>
-                        <div class="dropdown-separator"></div>
-                        <a href="#" class="dropdown-item logout-item">
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span>خروج</span>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>تکمیل خرید - GolkarGlass</title>
+    <link rel="stylesheet" href="checkout.css" />
+    <link rel="stylesheet" href="/Assets/Css/util.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav-container">
+        <div class="logo">GolkarGlass</div>
+        <ul class="nav-menu">
+          <li><a href="#home">خانه</a></li>
+          <li><a href="/About page/About.html">درباره ما</a></li>
+          <li><a href="/Product page/products.html">محصولات</a></li>
+          <li><a href="#testimonials">نظرات</a></li>
+          <li class="nav-separator"></li>
+          <li class="user-profile-dropdown">
+            <button class="user-profile-btn">
+              <span class="user-avatar">
+                <i class="fas fa-user"></i>
+              </span>
+              <span class="user-name">کاربر عزیز</span>
+              <span class="dropdown-arrow">
+                <i class="fas fa-chevron-down"></i>
+              </span>
+            </button>
+            <div class="user-dropdown-menu">
+              <div class="dropdown-header">
+                <div class="user-info">
+                  <span class="user-avatar-large">
+                    <i class="fas fa-user"></i>
+                  </span>
+                  <div class="user-details">
+                    <span class="user-name-large">کاربر عزیز</span>
+                    <span class="user-email">user@golkarglass.com</span>
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown-separator"></div>
+              <a href="/Dashboard page/dashboard.html" class="dropdown-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>داشبورد</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-shopping-cart"></i>
+                <span>سبد خرید</span>
+                <span class="cart-badge">3</span>
+              </a>
+              <a href="Wishlist page/wishlist.html" class="dropdown-item">
+                <i class="fas fa-heart"></i>
+                <span>علاقه‌مندی‌ها</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-box"></i>
+                <span>سفارشات من</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-user-edit"></i>
+                <span>پروفایل</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-cog"></i>
+                <span>تنظیمات</span>
+              </a>
+              <div class="dropdown-separator"></div>
+              <a href="#" class="dropdown-item logout-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>خروج</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
     </header>
 
-  <main class="checkout-main">
-    <section class="checkout-steps">
-      <div class="step completed">1<br><span>آدرس</span></div>
-      <div class="divider"></div>
-      <div class="step active">2<br><span>پرداخت</span></div>
-      <div class="divider"></div>
-      <div class="step">3<br><span>پایان</span></div>
-    </section>
-
-    <section class="checkout-grid">
-      <aside class="checkout-left">
-        <div class="card address-card">
-          <h3>آدرس تحویل</h3>
-          <div class="address-list" id="addressList">
-            <!-- addresses will populate here -->
-          </div>
-          <button class="btn ghost" id="addAddressBtn">افزودن آدرس جدید</button>
-        </div>
-
-        <div class="card payment-card">
-          <h3>روش پرداخت</h3>
-          <div class="saved-cards" id="savedCards">
-            <!-- saved cards will appear here -->
-          </div>
-
-          <div class="payment-methods" id="paymentMethods">
-            <label class="payment-item">
-              <input type="radio" name="payment" value="card" checked>
-              <div class="payment-info">
-                <div class="payment-title">کارت بانکی</div>
-                <div class="payment-desc">پرداخت امن با درگاه بانکی</div>
-              </div>
-            </label>
-
-            <label class="payment-item">
-              <input type="radio" name="payment" value="cod">
-              <div class="payment-info">
-                <div class="payment-title">پرداخت در محل</div>
-                <div class="payment-desc">پرداخت هنگام دریافت کالا</div>
-              </div>
-            </label>
-
-            <label class="payment-item">
-              <input type="radio" name="payment" value="gateway">
-              <div class="payment-info">
-                <div class="payment-title">پرداخـت از طریق درگاه</div>
-                <div class="payment-desc">پشتیبانی از همه کارت‌ها</div>
-              </div>
-            </label>
-          </div>
-
-          <div class="card-entry hidden" id="cardEntry">
-            <h4>ورودی کارت</h4>
-            <input id="cardNumber" placeholder="شماره کارت (---- ---- ---- ----)" maxlength="19">
-            <div style="display:flex;gap:.5rem;margin-top:.5rem">
-              <input id="cardExp" placeholder="MM/YY" style="flex:1">
-              <input id="cardCvv" placeholder="CVV2" style="width:120px">
-            </div>
-            <input id="cardName" placeholder="نام صاحب کارت" style="margin-top:.5rem">
-            <label style="display:flex;align-items:center;gap:.5rem;margin-top:.5rem"><input type="checkbox" id="saveCard"> ذخیره کارت برای خرید بعدی</label>
-          </div>
-        </div>
-      </aside>
-
-      <section class="checkout-right">
-        <div class="card order-summary">
-          <h3>خلاصه سفارش</h3>
-          <div id="orderItems" class="order-items">
-            <!-- rendered items -->
-          </div>
-
-          <div class="summary-lines">
-            <div class="line"><span>جمع کل</span><span id="summarySubtotal">0 تومان</span></div>
-            <div class="line"><span>هزینه ارسال</span><span id="summaryShipping">رایگان</span></div>
-            <div class="line total"><span>مبلغ قابل پرداخت</span><span id="summaryTotal">0 تومان</span></div>
-          </div>
-
-          <div class="checkout-actions">
-            <button id="placeOrder" class="btn primary large">پرداخت و تکمیل سفارش</button>
-            <button id="saveForLater" class="btn ghost">ذخیره برای بعد</button>
-          </div>
-        </div>
-
-        <div class="card help-card">
-          <h4>نیاز به کمک دارید؟</h4>
-          <p>پشتیبانی تلفنی: 22896640</p>
-          <p>ایمیل: support@golkarglass.com</p>
-        </div>
+    <main class="checkout-main">
+      <section class="checkout-steps">
+        <div class="step completed">1<br /><span>آدرس</span></div>
+        <div class="divider"></div>
+        <div class="step active">2<br /><span>پرداخت</span></div>
+        <div class="divider"></div>
+        <div class="step">3<br /><span>پایان</span></div>
       </section>
-    </section>
-  </main>
-  <div class="modal_back hidden"></div>
-  <div id="modal" class="modal hidden">
-    <div class="modal-inner">
-      <h3>افزودن آدرس</h3>
-      <form id="addressForm">
-        <input name="fullName" placeholder="نام کامل" required>
-        <input name="phone" placeholder="شماره تلفن" required>
-        <input name="street" placeholder="آدرس (خیابان، کوچه، پلاک)" required>
-        <input name="city" placeholder="شهر" required>
-        <div class="modal-actions">
-          <button type="submit" class="btn primary">ذخیره</button>
-          <button type="button" id="cancelAddress" class="btn ghost">لغو</button>
-        </div>
-      </form>
-    </div>
-  </div>
 
-  <script src="checkout.js"></script>
-  <script src="../shared/theme.js"></script>
-  <script src="../shared/footer.js"></script>
-</body>
+      <section class="checkout-grid">
+        <aside class="checkout-left">
+          <div class="card address-card">
+            <h3>آدرس تحویل</h3>
+            <div class="address-list" id="addressList">
+              <!-- addresses will populate here -->
+            </div>
+            <button class="btn ghost" id="addAddressBtn">
+              افزودن آدرس جدید
+            </button>
+          </div>
+
+          <div class="card payment-card">
+            <h3>روش پرداخت</h3>
+            <div class="saved-cards" id="savedCards">
+              <!-- saved cards will appear here -->
+            </div>
+            <button id="cardEntry" class="btn ghost">افزودن کارت جدید</button>
+
+            <div class="payment-methods" id="paymentMethods">
+              <label class="payment-item">
+                <input type="radio" name="payment" value="card" checked />
+                <div class="payment-info">
+                  <div class="payment-title">کارت بانکی</div>
+                  <div class="payment-desc">پرداخت امن با درگاه بانکی</div>
+                </div>
+              </label>
+
+              <label class="payment-item">
+                <input type="radio" name="payment" value="cod" />
+                <div class="payment-info">
+                  <div class="payment-title">پرداخت در محل</div>
+                  <div class="payment-desc">پرداخت هنگام دریافت کالا</div>
+                </div>
+              </label>
+
+              <label class="payment-item">
+                <input type="radio" name="payment" value="gateway" />
+                <div class="payment-info">
+                  <div class="payment-title">پرداخـت از طریق درگاه</div>
+                  <div class="payment-desc">پشتیبانی از همه کارت‌ها</div>
+                </div>
+              </label>
+            </div>
+
+            <div class="card-entry hidden" id="cardEntry">
+              <h4>ورودی کارت</h4>
+              <input
+                id="cardNumber"
+                placeholder="شماره کارت (---- ---- ---- ----)"
+                maxlength="19"
+              />
+              <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem">
+                <input id="cardExp" placeholder="MM/YY" style="flex: 1" />
+                <input id="cardCvv" placeholder="CVV2" style="width: 120px" />
+              </div>
+              <input
+                id="cardName"
+                placeholder="نام صاحب کارت"
+                style="margin-top: 0.5rem"
+              />
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  margin-top: 0.5rem;
+                "
+                ><input type="checkbox" id="saveCard" /> ذخیره کارت برای خرید
+                بعدی</label
+              >
+            </div>
+          </div>
+        </aside>
+
+        <section class="checkout-right">
+          <div class="card order-summary">
+            <h3>خلاصه سفارش</h3>
+            <div id="orderItems" class="order-items">
+              <!-- rendered items -->
+            </div>
+
+            <div class="summary-lines">
+              <div class="line">
+                <span>جمع کل</span><span id="summarySubtotal">0 تومان</span>
+              </div>
+              <div class="line">
+                <span>هزینه ارسال</span><span id="summaryShipping">رایگان</span>
+              </div>
+              <div class="line total">
+                <span>مبلغ قابل پرداخت</span
+                ><span id="summaryTotal">0 تومان</span>
+              </div>
+            </div>
+
+            <div class="checkout-actions">
+              <button id="placeOrder" class="btn primary large">
+                پرداخت و تکمیل سفارش
+              </button>
+              <button id="saveForLater" class="btn ghost">
+                ذخیره برای بعد
+              </button>
+            </div>
+          </div>
+
+          <div class="card help-card">
+            <h4>نیاز به کمک دارید؟</h4>
+            <p>پشتیبانی تلفنی: 22896640</p>
+            <p>ایمیل: support@golkarglass.com</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="modal_back dis_none"></div>
+    <div id="modal" class="modal-main">
+      <div class="modal-inner">
+        <h3>افزودن آدرس</h3>
+        <form id="addressForm">
+          <input name="fullName" placeholder="نام کامل" required />
+          <input name="phone" placeholder="شماره تلفن" required />
+          <input
+            name="street"
+            placeholder="آدرس (خیابان، کوچه، پلاک)"
+            required
+          />
+          <input name="city" placeholder="شهر" required />
+          <div class="modal-actions">
+            <button type="submit" class="btn primary">ذخیره</button>
+            <button type="button" id="cancelAddress" class="btn ghost">
+              لغو
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Card Modal Overlay -->
+    <div class="modal_back dis_none" id="cardOverlay"></div>
+
+    <!-- Card Modal -->
+    <div class="modal-main" id="cardModal">
+      <div class="modal-inner">
+        <h3>افزودن کارت</h3>
+        <form id="cardForm">
+          <input
+            id="cardNumber"
+            placeholder="شماره کارت (---- ---- ---- ----)"
+            maxlength="19"
+          />
+          <input id="cardName" placeholder="نام صاحب کارت" />
+          <label
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              margin-top: 0.5rem;
+            "
+          >
+            <input type="checkbox" id="saveCard" /> ذخیره کارت برای خرید بعدی
+          </label>
+          <div class="modal-actions" style="margin-top: 1rem">
+            <button type="submit" class="btn primary">ذخیره</button>
+            <button type="button" class="btn ghost" id="cancelCard">لغو</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="checkout.js"></script>
+    <script src="../shared/theme.js"></script>
+    <script src="../shared/footer.js"></script>
+  </body>
 </html>

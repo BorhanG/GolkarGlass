@@ -1,0 +1,57 @@
+#logo{
+    filter:drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.763));
+}
+@media(min-width:600px){
+    .top-navbar{
+        box-shadow: 0 0 6px gray !important;
+ }
+    #top_actions_section{
+        display: flex !important;
+        align-items: center !important;
+    }
+}
+.user_list_item .user_list_Arrow_icon{
+    transition: all 200ms ease;
+}
+.user_list_item.active .user_list_Arrow_icon{
+    transform: rotate(180deg);
+}
+.user_list_item.active, .user_list_item.active .collapsible-header{
+    background-color: rgba(128, 128, 128, 0.33);
+}
+table.highlight>tbody>tr:hover{
+    background-color: #bbdefb !important;
+}
+table.striped1 > tbody > tr:nth-child(odd) {
+  background-color: rgba(242, 242, 242, 0.971);
+}
+.container{
+    width: 100% !important; 
+}
+.add_user_modal_back{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.add_user_modal{
+    position: fixed;
+    height: 70vh;
+    background-color: #fff;
+    bottom: 0;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    bottom: -70vh;
+}
+.add_user_modal.show{
+    bottom: 0;
+    box-shadow: 0 0 5px #1976d2;
+}
+.pagination_container{
+    z-index: 999 !important;
+    background-color: white !important;
+}
