@@ -47,171 +47,232 @@ document.addEventListener("DOMContentLoaded", function () {
     summaryTotal.textContent = formatPrice(subtotal);
   }
 
-// ---------- Card System ----------
-const cardModal = document.getElementById("cardModal");
-const cardOverlay = document.getElementById("cardOverlay");
-const cardForm = document.getElementById("cardForm");
-const cancelCard = document.getElementById("cancelCard");
-const cardEntryBtn = document.getElementById("cardEntry");
+  // ---------------- CARD SYSTEM ----------------
+  (() => {
+    const savedCardsContainer = document.getElementById("savedCards");
+    const cardModal = document.getElementById("cardModal");
+    const cardOverlay = document.getElementById("cardOverlay");
+    const cardForm = document.getElementById("cardForm");
+    const cardNumberInput = document.getElementById("cardNumber");
+    const cardNameInput = document.getElementById("cardName");
+    const saveCardInput = document.getElementById("saveCard");
+    const addCardBtn = document.getElementById("addCardBtn");
+    const cancelCard = document.getElementById("cancelCard");
 
-function loadSavedCards() {
-  try {
-    return JSON.parse(localStorage.getItem("savedCards") || "[]");
-  } catch (e) {
-    return [];
-  }
-}
+    if (!savedCardsContainer) {
+      console.warn("savedCards container not found — card system disabled.");
+      return;
+    }
 
-function saveSavedCards(list) {
-  localStorage.setItem("savedCards", JSON.stringify(list));
-}
+    // Demo cards for first load
+    if (!localStorage.getItem("savedCards")) {
+      const demo = [
+        { number: "1111222233334444", name: "Demo Card 1" },
+        { number: "5555666677778888", name: "Demo Card 2" },
+      ];
+      localStorage.setItem("savedCards", JSON.stringify(demo));
+    }
 
-// Render all saved cards
-function renderSavedCards() {
-  const container = document.getElementById("savedCards");
-  if (!container) return;
-
-  const cards = loadSavedCards();
-  container.innerHTML = "";
-
-  if (cards.length === 0) {
-    container.innerHTML = '<div class="muted">هیچ کارت ذخیره شده‌ای وجود ندارد</div>';
-    return;
-  }
-
-  cards.forEach((card, idx) => {
-    const el = document.createElement("div");
-    el.className = "saved-card";
-    el.innerHTML = `
-      <div class="meta">
-        <div class="chip">${card.brand || "VB"}</div>
-        <div class="label">**** **** **** ${card.last4} — ${card.name}</div>
-      </div>
-      <div class="actions">
-        <button data-idx="${idx}" class="btn ghost use-card" title="انتخاب کارت">
-          <i class="fa-solid fa-circle-check"></i>
-        </button>
-        <button data-idx="${idx}" class="btn ghost edit-card" title="ویرایش کارت">
-          <i class="fa-solid fa-pen-to-square"></i>
-        </button>
-        <button data-idx="${idx}" class="btn ghost delete-card" title="حذف کارت">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-    `;
-    container.appendChild(el);
-  });
-
-  attachCardActions();
-}
-
-// Attach listeners
-function attachCardActions() {
-  const container = document.getElementById("savedCards");
-
-  // Use card
-  container.querySelectorAll(".use-card").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const idx = btn.dataset.idx;
-      localStorage.setItem("selectedCard", idx);
-      showToast("کارت انتخاب شد", "success");
-    });
-  });
-
-  // Edit card
-  container.querySelectorAll(".edit-card").forEach(btn => {
-    btn.addEventListener("click", e => {
-      e.stopPropagation();
-      const idx = btn.dataset.idx;
-      const cards = loadSavedCards();
-      const card = cards[idx];
-      if (!card) return;
-
-      document.getElementById("cardNumber").value = "**** **** **** " + card.last4;
-      document.getElementById("cardName").value = card.name;
-      document.getElementById("saveCard").checked = true;
-
-      cardForm.dataset.editingIdx = idx;
-      document.querySelector("#cardModal h3").textContent = "ویرایش کارت";
-
-      cardModal.classList.add("show");
-      cardOverlay.classList.add("show");
-      cardOverlay.classList.remove("dis_none");
-    });
-  });
-
-  // Delete card
-  container.querySelectorAll(".delete-card").forEach(btn => {
-    btn.addEventListener("click", e => {
-      e.stopPropagation();
-      const idx = btn.dataset.idx;
-      const cards = loadSavedCards();
-      if (confirm("آیا از حذف این کارت مطمئن هستید؟")) {
-        cards.splice(idx, 1);
-        saveSavedCards(cards);
-        renderSavedCards();
-        showToast("کارت حذف شد", "success");
+    function loadSavedCards() {
+      try {
+        return JSON.parse(localStorage.getItem("savedCards") || "[]");
+      } catch {
+        return [];
       }
+    }
+
+    function saveSavedCards(list) {
+      localStorage.setItem("savedCards", JSON.stringify(list));
+    }
+
+    function showToast(msg, type = "info") {
+      const t = document.createElement("div");
+      t.className = `toast ${type}`;
+      t.textContent = msg;
+      t.style.cssText =
+        "position:fixed;left:20px;bottom:20px;padding:12px 16px;border-radius:10px;color:#fff;z-index:9999;transform:translateY(20px);opacity:0;transition:all .28s";
+      t.style.background =
+        type === "success"
+          ? "#27ae60"
+          : type === "error"
+          ? "#e74c3c"
+          : "#3498db";
+      document.body.appendChild(t);
+      requestAnimationFrame(() => {
+        t.style.opacity = "1";
+        t.style.transform = "none";
+      });
+      setTimeout(() => {
+        t.style.opacity = "0";
+        t.style.transform = "translateY(20px)";
+        setTimeout(() => t.remove(), 300);
+      }, 2600);
+    }
+
+    function formatCard(number) {
+      return number.replace(/\D/g, "").replace(/(\d{4})(?=\d)/g, "$1-");
+    }
+
+    function renderSavedCards() {
+      const cards = loadSavedCards();
+      savedCardsContainer.innerHTML = "";
+      if (!cards.length) {
+        savedCardsContainer.innerHTML =
+          '<div class="muted">هیچ کارت ذخیره شده‌ای وجود ندارد</div>';
+        return;
+      }
+      cards.forEach((card, idx) => {
+        const el = document.createElement("div");
+        el.className = "saved-card";
+        el.innerHTML = `
+        <div class="meta">
+          <img src="/Checkout page/card.png" alt="Card Icon" class="card-logo" />
+          <div class="label">${formatCard(card.number)} — ${card.name}</div>
+        </div>
+        <div class="actions">
+          <button data-idx="${idx}" class="btn ghost use-card" title="انتخاب کارت">
+            <i class="fa-solid fa-circle-check"></i>
+          </button>
+          <button data-idx="${idx}" class="btn ghost edit-card" title="ویرایش کارت">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button data-idx="${idx}" class="btn ghost delete-card" title="حذف کارت">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      `;
+        savedCardsContainer.appendChild(el);
+      });
+      attachCardActions();
+    }
+
+    function attachCardActions() {
+      // Use card
+      savedCardsContainer.querySelectorAll(".use-card").forEach((btn) => {
+        btn.onclick = () => {
+          const idx = btn.dataset.idx;
+          localStorage.setItem("selectedCard", idx);
+          showToast("کارت انتخاب شد", "success");
+        };
+      });
+
+      // Edit card
+      savedCardsContainer.querySelectorAll(".edit-card").forEach((btn) => {
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          const idx = parseInt(btn.dataset.idx, 10);
+          const cards = loadSavedCards();
+          const card = cards[idx];
+          if (!card) return;
+
+          cardNumberInput.value = formatCard(card.number);
+          cardNameInput.value = card.name;
+          saveCardInput.checked = true;
+
+          cardForm.dataset.editingIdx = idx;
+          cardModal.classList.add("show");
+          cardOverlay.classList.add("show");
+          cardOverlay.classList.remove("dis_none");
+        };
+      });
+
+      // Delete card
+      savedCardsContainer.querySelectorAll(".delete-card").forEach((btn) => {
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          const idx = parseInt(btn.dataset.idx, 10);
+          if (confirm("آیا از حذف این کارت مطمئن هستید؟")) {
+            const cards = loadSavedCards();
+            cards.splice(idx, 1);
+            saveSavedCards(cards);
+            renderSavedCards();
+            showToast("کارت حذف شد", "success");
+          }
+        };
+      });
+    }
+
+    // Card input dash formatting
+    cardNumberInput.addEventListener("input", (e) => {
+      let cursorPos = e.target.selectionStart;
+      let digits = e.target.value.replace(/\D/g, "").slice(0, 16);
+
+      // Count how many dashes there will be before the cursor
+      let prevDashes = (e.target.value.slice(0, cursorPos).match(/-/g) || [])
+        .length;
+
+      // Format with dashes
+      let formatted = digits.replace(/(\d{4})(?=\d)/g, "$1-");
+      e.target.value = formatted;
+
+      // Count new dashes before the cursor
+      let newDashes = (formatted.slice(0, cursorPos).match(/-/g) || []).length;
+
+      // Adjust cursor for the added dash
+      cursorPos = cursorPos + (newDashes - prevDashes);
+      e.target.selectionStart = e.target.selectionEnd = cursorPos;
     });
-  });
-}
 
-// Open modal for new card
-cardEntryBtn.addEventListener("click", () => {
-  cardForm.reset();
-  delete cardForm.dataset.editingIdx;
-  document.querySelector("#cardModal h3").textContent = "افزودن کارت";
+    // Open new card modal
+    if (addCardBtn) {
+      addCardBtn.addEventListener("click", () => {
+        cardForm.reset();
+        delete cardForm.dataset.editingIdx;
+        cardModal.classList.add("show");
+        cardOverlay.classList.add("show");
+        cardOverlay.classList.remove("dis_none");
+      });
+    }
 
-  cardModal.classList.add("show");
-  cardOverlay.classList.add("show");
-  cardOverlay.classList.remove("dis_none");
-});
+    // Close modal
+    const closeModal = () => {
+      cardModal.classList.remove("show");
+      cardOverlay.classList.remove("show");
+      setTimeout(() => cardOverlay.classList.add("dis_none"), 300);
+    };
+    if (cancelCard) cancelCard.addEventListener("click", closeModal);
+    if (cardOverlay) cardOverlay.addEventListener("click", closeModal);
 
-// Close modal
-cancelCard.addEventListener("click", () => {
-  cardModal.classList.remove("show");
-  cardOverlay.classList.remove("show");
-  setTimeout(() => cardOverlay.classList.add("dis_none"), 300);
-});
+    // Submit card form
+    cardForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const rawNumber = cardNumberInput.value.replace(/\D/g, "");
+      const name = cardNameInput.value.trim();
+      const save = saveCardInput.checked;
 
-cardOverlay.addEventListener("click", () => {
-  cardModal.classList.remove("show");
-  cardOverlay.classList.remove("show");
-  setTimeout(() => cardOverlay.classList.add("dis_none"), 300);
-});
+      if (rawNumber.length !== 16) {
+        showToast("لطفا شماره کارت 16 رقمی را وارد کنید", "error");
+        return;
+      }
+      if (!name) {
+        showToast("لطفا نام صاحب کارت را وارد کنید", "error");
+        return;
+      }
 
-// Card form submit
-cardForm.addEventListener("submit", e => {
-  e.preventDefault();
-  const number = document.getElementById("cardNumber").value.trim();
-  const name = document.getElementById("cardName").value.trim();
-  const save = document.getElementById("saveCard").checked;
+      let cards = loadSavedCards();
+      const editingIdx = cardForm.dataset.editingIdx;
 
-  if (number.length < 12 || name === "") {
-    showToast("لطفا اطلاعات کارت را کامل وارد کنید", "error");
-    return;
-  }
+      if (editingIdx !== undefined) {
+        cards[editingIdx] = { number: rawNumber, name };
+        showToast("کارت ویرایش شد", "success");
+        delete cardForm.dataset.editingIdx;
+      } else if (save) {
+        cards.push({ number: rawNumber, name });
+        showToast("کارت جدید ذخیره شد", "success");
+      }
 
-  let cards = loadSavedCards();
-  const editingIdx = cardForm.dataset.editingIdx;
+      saveSavedCards(cards);
+      renderSavedCards();
+      cardForm.reset();
+      closeModal();
+    });
 
-  if (editingIdx !== undefined) {
-    cards[editingIdx] = { last4: number.slice(-4), name, brand: "VC" };
-    delete cardForm.dataset.editingIdx;
-    showToast("کارت ویرایش شد", "success");
-  } else if (save) {
-    cards.push({ last4: number.slice(-4), name, brand: "VC" });
-    showToast("کارت جدید ذخیره شد", "success");
-  }
+    // Initial render
+    renderSavedCards();
 
-  saveSavedCards(cards);
-  renderSavedCards();
-
-  cardModal.classList.remove("show");
-  cardOverlay.classList.remove("show");
-  setTimeout(() => cardOverlay.classList.add("dis_none"), 300);
-});
-
+    // Expose for debugging
+    window.renderSavedCards = renderSavedCards;
+  })();
 
   // Addresses (simple local storage)
   function loadAddresses() {
@@ -478,5 +539,5 @@ cardForm.addEventListener("submit", e => {
   // Initialize
   renderOrder();
   renderAddresses();
-  renderSavedCards();
+  window.renderSavedCards();
 });

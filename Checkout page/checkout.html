@@ -111,10 +111,10 @@
 
           <div class="card payment-card">
             <h3>روش پرداخت</h3>
-            <div class="saved-cards" id="savedCards">
+            <div class="savedCards" id="savedCards">
               <!-- saved cards will appear here -->
             </div>
-            <button id="cardEntry" class="btn ghost">افزودن کارت جدید</button>
+            <button id="addCardBtn" class="btn ghost" type="button">افزودن کارت جدید</button>
 
             <div class="payment-methods" id="paymentMethods">
               <label class="payment-item">
@@ -140,34 +140,6 @@
                   <div class="payment-desc">پشتیبانی از همه کارت‌ها</div>
                 </div>
               </label>
-            </div>
-
-            <div class="card-entry hidden" id="cardEntry">
-              <h4>ورودی کارت</h4>
-              <input
-                id="cardNumber"
-                placeholder="شماره کارت (---- ---- ---- ----)"
-                maxlength="19"
-              />
-              <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem">
-                <input id="cardExp" placeholder="MM/YY" style="flex: 1" />
-                <input id="cardCvv" placeholder="CVV2" style="width: 120px" />
-              </div>
-              <input
-                id="cardName"
-                placeholder="نام صاحب کارت"
-                style="margin-top: 0.5rem"
-              />
-              <label
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 0.5rem;
-                  margin-top: 0.5rem;
-                "
-                ><input type="checkbox" id="saveCard" /> ذخیره کارت برای خرید
-                بعدی</label
-              >
             </div>
           </div>
         </aside>
@@ -234,30 +206,30 @@
       </div>
     </div>
 
-    <!-- Card Modal Overlay -->
+  
+    <!-- Card Modal Overlay (separate from address overlay) -->
     <div class="modal_back dis_none" id="cardOverlay"></div>
 
     <!-- Card Modal -->
-    <div class="modal-main" id="cardModal">
+    <div class="modal-main" id="cardModal" aria-hidden="true" role="dialog">
       <div class="modal-inner">
         <h3>افزودن کارت</h3>
-        <form id="cardForm">
+        <form id="cardForm" autocomplete="off" novalidate>
           <input
             id="cardNumber"
             placeholder="شماره کارت (---- ---- ---- ----)"
-            maxlength="19"
+            inputmode="numeric"
+            autocomplete="off"
           />
-          <input id="cardName" placeholder="نام صاحب کارت" />
-          <label
-            style="
-              display: flex;
-              align-items: center;
-              gap: 0.5rem;
-              margin-top: 0.5rem;
-            "
-          >
-            <input type="checkbox" id="saveCard" /> ذخیره کارت برای خرید بعدی
-          </label>
+          <input
+            id="cardName"
+            placeholder="نام صاحب کارت"
+            autocomplete="cc-name"
+          />
+          <div class="save-card-wrapper">
+            <input type="checkbox" id="saveCard" />
+            <label for="saveCard">ذخیره کارت برای بعد</label>
+          </div>
           <div class="modal-actions" style="margin-top: 1rem">
             <button type="submit" class="btn primary">ذخیره</button>
             <button type="button" class="btn ghost" id="cancelCard">لغو</button>
