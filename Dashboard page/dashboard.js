@@ -1,5 +1,384 @@
 // Dashboard JavaScript - Interactive functionality
+// Load cart from localStorage
+function loadCart() {
+    try {
+        const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+        if (cart.length === 0) {
+            // Add demo items if cart is empty
+            const demoCart = [
+                {
+                    name: "گلدان کریستال ایرانی",
+                    price: 450000,
+                    quantity: 1,
+                    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                },
+                {
+                    name: "لیوان‌های شراب لوکس",
+                    price: 280000,
+                    quantity: 2,
+                    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                }
+            ];
+            localStorage.setItem('shoppingCart', JSON.stringify(demoCart));
+            return demoCart;
+        }
+        return cart;
+    } catch (e) {
+        return [];
+    }
+}
+
+// Load wishlist from localStorage
+function loadWishlist() {
+    try {
+        const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        if (wishlist.length === 0) {
+            const demoWishlist = [
+                {
+                    name: "مجموعه کاسه تزئینی",
+                    price: 320000,
+                    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                },
+                {
+                    name: "دکانتر کریستال",
+                    price: 520000,
+                    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                }
+            ];
+            localStorage.setItem('wishlist', JSON.stringify(demoWishlist));
+            return demoWishlist;
+        }
+        return wishlist;
+    } catch (e) {
+        return [];
+    }
+}
+
+// Format price in Persian
+function formatPrice(price) {
+    return price.toLocaleString('fa-IR') + ' تومان';
+}
+
+// Initialize demo items
+function initializeDemoItems() {
+    const demoCart = [
+        {
+            name: "گلدان کریستال ایرانی",
+            price: 450000,
+            quantity: 1,
+            image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+        },
+        {
+            name: "لیوان‌های شراب لوکس",
+            price: 280000,
+            quantity: 2,
+            image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+        }
+    ];
+
+    const demoWishlist = [
+        {
+            name: "مجموعه کاسه تزئینی",
+            price: 320000,
+            image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+        },
+        {
+            name: "دکانتر کریستال",
+            price: 520000,
+            image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+        }
+    ];
+
+    localStorage.setItem('shoppingCart', JSON.stringify(demoCart));
+    localStorage.setItem('wishlist', JSON.stringify(demoWishlist));
+}
+
+// Render shopping cart items
+function renderShoppingCart() {
+    const cartContainer = document.querySelector('.shopping-cart-items');
+    if (!cartContainer) return;
+
+    const cart = loadCart();
+    let total = 0;
+    cartContainer.innerHTML = '';
+
+    if (cart.length === 0) {
+        cartContainer.innerHTML = '<div class="empty-message">سبد خرید شما خالی است</div>';
+        const totalElement = document.querySelector('.total-amount');
+        if (totalElement) {
+            totalElement.textContent = formatPrice(0);
+        }
+        return;
+    }
+
+    // Render items and calculate total
+    cart.forEach(item => {
+        // Add to total
+        total += item.price * item.quantity;
+        
+        const itemElement = document.createElement('div');
+        itemElement.className = 'cart-item';
+        itemElement.innerHTML = `
+            <div class="cart-item-image">
+                <img src="${item.image}" alt="${item.name}" style="width: 100px; height: 100px; object-fit: cover;">
+            </div>
+            <div class="cart-item-details">
+                <h4 class="cart-item-title">${item.name}</h4>
+                <p class="cart-item-price">${formatPrice(item.price)}</p>
+                <div class="cart-item-quantity">
+                    <button class="qty-btn minus">-</button>
+                    <span class="qty-number">${item.quantity}</span>
+                    <button class="qty-btn plus">+</button>
+                </div>
+            </div>
+            <button class="remove-btn" title="حذف">
+                <i class="fas fa-trash"></i>
+            </button>
+        `;
+        cartContainer.appendChild(itemElement);
+    });
+    
+    // Update cart badge
+    const cartBadge = document.querySelector('.cart-badge');
+    if (cartBadge) {
+        cartBadge.textContent = cart.length;
+    }
+
+    // Update total amount
+    const totalElement = document.querySelector('.total-amount');
+    if (totalElement) {
+        totalElement.textContent = formatPrice(total);
+    }
+}
+
+// Render wishlist items
+function renderWishlist() {
+    const wishlistContainer = document.querySelector('.wishlist-items');
+    if (!wishlistContainer) return;
+
+    const wishlist = loadWishlist();
+    wishlistContainer.innerHTML = '';
+
+    if (wishlist.length === 0) {
+        wishlistContainer.innerHTML = '<div class="empty-message">لیست علاقه‌مندی‌های شما خالی است</div>';
+        return;
+    }
+
+    wishlist.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'wishlist-item';
+        itemElement.innerHTML = `
+            <div class="wishlist-item-image">
+                <img src="${item.image}" alt="${item.name}" style="width: 100px; height: 100px; object-fit: cover;">
+            </div>
+            <div class="wishlist-item-details">
+                <h4 class="wishlist-item-title">${item.name}</h4>
+                <p class="wishlist-item-price">${formatPrice(item.price)}</p>
+            </div>
+            <div class="wishlist-item-actions">
+                <button class="add-to-cart-btn" title="افزودن به سبد">
+                    <i class="fas fa-cart-plus"></i>
+                </button>
+                <button class="remove-wishlist-btn" title="حذف">
+                    <i class="fas fa-heart-broken"></i>
+                </button>
+            </div>
+        `;
+        wishlistContainer.appendChild(itemElement);
+    });
+}
+
+// Initialize demo items if needed
+function initializeDemoItems() {
+    const cart = loadCart();
+    const wishlist = loadWishlist();
+
+    if (cart.length === 0) {
+        const demoCart = [
+            {
+                name: "شیشه دوجداره لمینت",
+                price: 2500000,
+                quantity: 2,
+                image: "/Assets/images/glass1.jpg"
+            },
+            {
+                name: "شیشه سکوریت طرح دار",
+                price: 3800000,
+                quantity: 1,
+                image: "/Assets/images/glass2.jpg"
+            }
+        ];
+        localStorage.setItem('shoppingCart', JSON.stringify(demoCart));
+    }
+
+    if (wishlist.length === 0) {
+        const demoWishlist = [
+            {
+                name: "شیشه رفلکس آبی",
+                price: 1800000,
+                image: "/Assets/images/glass3.jpg"
+            },
+            {
+                name: "شیشه سندبلاست",
+                price: 2200000,
+                image: "/Assets/images/glass4.jpg"
+            }
+        ];
+        localStorage.setItem('wishlist', JSON.stringify(demoWishlist));
+    }
+}
+
+function initializeDemoItems() {
+    const cart = loadCart();
+    const wishlist = loadWishlist();
+
+    if (cart.length === 0) {
+        const demoCart = [
+            {
+                name: "گلدان کریستال ایرانی",
+                price: 450000,
+                quantity: 1,
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                name: "لیوان‌های شراب لوکس",
+                price: 280000,
+                quantity: 2,
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            }
+        ];
+        localStorage.setItem('shoppingCart', JSON.stringify(demoCart));
+    }
+
+    if (wishlist.length === 0) {
+        const demoWishlist = [
+            {
+                name: "مجموعه کاسه تزئینی",
+                price: 320000,
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            },
+            {
+                name: "دکانتر کریستال",
+                price: 520000,
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+            }
+        ];
+        localStorage.setItem('wishlist', JSON.stringify(demoWishlist));
+    }
+}
+
+// Handle quantity changes
+function updateQuantity(itemName, delta) {
+    const cart = loadCart();
+    const itemIndex = cart.findIndex(item => item.name === itemName);
+    if (itemIndex !== -1) {
+        cart[itemIndex].quantity = Math.max(1, cart[itemIndex].quantity + delta);
+        localStorage.setItem('shoppingCart', JSON.stringify(cart));
+        renderShoppingCart();
+    }
+}
+
+// Handle item removal from cart
+function removeFromCart(itemName) {
+    const cart = loadCart();
+    const updatedCart = cart.filter(item => item.name !== itemName);
+    localStorage.setItem('shoppingCart', JSON.stringify(updatedCart));
+    renderShoppingCart();
+}
+
+// Handle item removal from wishlist
+function removeFromWishlist(itemName) {
+    const wishlist = loadWishlist();
+    const updatedWishlist = wishlist.filter(item => item.name !== itemName);
+    localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+    renderWishlist();
+}
+
+// Handle adding item to cart from wishlist
+function addToCartFromWishlist(itemName) {
+    const wishlist = loadWishlist();
+    const cart = loadCart();
+    const item = wishlist.find(item => item.name === itemName);
+    
+    if (item) {
+        // Check if item already exists in cart
+        const existingItem = cart.find(cartItem => cartItem.name === item.name);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({
+                ...item,
+                quantity: 1
+            });
+        }
+        localStorage.setItem('shoppingCart', JSON.stringify(cart));
+        
+        // Optionally remove from wishlist after adding to cart
+        removeFromWishlist(itemName);
+        
+        renderShoppingCart();
+    }
+}
+
+// Add event listeners for cart items
+function attachCartEventListeners() {
+    const cartContainer = document.querySelector('.shopping-cart-items');
+    if (!cartContainer) return;
+
+    cartContainer.addEventListener('click', function(e) {
+        const cartItem = e.target.closest('.cart-item');
+        if (!cartItem) return;
+        
+        const itemName = cartItem.querySelector('.cart-item-title').textContent;
+
+        if (e.target.classList.contains('plus')) {
+            updateQuantity(itemName, 1);
+        } else if (e.target.classList.contains('minus')) {
+            updateQuantity(itemName, -1);
+        } else if (e.target.closest('.remove-btn')) {
+            if (confirm('آیا مطمئن هستید که می‌خواهید این مورد را حذف کنید؟')) {
+                removeFromCart(itemName);
+            }
+        }
+    });
+}
+
+// Add event listeners for wishlist items
+function attachWishlistEventListeners() {
+    const wishlistContainer = document.querySelector('.wishlist-items');
+    if (!wishlistContainer) return;
+
+    wishlistContainer.addEventListener('click', function(e) {
+        const wishlistItem = e.target.closest('.wishlist-item');
+        if (!wishlistItem) return;
+        
+        const itemName = wishlistItem.querySelector('.wishlist-item-title').textContent;
+
+        if (e.target.closest('.add-to-cart-btn')) {
+            addToCartFromWishlist(itemName);
+        } else if (e.target.closest('.remove-wishlist-btn')) {
+            if (confirm('آیا مطمئن هستید که می‌خواهید این مورد را از علاقه‌مندی‌ها حذف کنید؟')) {
+                removeFromWishlist(itemName);
+            }
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    // Clear localStorage and initialize demo items
+    localStorage.clear();
+    initializeDemoItems();
+    
+    // Render everything
+    setTimeout(() => {
+        renderShoppingCart();
+        renderWishlist();
+        
+        // Attach event listeners
+        attachCartEventListeners();
+        attachWishlistEventListeners();
+    }, 100);
+
     // Sidebar functionality
     const sidebarToggle = document.getElementById('sidebarToggle');
     const sidebarMenu = document.getElementById('sidebarMenu');
@@ -584,7 +963,7 @@ document.addEventListener('DOMContentLoaded', function() {
         border-radius: 8px;
         cursor: pointer;
         font-size: 0.9rem;
-        margin-left: 1rem;
+        margin-left: 0rem;
         transition: all 0.3s ease;
     `;
     

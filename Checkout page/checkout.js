@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Clear localStorage to see demo items (remove this line later)
+  localStorage.removeItem("shoppingCart");
+  
   const addressList = document.getElementById("addressList");
   const addressForm = document.getElementById("addressForm");
   const cancelAddress = document.getElementById("cancelAddress");
@@ -11,6 +14,31 @@ document.addEventListener("DOMContentLoaded", function () {
   function loadCart() {
     try {
       const cart = JSON.parse(localStorage.getItem("shoppingCart") || "[]");
+      if (cart.length === 0) {
+        // Add demo items if cart is empty
+        const demoItems = [
+          {
+            name: "شیشه دوجداره لمینت",
+            price: 2500000,
+            quantity: 2,
+            image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=100&h=100"
+          },
+          {
+            name: "شیشه سکوریت طرح دار",
+            price: 3800000,
+            quantity: 1,
+            image: "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=100&h=100"
+          },
+          {
+            name: "شیشه رفلکس آبی",
+            price: 1800000,
+            quantity: 3,
+            image: "https://images.unsplash.com/photo-1516216628859-9c06be5b3a0b?auto=format&fit=crop&w=100&h=100"
+          }
+        ];
+        localStorage.setItem("shoppingCart", JSON.stringify(demoItems));
+        return demoItems;
+      }
       return cart;
     } catch (e) {
       return [];

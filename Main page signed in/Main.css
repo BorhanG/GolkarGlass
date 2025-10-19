@@ -17,6 +17,11 @@ body {
     font-size: 1.15rem;
 }
 
+@font-face {
+  font-family: iranNastaliq;
+  src: url(/Main\ page\ signed\ in/iranNastaliqRegular.ttf); 
+}
+
 .header {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     color: white;
@@ -147,7 +152,7 @@ body {
 
 .hero-content h1 {
     font-family: 'Noto Nastaliq Urdu', serif;
-    font-size: 4.1rem;
+    font-size: 4.9rem;
     font-weight: 700;
     margin-bottom: 2rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
