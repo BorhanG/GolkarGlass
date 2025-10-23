@@ -1,7 +1,7 @@
 body {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   min-height: 100vh;
-  font-family: 'Vazirmatn', sans-serif;
+  font-family: "Vazirmatn", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +29,8 @@ body {
   height: 40px;
 }
 
-.signin-btn:hover, .signin-btn:focus {
+.signin-btn:hover,
+.signin-btn:focus {
   background: linear-gradient(135deg, #b8941f 0%, #d4af37 100%);
   color: #222 !important;
   box-shadow: 0 4px 16px rgba(212, 175, 55, 0.22);
@@ -47,7 +48,7 @@ body {
 .login-card {
   background: #232323;
   border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
   padding: 2.5rem 2.2rem 2rem 2.2rem;
   width: 100%;
   max-width: 370px;
@@ -55,7 +56,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  transition: padding 0.4s cubic-bezier(.4,2,.3,1), height 0.4s cubic-bezier(.4,2,.3,1);
+  transition: padding 0.4s cubic-bezier(0.4, 2, 0.3, 1),
+    height 0.4s cubic-bezier(0.4, 2, 0.3, 1);
   overflow: hidden;
 }
 .login-card.expanded {
@@ -70,7 +72,7 @@ body {
 }
 
 .login-header h2 {
-  font-family: 'Noto Nastaliq Urdu', serif;
+  font-family: "Noto Nastaliq Urdu", serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: #d4af37;
@@ -88,9 +90,66 @@ body {
   cursor: pointer;
   transition: background 0.3s, color 0.3s;
 }
-.toggle-btn:hover, .toggle-btn:focus {
+.toggle-btn:hover,
+.toggle-btn:focus {
   background: linear-gradient(135deg, #b8941f 0%, #d4af37 100%);
   color: #fff;
+}
+.submit-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* space between text and spinner */
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #d4af37, #bfa038);
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  min-width: 160px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.12);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.submit-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Spinner */
+.spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  box-sizing: border-box;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* When loading */
+.submit-btn.loading .spinner {
+  display: inline-block;
+}
+
+.submit-btn.loading .btn-text {
+  opacity: 0.3;
 }
 
 .form-group {
@@ -121,7 +180,7 @@ body {
   font-size: 1rem;
   font-family: inherit;
   outline: none;
-  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
   transition: box-shadow 0.2s;
   direction: rtl !important;
   text-align: right !important;
@@ -134,7 +193,7 @@ body {
   box-shadow: 0 4px 16px #d4af37a0;
 }
 
-.submit-btn {
+/* .submit-btn {
   width: 100%;
   background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
   color: #222;
@@ -147,8 +206,9 @@ body {
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(212, 175, 55, 0.12);
   transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-}
-.submit-btn:hover, .submit-btn:focus {
+} */
+.submit-btn:hover,
+.submit-btn:focus {
   background: linear-gradient(135deg, #b8941f 0%, #d4af37 100%);
   color: #fff;
   box-shadow: 0 4px 16px rgba(212, 175, 55, 0.22);
@@ -164,12 +224,14 @@ body {
   font-size: 0.98rem;
   transition: color 0.2s;
 }
-.forgot-link:hover, .forgot-link:focus {
+.forgot-link:hover,
+.forgot-link:focus {
   color: #fff;
   text-decoration: underline;
 }
 
-.login-card, #loginForm {
+.login-card,
+#loginForm {
   direction: rtl !important;
   text-align: right !important;
 }
@@ -181,7 +243,6 @@ body {
   direction: rtl !important;
   text-align: right !important;
 }
-
 
 #loginForm input[type="text"],
 #loginForm input[type="password"] {
@@ -298,4 +359,4 @@ body {
   .form-footer {
     font-size: 0.8rem;
   }
-} 
+}

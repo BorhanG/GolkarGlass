@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>بازیابی رمز عبور</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <h2>بازیابی رمز عبور</h2>
+      <form id="resetForm">
+        <div class="form-group">
+          <label for="newPassword">رمز عبور جدید</label>
+          <input type="password" id="newPassword" name="newPassword" placeholder="رمز عبور جدید">
+        </div>
+        <button type="submit" class="submit-btn">بازیابی</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+
+    document.getElementById('resetForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const newPassword = document.getElementById('newPassword').value;
+
+      const res = await fetch('../Assets/PHP/Reset Password.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token, newPassword })
+      });
+
+      const data = await res.json();
+      alert(data.msg);
+      if (data.success) window.location.href = "../LoginPage/login.html";
+    });
+  </script>
+</body>
+</html>
