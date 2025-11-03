@@ -52,7 +52,7 @@
                             <i class="fas fa-heart"></i>
                             <span>علاقه‌مندی‌ها</span>
                         </a>
-                        <a href="/My orders page/my-orders-advanced.html" class="dropdown-item">
+                        <a href="/Orders page/orders.html" class="dropdown-item">
                             <i class="fas fa-box"></i>
                             <span>سفارشات من</span>
                         </a>
@@ -124,7 +124,7 @@
                             <i class="fas fa-heart"></i>
                             <span>علاقه‌مندی‌ها</span>
                         </a>
-              <a href="/My orders page/my-orders-advanced.html" class="sidebar-user-item">
+              <a href="/Orders page/orders.html" class="sidebar-user-item">
                 <i class="fas fa-box"></i>
                 <span>سفارشات من</span>
               </a>
