@@ -1,28 +1,3 @@
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth",
-    });
-  });
-});
-
-document.querySelectorAll(".add-to-cart").forEach((button) => {
-  button.addEventListener("click", function () {
-    const productName =
-      this.parentElement.querySelector(".product-title").textContent;
-    alert(`${productName} به سبد خرید اضافه شد!`);
-  });
-});
-
-document
-  .querySelector(".contact-form")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
-    alert("از پیام شما متشکریم! به زودی با شما تماس خواهیم گرفت.");
-    this.reset();
-  });
-
 document.addEventListener("DOMContentLoaded", function () {
   const sidebarToggle = document.getElementById("sidebarToggle");
   const sidebarMenu = document.getElementById("sidebarMenu");
