@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ورود / ثبت نام - GolkarGlass</title>
+    <link rel="stylesheet" href="login.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body data-no-footer>
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-header">
+          <h2 id="form-title">ورود به حساب کاربری</h2>
+          <button class="toggle-btn" id="toggleForm">
+            حساب کاربری ندارید؟
+          </button>
+        </div>
+        <form id="loginForm">
+          <div class="form-group" id="nameGroup" style="display: none">
+            <label for="name">نام کامل</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="نام و نام خانوادگی"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">ایمیل</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="ایمیل"
+              inputmode="email"
+              autocomplete="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">رمز عبور</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="رمز عبور"
+            />
+          </div>
+          <button type="submit" class="submit-btn">ورود</button>
+        </form>
+        <div class="form-footer">
+          <a href="#" class="forgot-link">رمز عبور را فراموش کرده‌اید؟</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      const toggleBtn = document.getElementById("toggleForm");
+      const formTitle = document.getElementById("form-title");
+      const nameGroup = document.getElementById("nameGroup");
+      const submitBtn = document.querySelector(".submit-btn");
+      const loginCard = document.querySelector(".login-card");
+      let isSignup = false;
+      toggleBtn.addEventListener("click", function () {
+        isSignup = !isSignup;
+        if (isSignup) {
+          formTitle.textContent = "ثبت نام در سایت";
+          nameGroup.style.display = "block";
+          submitBtn.textContent = "ثبت نام";
+          toggleBtn.textContent = "حساب کاربری دارید؟";
+          loginCard.classList.add("expanded");
+        } else {
+          formTitle.textContent = "ورود به حساب کاربری";
+          nameGroup.style.display = "none";
+          submitBtn.textContent = "ورود";
+          toggleBtn.textContent = "حساب کاربری ندارید؟";
+          loginCard.classList.remove("expanded");
+        }
+      });
+
+      loginForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        try {
+          const res = await fetch("../Assets/PHP/Auth.php", {
+            method: "POST",
+            body: JSON.stringify({ name, email, password, isSignup }),
+            headers: { "Content-Type": "application/json" },
+          });
+
+          if (!res.ok) throw new Error("HTTP error " + res.status);
+
+          const data = await res.json();
+          console.log("Server response:", data); // check in console
+          if (data.success) {
+            alert(isSignup ? "ثبت نام با موفقیت انجام شد!" : "ورود موفق!");
+            window.location.href = "../Main page signed in/GolkarGlass.html";
+          } else {
+            alert(data.msg);
+          }
+        } catch (err) {
+          console.error("Fetch error:", err);
+          alert(
+            "خطا در اتصال به سرور. مسیر PHP یا سرور localhost را بررسی کنید."
+          );
+        }
+      });
+    </script>
+    <script src="../shared/theme.js"></script>
+    <script src="../shared/footer.js"></script>
+  </body>
+</html>

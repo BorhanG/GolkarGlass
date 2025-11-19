@@ -33,13 +33,13 @@ document.addEventListener("DOMContentLoaded", function () {
     sidebarMenu.classList.add("open");
     sidebarOverlay.classList.add("open");
     if (sidebarToggle) sidebarToggle.classList.add("hide");
-    document.body.style.overflow = "hidden"; // 🔒 Prevent page scrolls
+    document.body.style.overflow = "hidden";
   }
   function closeSidebar() {
     sidebarMenu.classList.remove("open");
     sidebarOverlay.classList.remove("open");
     if (sidebarToggle) sidebarToggle.classList.remove("hide");
-    document.body.style.overflow = ""; // 🔓 Restore page scroll
+    document.body.style.overflow = "";
   }
 
   if (sidebarToggle) {
@@ -115,33 +115,25 @@ document.addEventListener("DOMContentLoaded", function () {
         switch (action) {
           case "داشبورد":
             window.location.href = "/Dashboard page/dashboard.html";
-            // Add navigation logic here
             break;
           case "سبد خرید":
-            console.log("Navigating to Shopping Cart...");
-            // Add navigation logic here
+            window.location.href = "/Shopping-Cart-page/shopping-cart.html";
             break;
           case "علاقه‌مندی‌ها":
-            console.log("Navigating to Wishlist...");
-            // Add navigation logic here
+            window.location.href = "/Wishlist page/wishlist.html";
             break;
           case "سفارشات من":
-            console.log("Navigating to My Orders...");
-            // Add navigation logic here
+            window.location.href = "/Orders page/orders.html";
             break;
           case "پروفایل":
-            console.log("Navigating to Profile...");
-            // Add navigation logic here
+            window.location.href = "/Profile page/profile.html";
             break;
           case "تنظیمات":
-            console.log("Navigating to Settings...");
-            // Add navigation logic here
+            window.location.href = "/Settings page/settings.html";
             break;
           case "خروج":
             console.log("Logging out...");
-            // Add logout logic here
             if (confirm("آیا مطمئن هستید که می‌خواهید خارج شوید؟")) {
-              // Redirect to login page or perform logout
               window.location.href = "/Login page/login.html";
             }
             break;

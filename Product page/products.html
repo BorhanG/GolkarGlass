@@ -32,7 +32,13 @@
   <main class="main-content">
     <!-- Page transition overlay -->
     <div class="page-transition" id="pageTransition"></div>
-    <section class="filter-bar">
+    <section class="filter-bar" id="filterBar">
+      <button class="mobile-filter-toggle" id="mobileFilterBtn">
+        <i class="fa fa-sliders"></i>
+        <span>فیلتر و مرتب‌سازی</span>
+        <i class="fa fa-chevron-down arrow-icon"></i>
+      </button>
+
       <div class="sort-bar">
         <span class="sort-icon"><i class="fa fa-sort-amount-down"></i></span>
         <span class="sort-label">مرتب‌سازی:</span>
@@ -104,6 +110,7 @@
         </div>
       </div>
     </section>
+      
     <section class="products-grid">
       <a href="../Product details page/product-detail.html" class="product-link">
         <div class="product-card" data-price="450000" data-popularity="95" data-date="2024-01-15" data-sales="1200">
@@ -496,6 +503,46 @@
         });
       });
     });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    // 1. Main Filter Toggle (Open/Close)
+    const mobileBtn = document.getElementById('mobileFilterBtn');
+    const filterBar = document.getElementById('filterBar');
+    
+    if(mobileBtn && filterBar) {
+      mobileBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        filterBar.classList.toggle('expanded');
+      });
+    }
+
+    // 2. Category Accordion (Mobile Only)
+    const categoryButtons = document.querySelectorAll('.category-title-btn');
+    
+    categoryButtons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        // Apply logic only on mobile/tablet
+        if(window.innerWidth <= 1024) {
+          e.preventDefault(); // Prevent any default link behavior
+          e.stopPropagation(); // Stop event from closing parent dropdowns
+          
+          const currentItem = this.closest('.category-item');
+          const wasActive = currentItem.classList.contains('active');
+          
+          // Optional: Close all other open categories (Accordion Style)
+          document.querySelectorAll('.category-item').forEach(item => {
+            item.classList.remove('active');
+          });
+
+          // Toggle the clicked one
+          if(!wasActive) {
+            currentItem.classList.add('active');
+          }
+        }
+      });
+    });
+  });
+
   </script>
 
   <footer class="footer">

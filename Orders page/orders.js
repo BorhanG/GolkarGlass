@@ -181,6 +181,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (orders.length === 0) {
       loadSampleOrders();
       saveOrdersToStorage();
+    } else {
+      // Initialize filteredOrders with all orders when loading from storage
+      filteredOrders = [...orders];
     }
     updateStats();
     renderOrders();
@@ -495,22 +498,98 @@ document.addEventListener("DOMContentLoaded", function () {
   function viewOrder(order) {
     if (!order) return;
 
-    const items = order.items
-      .map(
-        (item) =>
-          `• ${item.name} × ${item.quantity} — ${formatPrice(item.price)}`
-      )
-      .join("\n");
+    // Get modal elements
+    const modal = document.getElementById("orderModal");
+    const overlay = document.getElementById("orderModalOverlay");
+    const orderIdEl = document.getElementById("orderId");
+    const orderDateEl = document.getElementById("orderDate");
+    const orderStatusEl = document.getElementById("orderStatus");
+    const orderProductsEl = document.getElementById("orderProducts");
+    const orderTotalEl = document.getElementById("orderTotal");
 
-    const message =
-      `سفارش ${order.number}\n` +
-      `تاریخ: ${formatDate(order.date)}\n` +
-      `وضعیت: ${getStatusText(order.status)}\n\n` +
-      `اقلام:\n${items}\n\n` +
-      `مجموع: ${formatPrice(order.total)}`;
+    if (!modal || !overlay) {
+      console.error("Modal elements not found");
+      return;
+    }
 
-    alert(message);
+    // Populate modal with order data
+    orderIdEl.textContent = order.number;
+    orderDateEl.textContent = formatDate(order.date);
+    orderStatusEl.textContent = getStatusText(order.status);
+    orderStatusEl.className = `order-status-badge ${order.status}`;
+    orderTotalEl.textContent = formatPrice(order.total);
+
+    // Clear and populate products
+    orderProductsEl.innerHTML = "";
+    order.items.forEach((item) => {
+      const productEl = document.createElement("div");
+      productEl.className = "order-product";
+      productEl.innerHTML = `
+        <img src="${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/70?text=Product'">
+        <div class="order-product-info">
+          <h4>${item.name}</h4>
+          <p>تعداد: ${item.quantity}</p>
+        </div>
+        <div class="order-product-price">${formatPrice(item.price * item.quantity)}</div>
+      `;
+      orderProductsEl.appendChild(productEl);
+    });
+
+    // Open modal
+    openOrderModal();
   }
+
+  // Modal functions
+  function openOrderModal() {
+    const modal = document.getElementById("orderModal");
+    const overlay = document.getElementById("orderModalOverlay");
+
+    if (!modal || !overlay) return;
+
+    modal.classList.remove("dis_none");
+    overlay.classList.remove("dis_none");
+    
+    // Trigger animation
+    requestAnimationFrame(() => {
+      modal.classList.add("show");
+      overlay.classList.add("show");
+    });
+
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeOrderModal() {
+    const modal = document.getElementById("orderModal");
+    const overlay = document.getElementById("orderModalOverlay");
+
+    if (!modal || !overlay) return;
+
+    modal.classList.remove("show");
+    overlay.classList.remove("show");
+
+    // Hide after animation
+    setTimeout(() => {
+      modal.classList.add("dis_none");
+      overlay.classList.add("dis_none");
+    }, 300);
+
+    // Restore body scroll
+    document.body.style.overflow = "";
+  }
+
+  // Set up modal close handlers
+  const closeModalBtn = document.getElementById("closeOrderModal");
+  const modalOverlay = document.getElementById("orderModalOverlay");
+
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", closeOrderModal);
+  }
+
+  if (modalOverlay) {
+    modalOverlay.addEventListener("click", closeOrderModal);
+  }
+
 
   function trackOrder(order) {
     if (!order) return;
@@ -804,7 +883,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add keyboard navigation support
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
-      closeSidebar();
+      // Close modal if open, otherwise close sidebar
+      const modal = document.getElementById("orderModal");
+      if (modal && !modal.classList.contains("dis_none")) {
+        closeOrderModal();
+      } else {
+        closeSidebar();
+      }
     }
   });
 

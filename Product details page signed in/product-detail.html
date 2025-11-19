@@ -356,26 +356,79 @@
         </div>
     </footer>
 
+    <!-- Sidebar for Mobile -->
     <button id="sidebarToggle" class="sidebar-toggle" aria-label="باز کردن منو">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <aside id="sidebarMenu" class="sidebar-menu">
-      <button id="sidebarClose" class="sidebar-close" aria-label="بستن منو">&times;</button>
-      <nav>
-        <ul>
-          <li><a href="../Main page/GolkarGlass.html">خانه</a></li>
-          <li><a href="../Main page/GolkarGlass.html#about">درباره ما</a></li>
-          <li><a href="../Product page/products.html">محصولات</a></li>
-          <li><a href="../Main page/GolkarGlass.html#testimonials">نظرات</a></li>
-          <li class="sidebar-separator"></li>
-          <li><a href="../Login page/login.html" class="sidebar-signin-btn">ورود/ثبت نام</a></li>
-        </ul>
-      </nav>
-    </aside>
-    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+  
+      <aside id="sidebarMenu" class="sidebar-menu">
+        <button id="sidebarClose" class="sidebar-close" aria-label="بستن منو">
+          &times;
+        </button>
+        <nav>
+          <ul>
+            <li><a href="/Main page signed in/GolkarGlass.html">خانه</a></li>
+            <li><a href="/About page/About.html">درباره ما</a></li>
+            <li><a href="/Product page/products.html">محصولات</a></li>
+            <li><a href="#testimonials">نظرات</a></li>
+            <li class="sidebar-separator"></li>
+            <li class="sidebar-user-profile">
+              <div class="sidebar-user-info">
+                <span class="sidebar-user-avatar">
+                  <i class="fas fa-user"></i>
+                </span>
+                <span class="sidebar-user-name">کاربر عزیز</span>
+              </div>
+              <div class="sidebar-user-menu">
+                <a
+                  href="/Dashboard page/dashboard.html"
+                  class="sidebar-user-item"
+                >
+                  <i class="fas fa-tachometer-alt"></i>
+                  <span>داشبورد</span>
+                </a>
+                <a
+                  href="/Shopping-Cart-page/shopping-cart.html"
+                  class="sidebar-user-item"
+                >
+                  <i class="fas fa-shopping-cart"></i>
+                  <span>سبد خرید</span>
+                </a>
+                <a href="/Wishlist-page/wishlist.html" class="sidebar-user-item">
+                  <i class="fas fa-heart"></i>
+                  <span>علاقه‌مندی‌ها</span>
+                </a>
+                <a
+                  href="/Orders-page/orders.html"
+                  class="sidebar-user-item active"
+                >
+                  <i class="fas fa-box"></i>
+                  <span>سفارشات من</span>
+                </a>
+                <a href="/Profile-page/profile.html" class="sidebar-user-item">
+                  <i class="fas fa-user-edit"></i>
+                  <span>پروفایل</span>
+                </a>
+                <a href="/Settings-page/settings.html" class="sidebar-user-item">
+                  <i class="fas fa-cog"></i>
+                  <span>تنظیمات</span>
+                </a>
+                <li class="sidebar-separator"></li>
+                <a
+                  href="/LoginPage/login.html"
+                  class="sidebar-user-item logout-item"
+                >
+                  <i class="fas fa-sign-out-alt"></i>
+                  <span>خروج</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <div id="sidebarOverlay" class="sidebar-overlay"></div>
 
     <script src="product-detail.js"></script>
     

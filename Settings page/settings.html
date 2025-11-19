@@ -48,19 +48,19 @@
                             <i class="fas fa-tachometer-alt"></i>
                             <span>داشبورد</span>
                         </a>
-                        <a href="/Shopping-Cart-page/shopping-cart.html" class="dropdown-item">
+                        <a href="../Shopping-Cart-page/shopping-cart.html" class="dropdown-item">
                             <i class="fas fa-shopping-cart"></i>
                             <span>سبد خرید</span>
                         </a>
-                        <a href="/Wishlist page/wishlist.html" class="dropdown-item">
+                        <a href="../Wishlist page/wishlist.html" class="dropdown-item">
                             <i class="fas fa-heart"></i>
                             <span>علاقه‌مندی‌ها</span>
                         </a>
-                        <a href="/Orders page/orders.html" class="dropdown-item">
+                        <a href="../My orders page/my-orders-advanced.html" class="dropdown-item">
                             <i class="fas fa-box"></i>
                             <span>سفارشات من</span>
                         </a>
-                        <a href="/Profile page/profile.html" class="dropdown-item">
+                        <a href="../Profile page/profile.html" class="dropdown-item">
                             <i class="fas fa-user-edit"></i>
                             <span>پروفایل</span>
                         </a>
@@ -78,18 +78,37 @@
             </ul>
         </nav>
     </header>
+    
     <main class="settings-main">
         <div class="settings-container settings-grid theme-transition">
-            <section class="settings-header-section">
-                <h2 class="settings-title theme-transition">تنظیمات کاربری</h2>
-                <p class="settings-subtitle">شخصی‌سازی تجربه خرید شما</p>
+            <!-- Settings Header Section -->
+            <section class="settings-header-section animated-section">
+                <div class="settings-header-content">
+                    <div class="settings-icon-wrapper">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="settings-header-details">
+                        <h2 class="settings-title theme-transition">تنظیمات کاربری</h2>
+                        <p class="settings-subtitle">شخصی‌سازی تجربه خرید شما</p>
+                    </div>
+                </div>
             </section>
+
             <form id="settingsForm" class="settings-form-horizontal">
-                <div class="settings-section animated-section theme-transition">
-                    <h2 class="settings-section-title"><i class="fas fa-cogs"></i> تنظیمات عمومی</h2>
+                <!-- General Settings Section -->
+                <section class="settings-section animated-section theme-transition">
+                    <div class="section-header">
+                        <h2 class="settings-section-title">
+                            <i class="fas fa-sliders-h"></i>
+                            تنظیمات عمومی
+                        </h2>
+                    </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="currency">واحد پول</label>
+                            <label for="currency">
+                                <i class="fas fa-dollar-sign"></i>
+                                واحد پول
+                            </label>
                             <select id="currency" name="currency">
                                 <option value="IRR">تومان (IRR)</option>
                                 <option value="USD">دلار (USD)</option>
@@ -98,86 +117,161 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="theme">تم سایت</label>
-                            <select id="theme" name="theme">
-                                <option value="light">روشن</option>
-                                <option value="dark">تیره</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group lang-option">
-                            <label for="language">زبان سایت</label>
+                            <label for="language">
+                                <i class="fas fa-language"></i>
+                                زبان سایت
+                            </label>
                             <select id="language" name="language">
                                 <option value="fa">فارسی</option>
                                 <option value="en">English</option>
                                 <option value="ar">العربية</option>
                             </select>
                         </div>
-                        <div class="form-group notif-button">
-                            <label for="notifications">اعلان‌ها</label>
-                            <div class="checkBoox">
-                                <label class="form-group">فعال</label>
-                                <input type="checkbox" id="notifications" name="notifications">
-                                <label class="form-group">غیر فعال</label>
-                                <input type="checkbox" id="notifications" name="notifications">
-                            </input>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="theme">
+                                <i class="fas fa-palette"></i>
+                                تم سایت
+                            </label>
+                            <select id="theme" name="theme">
+                                <option value="light">روشن</option>
+                                <option value="dark">تیره</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="notifications">
+                                <i class="fas fa-bell"></i>
+                                اعلان‌ها
+                            </label>
+                            <div class="checkbox-wrapper">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="notifications" name="notifications" value="enabled">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-text">فعال</span>
+                                </label>
                             </div>
-                            
                         </div>
                     </div>
-                </div>
-                <div class="settings-section animated-section">
-                    <h2 class="settings-section-title"><i class="fas fa-key"></i> تغییر رمز عبور</h2>
+                </section>
+
+                <!-- Password Change Section -->
+                <section class="settings-section animated-section theme-transition">
+                    <div class="section-header">
+                        <h2 class="settings-section-title">
+                            <i class="fas fa-key"></i>
+                            تغییر رمز عبور
+                        </h2>
+                    </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="oldPassword">رمز فعلی</label>
-                            <input type="password" id="oldPassword" name="oldPassword" placeholder="رمز فعلی">
+                            <label for="oldPassword">
+                                <i class="fas fa-lock"></i>
+                                رمز فعلی
+                            </label>
+                            <input type="password" id="oldPassword" name="oldPassword" placeholder="رمز فعلی خود را وارد کنید">
                         </div>
                         <div class="form-group">
-                            <label for="newPassword">رمز جدید</label>
-                            <input type="password" id="newPassword" name="newPassword" placeholder="رمز جدید">
+                            <label for="newPassword">
+                                <i class="fas fa-key"></i>
+                                رمز جدید
+                            </label>
+                            <input type="password" id="newPassword" name="newPassword" placeholder="رمز جدید خود را وارد کنید">
                         </div>
                         <div class="form-group">
-                            <label for="confirmPassword">تکرار رمز جدید</label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="تکرار رمز جدید">
+                            <label for="confirmPassword">
+                                <i class="fas fa-lock"></i>
+                                تکرار رمز جدید
+                            </label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="رمز جدید را دوباره وارد کنید">
                         </div>
                     </div>
-                    <button type="button" class="settings-password-btn theme-transition"><i class="fas fa-save"></i> تغییر رمز</button>
-                </div>
-                <div class="info-section">
-                <div class="settings-section-address settings-section  animated-section">
-                    <h2 class="settings-section-title"><i class="fas fa-map-marker-alt"></i> آدرس‌های ذخیره شده</h2>
-                    <div id="addressesList" class="addresses-list"></div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" id="newAddress" placeholder="آدرس جدید">
-                        </div>
-                        <button type="button" class="settings-add-address-btn theme-transition address-button"><i class="fas fa-plus"></i> افزودن آدرس</button>
+                    <div class="password-actions">
+                        <button type="button" class="settings-password-btn theme-transition">
+                            <i class="fas fa-save"></i>
+                            تغییر رمز
+                        </button>
                     </div>
-                </div>
-                <div class="settings-section-card settings-section animated-section">
-                    <h2 class="settings-section-title"><i class="fas fa-credit-card"></i> کارت‌های ذخیره شده</h2>
-                    <div id="cardsList" class="cards-list"></div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" id="newCard" placeholder="شماره کارت جدید (مثال: 6037-9912-3456-7890)">
+                </section>
+
+                <!-- Addresses & Cards Section -->
+                <div class="info-section-grid">
+                    <!-- Saved Addresses Section -->
+                    <section class="settings-section settings-section-address animated-section theme-transition">
+                        <div class="section-header">
+                            <h2 class="settings-section-title">
+                                <i class="fas fa-map-marker-alt"></i>
+                                آدرس‌های ذخیره شده
+                            </h2>
                         </div>
-                        <button type="button" class="settings-add-card-btn theme-transition card-button"><i class="fas fa-plus"></i> افزودن کارت</button>
+                        <div id="addressesList" class="addresses-list"></div>
+                        <div class="add-item-form">
+                            <div class="form-group full-width">
+                                <input type="text" id="newAddress" placeholder="آدرس جدید را وارد کنید...">
+                            </div>
+                            <button type="button" class="settings-add-address-btn theme-transition">
+                                <i class="fas fa-plus"></i>
+                                افزودن آدرس
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Saved Cards Section -->
+                    <section class="settings-section settings-section-card animated-section theme-transition">
+                        <div class="section-header">
+                            <h2 class="settings-section-title">
+                                <i class="fas fa-credit-card"></i>
+                                کارت‌های ذخیره شده
+                            </h2>
+                        </div>
+                        <div id="cardsList" class="cards-list"></div>
+                        <div class="add-item-form">
+                            <div class="form-group full-width">
+                                <input type="text" id="newCard" placeholder="شماره کارت جدید (مثال: 6037-9912-3456-7890)">
+                            </div>
+                            <button type="button" class="settings-add-card-btn theme-transition">
+                                <i class="fas fa-plus"></i>
+                                افزودن کارت
+                            </button>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Danger Zone Section -->
+                <section class="settings-section animated-section danger-section theme-transition">
+                    <div class="section-header">
+                        <h2 class="settings-section-title">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            حذف حساب کاربری
+                        </h2>
                     </div>
-                </div>
-            </div>
-                <div class="settings-section animated-section danger-section theme-transition">
-                    <h2 class="settings-section-title"><i class="fas fa-user-times"></i> حذف حساب کاربری</h2>
-                    <button type="button" class="settings-delete-btn theme-transition"><i class="fas fa-trash"></i> حذف حساب</button>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="settings-save-btn theme-transition"><i class="fas fa-save"></i> ذخیره تنظیمات</button>
-                    <button type="button" class="settings-logout-btn theme-transition"><i class="fas fa-sign-out-alt"></i> خروج</button>
+                    <div class="danger-content">
+                        <p class="danger-warning">
+                            با حذف حساب کاربری، تمام اطلاعات شما به طور دائمی حذف خواهد شد و قابل بازگشت نیست.
+                        </p>
+                        <button type="button" class="settings-delete-btn theme-transition">
+                            <i class="fas fa-trash-alt"></i>
+                            حذف حساب کاربری
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Form Actions -->
+                <div class="settings-actions animated-section">
+                    <button type="submit" class="settings-save-btn theme-transition">
+                        <i class="fas fa-save"></i>
+                        ذخیره تنظیمات
+                    </button>
+                    <button type="button" class="settings-logout-btn theme-transition">
+                        <i class="fas fa-sign-out-alt"></i>
+                        خروج از حساب
+                    </button>
                 </div>
             </form>
         </div>
     </main>
+
+    <!-- Sidebar for Mobile -->
     <button id="sidebarToggle" class="sidebar-toggle" aria-label="باز کردن منو">
         <span></span>
         <span></span>
@@ -232,8 +326,10 @@
         </nav>
     </aside>
     <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
     <script src="settings.js"></script>
-<script src="../shared/theme.js"></script>
-<script src="../shared/footer.js"></script>
+    <script src="../shared/theme.js"></script>
+    <script src="../shared/footer.js"></script>
 </body>
 </html>
+

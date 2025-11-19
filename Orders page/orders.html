@@ -17,14 +17,14 @@
     <link rel="stylesheet" href="/Assets/Css/SideNav.css" />
     <link rel="stylesheet" href="/shared/footer.css" />
   </head>
-  <body>
+  <body dir="rtl">
     <header class="header">
       <nav class="nav-container">
         <div class="logo">GolkarGlass</div>
         <ul class="nav-menu">
-          <li><a href="#home">خانه</a></li>
-          <li><a href="/About page signed in/About.html">درباره ما</a></li>
-          <li><a href="/Product page signed in/products.html">محصولات</a></li>
+          <li><a href="/Main page signed in/GolkarGlass.html">خانه</a></li>
+          <li><a href="/About page/About.html">درباره ما</a></li>
+          <li><a href="/Product page/products.html">محصولات</a></li>
           <li><a href="#testimonials">نظرات</a></li>
           <li class="nav-separator"></li>
           <li class="user-profile-dropdown">
@@ -50,7 +50,7 @@
                 </div>
               </div>
               <div class="dropdown-separator"></div>
-              <a href="/Dashboard page/dashboard.html" class="dropdown-item">
+              <a href="dashboard.html" class="dropdown-item active">
                 <i class="fas fa-tachometer-alt"></i>
                 <span>داشبورد</span>
               </a>
@@ -79,10 +79,7 @@
                 <span>تنظیمات</span>
               </a>
               <div class="dropdown-separator"></div>
-              <a
-                href="/Login page/login.html"
-                class="dropdown-item logout-item"
-              >
+              <a href="#" class="dropdown-item logout-item">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>خروج</span>
               </a>
@@ -266,6 +263,31 @@
       </nav>
     </aside>
     <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- Order Details Modal -->
+    <div id="orderModalOverlay" class="modal-overlay dis_none"></div>
+    <div id="orderModal" class="order-modal dis_none">
+      <div class="order-modal-header">
+        <h3>جزئیات سفارش</h3>
+        <button id="closeOrderModal" class="close-modal-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="order-modal-body">
+        <div class="order-info">
+          <p><strong>شماره سفارش:</strong> <span id="orderId">#----</span></p>
+          <p><strong>تاریخ:</strong> <span id="orderDate">----</span></p>
+          <p>
+            <strong>وضعیت:</strong>
+            <span id="orderStatus" class="order-status-badge">----</span>
+          </p>
+        </div>
+        <div class="order-products" id="orderProducts"></div>
+        <div class="order-total">
+          <strong>مجموع کل:</strong> <span id="orderTotal">----</span>
+        </div>
+      </div>
+    </div>
 
     <script src="orders.js"></script>
     <script src="/Assets/Js/SideNav.js"></script>

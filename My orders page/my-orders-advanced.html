@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سفارشات من - GolkarGlass</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../Dashboard page/dashboard.css">
+    <link rel="stylesheet" href="my-orders-advanced.css">
+    <link rel="stylesheet" href="../shared/user-dropdown-fix.css">
+    <link rel="icon" href="../Main page/icon.png">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">GolkarGlass</div>
+            <ul class="nav-menu">
+                <li><a href="../Main page signed in/GolkarGlass.html">خانه</a></li>
+                <li><a href="../About page/About.html">درباره ما</a></li>
+                <li><a href="../Product page/products.html">محصولات</a></li>
+                <li><a href="#testimonials">نظرات</a></li>
+                <li class="nav-separator"></li>
+                <li class="user-profile-dropdown">
+                    <button class="user-profile-btn">
+                        <span class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="user-name">کاربر عزیز</span>
+                        <span class="dropdown-arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                    <div class="user-dropdown-menu">
+                        <div class="dropdown-header">
+                            <div class="user-info">
+                                <span class="user-avatar-large">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <div class="user-details">
+                                    <span class="user-name-large">کاربر عزیز</span>
+                                    <span class="user-email">user@golkarglass.com</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-separator"></div>
+                        <a href="../Dashboard page/dashboard.html" class="dropdown-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>داشبورد</span>
+                        </a>
+                        <a href="../Shopping-Cart-page/shopping-cart.html" class="dropdown-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>سبد خرید</span>
+                        </a>
+                        <a href="../Wishlist page/wishlist.html" class="dropdown-item">
+                            <i class="fas fa-heart"></i>
+                            <span>علاقه‌مندی‌ها</span>
+                        </a>
+                        <a href="my-orders-advanced.html" class="dropdown-item active">
+                            <i class="fas fa-box"></i>
+                            <span>سفارشات من</span>
+                        </a>
+                        <a href="/Profile page/profile.html" class="dropdown-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>پروفایل</span>
+                        </a>
+                        <a href="/Settings page/settings.html" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            <span>تنظیمات</span>
+                        </a>
+                        <div class="dropdown-separator"></div>
+                        <a href="#" class="dropdown-item logout-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>خروج</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="orders-main">
+        <div class="orders-container">
+            <!-- Orders Stats Section -->
+            <section class="orders-stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon orders-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">۳</h3>
+                        <p class="stat-label">سفارش فعال</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon delivered-icon"><i class="fas fa-box"></i></div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">۱</h3>
+                        <p class="stat-label">تحویل شده</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon canceled-icon"><i class="fas fa-times-circle"></i></div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">۱</h3>
+                        <p class="stat-label">لغو شده</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon points-icon"><i class="fas fa-star"></i></div>
+                    <div class="stat-content">
+                        <h3 class="stat-number">۲۵۰</h3>
+                        <p class="stat-label">امتیاز</p>
+                    </div>
+                </div>
+            </section>
+            <!-- Search & Filter Section -->
+            <section class="orders-actions orders-actions-horizontal">
+                <div class="search-box search-box-advanced">
+                    <i class="fas fa-search"></i>
+                    <input id="orderSearch" type="text" placeholder="جستجو در سفارشات...">
+                </div>
+                <div class="filter-bar">
+                    <label for="orderFilter"><i class="fas fa-filter"></i></label>
+                    <select id="orderFilter" class="filter-select">
+                        <option value="all">همه وضعیت‌ها</option>
+                        <option value="">تحویل شده</option>
+                        <option value="pending">در انتظار پرداخت</option>
+                        <option value="canceled">لغو شده</option>
+                    </select>
+                </div>
+                <button class="orders-refresh-btn"><i class="fas fa-sync-alt"></i> بروزرسانی</button>
+            </section>
+            <!-- Orders Table Section -->
+            <section class="orders-table-section">
+                <div class="section-header">
+                    <h2 class="section-title">لیست سفارشات</h2>
+                </div>
+                <div class="orders-table-container">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>شماره سفارش</th>
+                                <th>تاریخ</th>
+                                <th>وضعیت</th>
+                                <th>مبلغ</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <tr>
+                                <td>#۱۲۳۴۵</td>
+                                <td>۱۲ مرداد ۱۴۰۴</td>
+                                <td><span class="status-badge delivered">تحویل شده</span></td>
+                                <td>۴۵۰,۰۰۰ تومان</td>
+                                <td>
+                                    <button class="action-btn view-btn" title="مشاهده">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn reorder-btn" title="سفارش مجدد">
+                                        <i class="fas fa-redo"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#۱۲۳۴۴</td>
+                                <td>۱۰ مرداد ۱۴۰۴</td>
+                                <td><span class="status-badge pending">در انتظار پرداخت</span></td>
+                                <td>۲۸۰,۰۰۰ تومان</td>
+                                <td>
+                                    <button class="action-btn view-btn" title="مشاهده">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn track-btn" title="پیگیری">
+                                        <i class="fas fa-truck"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#۱۲۳۴۳</td>
+                                <td>۸ مرداد ۱۴۰۴</td>
+                                <td><span class="status-badge canceled">لغو شده</span></td>
+                                <td>۳۲۰,۰۰۰ تومان</td>
+                                <td>
+                                    <button class="action-btn view-btn" title="مشاهده">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn cancel-btn" title="لغو">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <!-- Quick Actions Section -->
+            <section class="orders-quick-actions dashboard-section">
+                <div class="section-header">
+                    <h2 class="section-title">عملیات سریع</h2>
+                </div>
+                <div class="quick-actions">
+                    <a href="../Product page/products.html" class="quick-action-btn">
+                        <div class="action-icon"><i class="fas fa-search"></i></div>
+                        <span>جستجوی محصولات</span>
+                    </a>
+                    <a href="#" class="quick-action-btn">
+                        <div class="action-icon"><i class="fas fa-gift"></i></div>
+                        <span>هدیه</span>
+                    </a>
+                    <a href="#" class="quick-action-btn">
+                        <div class="action-icon"><i class="fas fa-headset"></i></div>
+                        <span>پشتیبانی</span>
+                    </a>
+                    <a href="#" class="quick-action-btn">
+                        <div class="action-icon"><i class="fas fa-question-circle"></i></div>
+                        <span>راهنما</span>
+                    </a>
+                </div>
+            </section>
+            <!-- Account Summary Section -->
+            <section class="orders-account-summary dashboard-section">
+                <div class="section-header">
+                    <h2 class="section-title">خلاصه حساب</h2>
+                </div>
+                <div class="account-summary">
+                    <div class="account-info">
+                        <div class="account-avatar"><i class="fas fa-user"></i></div>
+                        <div class="account-details">
+                            <h3>کاربر عزیز</h3>
+                            <p>عضو از: مرداد ۱۴۰۳</p>
+                            <p>سطح: نقره‌ای</p>
+                        </div>
+                    </div>
+                    <div class="account-stats">
+                        <div class="stat-item"><span class="stat-value">۳</span><span class="stat-label">سفارش</span></div>
+                        <div class="stat-item"><span class="stat-value">۸</span><span class="stat-label">علاقه‌مندی</span></div>
+                        <div class="stat-item"><span class="stat-value">۲۵۰</span><span class="stat-label">امتیاز</span></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="باز کردن منو">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <aside id="sidebarMenu" class="sidebar-menu">
+        <button id="sidebarClose" class="sidebar-close" aria-label="بستن منو">&times;</button>
+        <nav>
+            <ul>
+                <li><a href="../Main page signed in/GolkarGlass.html">خانه</a></li>
+                <li><a href="../About page/About.html">درباره ما</a></li>
+                <li><a href="../Product page/products.html">محصولات</a></li>
+                <li><a href="#testimonials">نظرات</a></li>
+                <li class="sidebar-separator"></li>
+                <li class="sidebar-user-profile">
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-avatar">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="sidebar-user-name">کاربر عزیز</span>
+                    </div>
+                    <div class="sidebar-user-menu">
+                        <a href="../Dashboard page/dashboard.html" class="sidebar-user-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>داشبورد</span>
+                        </a>
+                        <a href="../Shopping-Cart-page/shopping-cart.html" class="sidebar-user-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>سبد خرید</span>
+                        </a>
+                        <a href="../Wishlist page/wishlist.html" class="sidebar-user-item">
+                            <i class="fas fa-heart"></i>
+                            <span>علاقه‌مندی‌ها</span>
+                        </a>
+                        <a href="my-orders-advanced.html" class="sidebar-user-item active">
+                            <i class="fas fa-box"></i>
+                            <span>سفارشات من</span>
+                        </a>
+                        <a href="#" class="sidebar-user-item">
+                            <i class="fas fa-user-edit"></i>
+                            <span>پروفایل</span>
+                        </a>
+                        <a href="#" class="sidebar-user-item">
+                            <i class="fas fa-cog"></i>
+                            <span>تنظیمات</span>
+                        </a>
+                        <a href="#" class="sidebar-user-item logout-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>خروج</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+    <script src="my-orders-advanced.js"></script>
+</script>
+<script>
+// --- Order Action Functions ---
+function showOrderNotification(msg, type = 'info') {
+    const n = document.createElement('div');
+    n.className = 'order-demo-notification ' + type;
+    n.textContent = msg;
+    n.style.cssText = 'position:fixed;top:120px;right:20px;background:#d4af37;color:#fff;padding:1rem 1.5rem;border-radius:10px;z-index:10000;box-shadow:0 5px 15px rgba(0,0,0,0.2);font-family:Vazirmatn,sans-serif;font-weight:500;max-width:300px;transition:opacity 0.3s;opacity:1;';
+    document.body.appendChild(n);
+    setTimeout(()=>{n.style.opacity=0;setTimeout(()=>n.remove(),300);},2000);
+}
+
+function showOrderModal(orderId) {
+    // Simple modal for demo
+    let modal = document.getElementById('orderModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'orderModal';
+        modal.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:11000;display:flex;align-items:center;justify-content:center;';
+        modal.innerHTML = `<div style="background:#fff;border-radius:16px;max-width:400px;width:90vw;padding:2rem 1.5rem;box-shadow:0 8px 32px #0002;position:relative;text-align:center;">
+            <button onclick="document.getElementById('orderModal').remove()" style="position:absolute;top:10px;left:10px;background:none;border:none;font-size:1.5rem;color:#d4af37;cursor:pointer;">&times;</button>
+            <h2 style="color:#d4af37;margin-bottom:1rem;">جزئیات سفارش</h2>
+            <div style="margin-bottom:1rem;">شماره سفارش: <b>${orderId}</b></div>
+            <div style="margin-bottom:1rem;">(اطلاعات بیشتر سفارش در اینجا نمایش داده می‌شود)</div>
+        </div>`;
+        document.body.appendChild(modal);
+    }
+}
+
+function reorderOrder(orderId) {
+    // Simulate adding to cart
+    showOrderNotification('محصولات این سفارش به سبد خرید اضافه شد!', 'success');
+}
+
+function trackOrder(orderId) {
+    // Simulate tracking
+    showOrderNotification('وضعیت سفارش: در حال ارسال...', 'info');
+}
+
+function cancelOrder(row, orderId) {
+    if(confirm('آیا مطمئن هستید که می‌خواهید این سفارش را لغو کنید؟')) {
+        row.querySelector('.status-badge').textContent = 'لغو شده';
+        row.querySelector('.status-badge').className = 'status-badge canceled';
+        showOrderNotification('سفارش لغو شد.', 'error');
+        // Optionally disable buttons
+        row.querySelectorAll('button').forEach(btn => btn.disabled = true);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.orders-table tbody tr').forEach(row => {
+        const orderId = row.children[0].textContent;
+        row.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', function() { showOrderModal(orderId); });
+        });
+        row.querySelectorAll('.reorder-btn').forEach(btn => {
+            btn.addEventListener('click', function() { reorderOrder(orderId); });
+        });
+        row.querySelectorAll('.track-btn').forEach(btn => {
+            btn.addEventListener('click', function() { trackOrder(orderId); });
+        });
+        row.querySelectorAll('.cancel-btn').forEach(btn => {
+            btn.addEventListener('click', function() { cancelOrder(row, orderId); });
+        });
+    });
+});
+</script>
+<script src="../shared/theme.js"></script>
+<script src="../shared/footer.js"></script>
+</body>
+</html>

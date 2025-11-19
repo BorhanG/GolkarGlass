@@ -1559,14 +1559,8 @@ body {
   .nav-menu {
     display: none !important;
   }
-  .logo {
-    font-size: 2.5rem !important;
-    margin-right: -1rem !important;
-  }
   .sidebar-toggle {
     display: flex !important;
-    margin-top: 1.8rem;
-    margin-left: 2rem;
   }
   .sidebar-menu {
     display: flex;

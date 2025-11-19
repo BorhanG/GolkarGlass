@@ -1025,14 +1025,8 @@ html, body {
     .nav-menu {
         display: none !important;
     }
-    .logo{
-      font-size: 2.5rem !important;
-      margin-right: -1rem !important;
-    }
     .sidebar-toggle {
         display: flex !important;
-        margin-top: 1.8rem;
-        margin-left: 2rem;
     }
     .sidebar-menu {
         display: flex;
@@ -1291,9 +1285,10 @@ html, body {
     }
     .sidebar-toggle {
         display: flex !important;
+        margin-top: -0.2rem !important;
     }
     .logo {
-        font-size: 1.4rem !important;
+        font-size: 1.2rem !important;
         margin-top: -0.4rem !important;
         margin-right: 0.4rem !important;
         animation: neonGlow 2s ease-in-out infinite alternate;
@@ -1302,9 +1297,6 @@ html, body {
             0 0 2px #d4af37,
             0 0 3px #d4af37,
             0 0 4px #d4af37;
-    }
-    .sidebar-toggle{
-      margin-top: -0.01rem !important;
     }
   .filter-bar {
     padding: 0 0.3rem;

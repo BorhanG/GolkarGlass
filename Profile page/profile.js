@@ -38,13 +38,18 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             // Save info to localStorage (demo)
             const data = {
-                fullName: form.fullName.value,
-                phone: form.phone.value,
-                city: form.city.value,
-                address: form.address.value,
-                postal: form.postal.value,
-                birthday: form.birthday.value
+                fullName: form.fullName ? form.fullName.value : '',
+                phone: form.phone ? form.phone.value : '',
+                birthday: form.birthday ? form.birthday.value : ''
             };
+            // Also get address fields from the address section
+            const cityInput = document.getElementById('city');
+            const postalInput = document.getElementById('postal');
+            const addressInput = document.getElementById('address');
+            if (cityInput) data.city = cityInput.value;
+            if (postalInput) data.postal = postalInput.value;
+            if (addressInput) data.address = addressInput.value;
+            
             localStorage.setItem('profileInfo', JSON.stringify(data));
             showProfileNotification('اطلاعات با موفقیت ذخیره شد!', 'success');
         });
@@ -53,7 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (saved) {
             const data = JSON.parse(saved);
             Object.keys(data).forEach(key => {
-                if (form[key]) form[key].value = data[key];
+                const input = document.getElementById(key);
+                if (input) input.value = data[key];
             });
         }
     }
@@ -77,22 +83,59 @@ function showProfileNotification(msg, type = 'info') {
     const n = document.createElement('div');
     n.className = 'profile-demo-notification ' + type;
     n.textContent = msg;
-    n.style.cssText = 'position:fixed;top:120px;right:20px;background:#d4af37;color:#fff;padding:1rem 1.5rem;border-radius:10px;z-index:10000;box-shadow:0 5px 15px rgba(0,0,0,0.2);font-family:Vazirmatn,sans-serif;font-weight:500;max-width:300px;transition:opacity 0.3s;opacity:1;';
+    const bgColor = type === 'success' ? '#27ae60' : '#d4af37';
+    n.style.cssText = `position:fixed;top:140px;right:20px;background:linear-gradient(135deg, ${bgColor} 0%, ${type === 'success' ? '#229954' : '#b8941f'} 100%);color:#fff;padding:1rem 1.5rem;border-radius:12px;z-index:10000;box-shadow:0 8px 24px rgba(0,0,0,0.2);font-family:Vazirmatn,sans-serif;font-weight:600;max-width:320px;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);opacity:0;transform:translateX(20px);border:1px solid rgba(255,255,255,0.2);`;
     document.body.appendChild(n);
-    setTimeout(()=>{n.style.opacity=0;setTimeout(()=>n.remove(),300);},2000);
+    // Trigger animation
+    setTimeout(() => {
+        n.style.opacity = '1';
+        n.style.transform = 'translateX(0)';
+    }, 10);
+    setTimeout(()=>{
+        n.style.opacity='0';
+        n.style.transform='translateX(20px)';
+        setTimeout(()=>n.remove(),300);
+    }, 3000);
 }
 
 function showProfileModal(title, content) {
     let modal = document.getElementById('profileModal');
-    if (!modal) {
-        modal = document.createElement('div');
-        modal.id = 'profileModal';
-        modal.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:11000;display:flex;align-items:center;justify-content:center;';
-        modal.innerHTML = `<div style="background:#fff;border-radius:16px;max-width:400px;width:90vw;padding:2rem 1.5rem;box-shadow:0 8px 32px #0002;position:relative;text-align:center;">
-            <button onclick=\"document.getElementById('profileModal').remove()\" style=\"position:absolute;top:10px;left:10px;background:none;border:none;font-size:1.5rem;color:#d4af37;cursor:pointer;\">&times;</button>
-            <h2 style=\"color:#d4af37;margin-bottom:1rem;\">${title}</h2>
-            <div style=\"margin-bottom:1rem;\">${content}</div>
-        </div>`;
-        document.body.appendChild(modal);
+    if (modal) {
+        modal.remove();
     }
+    modal = document.createElement('div');
+    modal.id = 'profileModal';
+    modal.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);backdrop-filter:blur(5px);z-index:11000;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s ease;';
+    modal.innerHTML = `<div style="background:linear-gradient(135deg,#fff 0%,#f8f9fa 100%);border-radius:20px;max-width:500px;width:90vw;padding:2rem 1.8rem;box-shadow:0 20px 60px rgba(0,0,0,0.3);position:relative;text-align:center;transform:scale(0.9);transition:transform 0.3s ease;">
+        <button onclick="document.getElementById('profileModal').remove()" style="position:absolute;top:15px;left:15px;background:none;border:none;font-size:1.8rem;color:#d4af37;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:all 0.3s ease;" onmouseover="this.style.background='rgba(212,175,55,0.1)';this.style.transform='rotate(90deg)'" onmouseout="this.style.background='none';this.style.transform='rotate(0deg)'">&times;</button>
+        <h2 style="font-family:'Noto Nastaliq Urdu',serif;color:#d4af37;margin-bottom:1.2rem;font-size:1.6rem;font-weight:700;">${title}</h2>
+        <div style="color:#333;margin-bottom:1.5rem;line-height:1.8;font-size:1rem;">${content}</div>
+    </div>`;
+    document.body.appendChild(modal);
+    // Trigger animation
+    setTimeout(() => {
+        modal.style.opacity = '1';
+        const modalContent = modal.querySelector('div');
+        if (modalContent) modalContent.style.transform = 'scale(1)';
+    }, 10);
+    
+    // Close on backdrop click
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.opacity = '0';
+            const modalContent = modal.querySelector('div');
+            if (modalContent) modalContent.style.transform = 'scale(0.9)';
+            setTimeout(() => modal.remove(), 300);
+        }
+    });
 }
+
+// Add avatar edit functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const avatarEditBtn = document.querySelector('.profile-avatar-edit-btn');
+    if (avatarEditBtn) {
+        avatarEditBtn.addEventListener('click', function() {
+            showProfileNotification('امکان تغییر تصویر به زودی اضافه می‌شود', 'info');
+        });
+    }
+});
